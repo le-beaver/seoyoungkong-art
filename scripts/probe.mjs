@@ -1,0 +1,16 @@
+import puppeteer from 'puppeteer-core';
+const b=await puppeteer.launch({executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',headless:'new'});
+const p=await b.newPage(); await p.setViewport({width:+process.argv[3]||1440,height:900});
+await p.goto('http://localhost:5301/www.seoyoungkong.art/'+process.argv[2],{waitUntil:'networkidle2',timeout:60000}).catch(e=>console.log('nav',e.message));
+const r=await p.evaluate(()=>{const cs=(el,props)=>{const c=getComputedStyle(el);return Object.fromEntries(props.map(k=>[k,c[k]]))};
+ const out={};
+ out.header=cs(document.querySelector('header'),['backgroundColor','height','boxShadow','position']);
+ out.title=cs(document.querySelector('.header-title a, .header-title-text a'),['fontFamily','fontSize','color','letterSpacing','textTransform','fontWeight']);
+ out.nav=cs(document.querySelector('.header-nav-item a'),['fontFamily','fontSize','color','letterSpacing','fontWeight']);
+ out.sections=[...document.querySelectorAll('section.page-section')].map(s=>({theme:s.dataset.sectionTheme,bg:getComputedStyle(s.querySelector('.section-background')).backgroundColor,h:s.offsetHeight, pad: getComputedStyle(s.querySelector('.content-wrapper')).paddingTop}));
+ out.text=[...document.querySelectorAll('.sqs-html-content > *')].slice(0,40).map(e=>({tag:e.tagName,cls:e.className,txt:e.textContent.slice(0,30),...cs(e,['fontFamily','fontSize','color','lineHeight','letterSpacing','textTransform','fontWeight','textAlign'])}));
+ out.buttons=[...document.querySelectorAll('.sqs-block-button-element')].map(e=>({cls:e.className,...cs(e,['backgroundColor','color','border','borderRadius','fontSize','fontFamily','padding'])}));
+ out.footer=document.querySelector('footer')?cs(document.querySelector('footer'),['backgroundColor','height']):null;
+ out.rootVars=['--sqs-site-gutter','--sqs-site-max-width','--sqs-mobile-site-gutter'].map(v=>v+'='+getComputedStyle(document.body).getPropertyValue(v));
+ return out;});
+console.log(JSON.stringify(r,null,1)); await b.close();
