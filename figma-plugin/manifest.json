@@ -1,0 +1,13 @@
+{
+  "name": "Seoyoung Site Sync",
+  "id": "seoyoungkong-site-sync",
+  "api": "1.0.0",
+  "main": "code.js",
+  "ui": "ui.html",
+  "editorType": ["figma"],
+  "documentAccess": "dynamic-page",
+  "networkAccess": {
+    "allowedDomains": ["https://le-beaver.github.io", "https://www.seoyoungkong.art", "https://seoyoungkong.art", "https://api.github.com"],
+    "reasoning": "Reads the published site (content.json + images) to build the editable pages, and asks GitHub to publish when you press Publish."
+  }
+}

@@ -6,7 +6,8 @@
     "build": "node scripts/build.mjs",
     "serve": "http-server dist -p 5302 -c-1",
     "dev": "node scripts/build.mjs && http-server dist -p 5302 -c-1",
-    "figma:sync": "node scripts/figma-sync.mjs"
+    "figma:sync": "node scripts/figma-sync.mjs",
+    "plugin": "node scripts/build-plugin.mjs"
   },
   "type": "module",
   "devDependencies": {

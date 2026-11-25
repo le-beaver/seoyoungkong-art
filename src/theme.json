@@ -1,0 +1,31 @@
+{
+  "palette": {
+    "accent": "#E42278",
+    "darkAccent": "#ED7BAB",
+    "lightAccent": "#F5D3DD",
+    "white": "#FFFFFF",
+    "black": "#000000"
+  },
+  "themes": {
+    "white":          { "bg": "#FFFFFF", "h": "#000000", "p": "#000000", "large": "#000000", "small": "#FFFFFF", "nav": "#E42278" },
+    "white-bold":     { "bg": "#FFFFFF", "h": "#E42278", "p": "#E42278", "large": "#E42278", "small": "#000000", "nav": "#E42278" },
+    "light":          { "bg": "#F5D3DD", "h": "#000000", "p": "#000000", "large": "#000000", "small": "#000000", "nav": "#000000" },
+    "light-bold":     { "bg": "#F5D3DD", "h": "#E42278", "p": "#000000", "large": "#000000", "small": "#ED7BAB", "nav": "#000000" },
+    "bright-inverse": { "bg": "#FFFFFF", "h": "#E42278", "p": "#E42278", "large": "#E42278", "small": "#E42278", "nav": "#E42278" },
+    "bright":         { "bg": "#E42278", "h": "#FFFFFF", "p": "#FFFFFF", "large": "#FFFFFF", "small": "#E42278", "nav": "#FFFFFF" },
+    "dark":           { "bg": "#ED7BAB", "h": "#FFFFFF", "p": "#FFFFFF", "large": "#FFFFFF", "small": "#FFFFFF", "nav": "#FFFFFF" },
+    "dark-bold":      { "bg": "#ED7BAB", "h": "#FFFFFF", "p": "#FFFFFF", "large": "#FFFFFF", "small": "#FFFFFF", "nav": "#FFFFFF" },
+    "black":          { "bg": "#000000", "h": "#FFFFFF", "p": "#FFFFFF", "large": "#FFFFFF", "small": "#FFFFFF", "nav": "#FFFFFF" },
+    "black-bold":     { "bg": "#000000", "h": "#FFFFFF", "p": "#FFFFFF", "large": "#FFFFFF", "small": "#FFFFFF", "nav": "#FFFFFF" }
+  },
+  "type": {
+    "h1":    { "font": "Archivo Black", "style": "Regular",  "size": 69.84,  "line": 73.75, "tracking": -0.02, "upper": true },
+    "h2":    { "font": "Archivo Black", "style": "Regular",  "size": 49.104, "line": 54.68, "tracking": -0.02, "upper": true },
+    "h3":    { "font": "Archivo Black", "style": "Regular",  "size": 38.736, "line": 44.25, "tracking": -0.02, "upper": true },
+    "h4":    { "font": "Archivo Black", "style": "Regular",  "size": 28.368, "line": 33.22, "tracking": -0.02, "upper": true },
+    "large": { "font": "Space Grotesk", "style": "SemiBold", "size": 24.912, "line": 37.37, "tracking": 0, "upper": false },
+    "p":     { "font": "Space Grotesk", "style": "SemiBold", "size": 18,     "line": 27,    "tracking": 0, "upper": false },
+    "small": { "font": "Space Grotesk", "style": "SemiBold", "size": 16.2,   "line": 24.3,  "tracking": 0, "upper": false }
+  },
+  "grid": { "frameWidth": 1440, "gutter": 43.2, "gap": 11, "columns": 24, "maxWidth": 1500, "rowScale": 0.0215, "mediumPad": 95.04, "mediumMinHeight": 594 }
+}

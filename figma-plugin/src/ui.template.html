@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  :root { color-scheme: light dark; }
+  body { font: 12px/1.45 Inter, system-ui, sans-serif; margin: 0; padding: 14px; color: var(--figma-color-text); background: var(--figma-color-bg); }
+  h1 { font-size: 13px; margin: 0 0 4px; }
+  p { margin: 0 0 10px; color: var(--figma-color-text-secondary); }
+  label { display: block; font-weight: 600; margin: 10px 0 4px; }
+  input { width: 100%; box-sizing: border-box; padding: 6px 8px; border: 1px solid var(--figma-color-border); border-radius: 6px; background: var(--figma-color-bg); color: inherit; font: inherit; }
+  button { width: 100%; margin-top: 10px; padding: 8px; border: 0; border-radius: 6px; font: inherit; font-weight: 600; cursor: pointer; background: var(--figma-color-bg-brand); color: var(--figma-color-text-onbrand); }
+  button.secondary { background: var(--figma-color-bg-secondary); color: var(--figma-color-text); }
+  button:disabled { opacity: .5; cursor: default; }
+  hr { border: 0; border-top: 1px solid var(--figma-color-border); margin: 16px 0 6px; }
+  #log { margin-top: 10px; white-space: pre-wrap; font-family: ui-monospace, Menlo, monospace; font-size: 11px; max-height: 150px; overflow: auto; color: var(--figma-color-text-secondary); }
+  .warn { color: var(--figma-color-text-warning); }
+</style>
+</head>
+<body>
+<h1>Seoyoung Site Sync</h1>
+<p>Edit text and images on the “Site · …” pages, then press Publish (or just wait — the site checks Figma every 10 minutes).</p>
+
+<label for="site">Website address</label>
+<input id="site" placeholder="https://le-beaver.github.io/seoyoungkong-art">
+
+<button id="build" class="secondary">Rebuild Figma pages from the live site</button>
+<p class="warn" style="margin-top:6px">Rebuilding replaces the “Site · …” pages with what is live now. Publish your edits first.</p>
+
+<hr>
+<label for="token">GitHub publish key <span style="font-weight:400">(only for the Publish button)</span></label>
+<input id="token" type="password" placeholder="github_pat_…" autocomplete="off">
+<label for="repo">GitHub repository</label>
+<input id="repo" placeholder="le-beaver/seoyoungkong-art">
+<button id="publish">Publish my edits now</button>
+
+<div id="log"></div>
+
+<script>
+/*RICHTEXT*/
+</script>
+<script>
+const $ = id => document.getElementById(id);
+const log = t => { $('log').textContent = t + '\n' + $('log').textContent; };
+const post = m => parent.postMessage({ pluginMessage: m }, '*');
+let waiters = {};
+onmessage = e => {
+  const m = e.data.pluginMessage; if (!m) return;
+  if (m.type === 'settings') {
+    $('site').value = m.settings.site || 'https://le-beaver.github.io/seoyoungkong-art';
+    $('repo').value = m.settings.repo || 'le-beaver/seoyoungkong-art';
+    $('token').value = m.settings.token || '';
+  }
+  if (m.type === 'page-done' && waiters[m.slug]) { waiters[m.slug](); delete waiters[m.slug]; }
+  if (m.type === 'error') { log('Error: ' + m.message); }
+};
+post({ type: 'load-settings' });
+const save = () => post({ type: 'save-settings', settings: { site: $('site').value.trim(), repo: $('repo').value.trim(), token: $('token').value.trim() } });
+['site', 'repo', 'token'].forEach(id => $(id).addEventListener('change', save));
+
+async function toPng(url) {
+  const r = await fetch(url);
+  if (!r.ok) throw new Error(r.status + ' ' + url);
+  const bmp = await createImageBitmap(await r.blob());
+  const c = document.createElement('canvas'); c.width = bmp.width; c.height = bmp.height;
+  c.getContext('2d').drawImage(bmp, 0, 0);
+  const blob = await new Promise(res => c.toBlob(res, 'image/png'));
+  return new Uint8Array(await blob.arrayBuffer());
+}
+
+$('build').onclick = async () => {
+  const site = $('site').value.trim().replace(/\/$/, '');
+  save();
+  $('build').disabled = true;
+  try {
+    log('Reading ' + site + '/content.json …');
+    const content = await (await fetch(site + '/content.json', { cache: 'no-store' })).json();
+    post({ type: 'begin', theme: content.theme });
+    const seed = String(Date.now());
+    const pages = [...content.pages];
+    if (content.footer) pages.push({ slug: '__footer', title: 'Footer (all pages)', sections: content.footer.sections, isFooter: true });
+    for (let pi = 0; pi < pages.length; pi++) {
+      const page = pages[pi];
+      const images = {};
+      for (const sec of page.sections) for (const b of sec.blocks) {
+        if (b.type === 'text') b.paras = RichText.htmlToParas(b.html || '');
+        const srcs = [];
+        if (b.type === 'image' && b.src) srcs.push([b.src, b.src.endsWith('.webp') ? b.src.replace(/\.webp$/, '-800.webp') : b.src]);
+        if (b.video && b.video.kind === 'native') { const p = `/video/${b.video.id}/poster.webp`; srcs.push([p, p]); }
+        for (const [key, file] of srcs) {
+          if (images[key]) continue;
+          try { images[key] = await toPng(site + file); } catch (e) { log('Image skipped: ' + file); }
+        }
+      }
+      log(`Building “${page.title}” (${pi + 1}/${pages.length}) …`);
+      await new Promise(res => { waiters[page.slug] = res; post({ type: 'page', page, images, site: { title: content.title, nav: content.nav }, seed, isFooter: !!page.isFooter, last: pi === pages.length - 1 }); });
+    }
+    log('Done. Edit away!');
+  } catch (e) { log('Error: ' + e.message); }
+  $('build').disabled = false;
+};
+
+$('publish').onclick = async () => {
+  save();
+  const token = $('token').value.trim(), repo = $('repo').value.trim();
+  if (!token) { log('Add a GitHub publish key first (see EDITING.md).'); return; }
+  $('publish').disabled = true;
+  try {
+    const r = await fetch(`https://api.github.com/repos/${repo}/actions/workflows/figma-sync.yml/dispatches`, {
+      method: 'POST',
+      headers: { Authorization: 'Bearer ' + token, Accept: 'application/vnd.github+json' },
+      body: JSON.stringify({ ref: 'main', inputs: { force: 'true' } }),
+    });
+    if (r.status === 204) { log('Publishing… your changes will be live in about 2 minutes.'); post({ type: 'notify', text: 'Publishing — live in ~2 minutes' }); }
+    else log('GitHub said ' + r.status + ': ' + (await r.text()).slice(0, 200));
+  } catch (e) { log('Error: ' + e.message); }
+  $('publish').disabled = false;
+};
+</script>
+</body>
+</html>

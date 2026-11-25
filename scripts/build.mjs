@@ -176,7 +176,7 @@ const fsrc = 'node_modules/@fontsource';
 copy(`${fsrc}/archivo-black/files/archivo-black-latin-400-normal.woff2`, path.join(DIST, 'fonts/archivo-black-400.woff2'));
 for (const w of [400, 500, 600, 700]) copy(`${fsrc}/space-grotesk/files/space-grotesk-latin-${w}-normal.woff2`, path.join(DIST, `fonts/space-grotesk-${w}.woff2`));
 fs.writeFileSync(path.join(DIST, '.nojekyll'), '');
-fs.writeFileSync(path.join(DIST, 'content.json'), JSON.stringify({ ...site, basePath: BASE_PATH }));
+fs.writeFileSync(path.join(DIST, 'content.json'), JSON.stringify({ ...site, basePath: BASE_PATH, theme: JSON.parse(fs.readFileSync('src/theme.json', 'utf8')) }));
 if (site.domain) fs.writeFileSync(path.join(DIST, 'CNAME'), site.domain + '\n');
 
 // sitemap + robots
