@@ -3,10 +3,15 @@ import fs from 'fs';
 import path from 'path';
 
 const site = JSON.parse(fs.readFileSync('content/site.json', 'utf8'));
-const DIST = path.resolve('dist');
+const DIST = path.resolve(process.env.OUT_DIR || 'dist');
 const BASE_URL = process.env.SITE_URL || site.url || '';
 // Where videos are served from (folder holding <id>/video.mp4). Overridable for external hosting.
 const VIDEO_BASE = process.env.VIDEO_BASE || site.videoBase || '/video';
+// Sub-path the site is served from (e.g. /seoyoungkong-art on github.io). Empty for a custom domain.
+const BASE_PATH = (process.env.BASE_PATH || '').replace(/\/$/, '');
+const withBase = html => !BASE_PATH ? html : html
+  .replace(/((?:href|src|poster|action)=")\/(?!\/)/g, `$1${BASE_PATH}/`)
+  .replace(/((?:srcset="|, ))\/(?!\/)/g, `$1${BASE_PATH}/`);
 
 fs.rmSync(DIST, { recursive: true, force: true });
 fs.mkdirSync(DIST, { recursive: true });
@@ -141,22 +146,24 @@ ${page.sections.map(renderSection).join('\n')}
 }
 
 const BUILD_ID = Date.now().toString(36);
+// content.json: lets the Figma plugin read the current site
+
 
 for (const page of site.pages) {
   const dir = path.join(DIST, page.slug);
   fs.mkdirSync(dir, { recursive: true });
-  fs.writeFileSync(path.join(dir, 'index.html'), renderPage(page));
+  fs.writeFileSync(path.join(dir, 'index.html'), withBase(renderPage(page)));
 }
 // /home was the same as the homepage on Squarespace
 fs.mkdirSync(path.join(DIST, 'home'), { recursive: true });
-fs.writeFileSync(path.join(DIST, 'home', 'index.html'), renderPage({ ...site.pages[0], slug: 'home' }));
+fs.writeFileSync(path.join(DIST, 'home', 'index.html'), withBase(renderPage({ ...site.pages[0], slug: 'home' })));
 // 404
-fs.writeFileSync(path.join(DIST, '404.html'), renderPage({
+fs.writeFileSync(path.join(DIST, '404.html'), withBase(renderPage({
   slug: '404', title: 'Page not found', hidden: true,
   sections: [{ theme: 'bright-inverse', rowsMobile: 8, rowsDesktop: 10, rowScale: 0.0215, padTop: '4vw', padBottom: '4vw', blocks: [{
     id: 'nf', type: 'text', m: { area: '2/2/8/10', z: 1, align: 'flex-start' }, d: { area: '2/2/10/20', z: 1, align: 'flex-start' },
     html: '<h1>Oops!</h1><p>That page does not exist. <a href="/">Back to the homepage</a>.</p>' }] }],
-}));
+})));
 
 // static assets
 const copy = (from, to) => { fs.mkdirSync(path.dirname(to), { recursive: true }); fs.cpSync(from, to, { recursive: true }); };
@@ -169,6 +176,7 @@ const fsrc = 'node_modules/@fontsource';
 copy(`${fsrc}/archivo-black/files/archivo-black-latin-400-normal.woff2`, path.join(DIST, 'fonts/archivo-black-400.woff2'));
 for (const w of [400, 500, 600, 700]) copy(`${fsrc}/space-grotesk/files/space-grotesk-latin-${w}-normal.woff2`, path.join(DIST, `fonts/space-grotesk-${w}.woff2`));
 fs.writeFileSync(path.join(DIST, '.nojekyll'), '');
+fs.writeFileSync(path.join(DIST, 'content.json'), JSON.stringify({ ...site, basePath: BASE_PATH }));
 if (site.domain) fs.writeFileSync(path.join(DIST, 'CNAME'), site.domain + '\n');
 
 // sitemap + robots
