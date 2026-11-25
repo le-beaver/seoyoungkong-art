@@ -49,7 +49,9 @@ function renderBlock(b) {
       const img = `<img src="${b.src}"${isGif ? '' : ` srcset="${small} 800w, ${b.src} 2000w" sizes="${sizes}"`}${w ? ` width="${w}" height="${h}"` : ''} alt="${esc(b.alt)}" loading="lazy" decoding="async" data-edit="${b.id}">`;
       const wrapped = b.href
         ? `<a class="content-fill" href="${esc(b.href)}"${b.target ? ` target="${b.target}" rel="noopener"` : ''}>${img}</a>`
-        : `<div class="content-fill">${img}</div>`;
+        : b.lightbox
+          ? `<button type="button" class="content-fill lb-trigger" data-full="${b.src}" data-theme-lb="${b.lightbox}" aria-label="View fullsize${b.alt ? ': ' + esc(b.alt) : ''}">${img}</button>`
+          : `<div class="content-fill">${img}</div>`;
       inner = `<div class="fluid-image-component-root"><div class="fluid-image-animation-wrapper sqs-image sqs-block-alignment-wrapper"><div class="fluid-image-container sqs-image-content visitor-mode"><div class="js-content-mode-element-wrapper js-content-mode-element-system_desktop">${wrapped}<div class="fluidImageOverlay"></div></div></div></div></div>${b.caption ? `<div class="image-caption sqs-html-content">${b.caption}</div>` : ''}`;
       break;
     }

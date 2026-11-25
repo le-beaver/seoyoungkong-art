@@ -180,7 +180,7 @@ for (const pf of pageFrames) {
         } else if (img) {
           pending.push(async () => {
             const saved = await saveImage(img.imageRef, n.name || 'image');
-            sec.blocks.push({ id, type: 'image', m, d: { area, z: 20, justify: 'center', align: 'center' }, css: `#block-${id} { --image-component-object-fit: cover; }`, src: saved.src, alt: '', dims: saved.dims });
+            sec.blocks.push({ id, type: 'image', m, d: { area, z: 20, justify: 'center', align: 'center' }, css: `#block-${id} { --image-component-object-fit: cover; }`, src: saved.src, alt: '', dims: saved.dims, lightbox: 'dark' });
             sec.rowsMobile = Math.max(sec.rowsMobile, maxRow + mSpan); sec.rowsDesktop = Math.max(sec.rowsDesktop, parseArea(area)[2] - 1);
             out(`${page.title}: new image “${n.name}”`);
           });

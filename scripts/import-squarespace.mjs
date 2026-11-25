@@ -172,6 +172,8 @@ function parseBlock($, B, pos) {
     block.dims = img.attr('data-image-dimensions') || '';
     const a = B.find('a.sqs-block-image-link').first();
     if (a.length) { block.href = fixHref(a.attr('href')); if (a.attr('target')) block.target = a.attr('target'); }
+    const lb = B.find('[data-lightbox-theme]').first();
+    if (lb.length) block.lightbox = lb.attr('data-lightbox-theme') || 'dark';
     const cap = B.find('.image-caption, figcaption').first();
     if (cap.length && cap.text().trim()) block.caption = cleanHtml($, cap);
   } else if (def === 'shape') {

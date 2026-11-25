@@ -480,7 +480,8 @@
               "css": "#block-9da8219b451e168a071b {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 1631/1131;\n      }\n      #block-9da8219b451e168a071b .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-9da8219b451e168a071b .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-9da8219b451e168a071b .js-content-mode-element-system_desktop {\n        display: block;\n      }\n.fe-block-9da8219b451e168a071b {\n      --opacity: 100%;\n      --translate-x: 0px;\n      --translate-y: 0px;\n      --rotation: 0deg;\n      --scale-x: 100%;\n      --scale-y: 100%;\n      --skew-x: 0deg;\n      --skew-y: 0deg;\n      --origin-x: 50%;\n      --origin-y: 50%;\n      --block-transform: none;\n      opacity: var(--opacity, 1);\n      transform: var(--block-transform);\n      transform-origin: var(--origin-x) var(--origin-y);\n    }",
               "src": "/media/ooh-2-d0668306.webp",
               "alt": "",
-              "dims": "1631x1131"
+              "dims": "1631x1131",
+              "lightbox": "light"
             },
             {
               "id": "e03eaacdb2146cfef0d6",
@@ -500,7 +501,8 @@
               "css": "#block-e03eaacdb2146cfef0d6 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 1542/1069;\n      }\n      #block-e03eaacdb2146cfef0d6 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-e03eaacdb2146cfef0d6 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-e03eaacdb2146cfef0d6 .js-content-mode-element-system_desktop {\n        display: block;\n      }\n.fe-block-e03eaacdb2146cfef0d6 {\n      --opacity: 100%;\n      --translate-x: 0px;\n      --translate-y: 0px;\n      --rotation: 0deg;\n      --scale-x: 100%;\n      --scale-y: 100%;\n      --skew-x: 0deg;\n      --skew-y: 0deg;\n      --origin-x: 50%;\n      --origin-y: 50%;\n      --block-transform: none;\n      opacity: var(--opacity, 1);\n      transform: var(--block-transform);\n      transform-origin: var(--origin-x) var(--origin-y);\n    }",
               "src": "/media/ooh-3-6a25eb19.webp",
               "alt": "",
-              "dims": "1542x1069"
+              "dims": "1542x1069",
+              "lightbox": "light"
             },
             {
               "id": "112c01420cde4db218ba",
@@ -520,7 +522,8 @@
               "css": "#block-112c01420cde4db218ba {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 1614/1118;\n      }\n      #block-112c01420cde4db218ba .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-112c01420cde4db218ba .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-112c01420cde4db218ba .js-content-mode-element-system_desktop {\n        display: block;\n      }\n.fe-block-112c01420cde4db218ba {\n      --opacity: 100%;\n      --translate-x: 0px;\n      --translate-y: 0px;\n      --rotation: 0deg;\n      --scale-x: 100%;\n      --scale-y: 100%;\n      --skew-x: 0deg;\n      --skew-y: 0deg;\n      --origin-x: 50%;\n      --origin-y: 50%;\n      --block-transform: none;\n      opacity: var(--opacity, 1);\n      transform: var(--block-transform);\n      transform-origin: var(--origin-x) var(--origin-y);\n    }",
               "src": "/media/ooh-4-3f6ae9fc.webp",
               "alt": "",
-              "dims": "1614x1118"
+              "dims": "1614x1118",
+              "lightbox": "light"
             },
             {
               "id": "669845cf7439ed0ab4f2",
@@ -540,7 +543,8 @@
               "css": "#block-669845cf7439ed0ab4f2 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 1676/1158;\n      }\n      #block-669845cf7439ed0ab4f2 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-669845cf7439ed0ab4f2 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-669845cf7439ed0ab4f2 .js-content-mode-element-system_desktop {\n        display: block;\n      }\n.fe-block-669845cf7439ed0ab4f2 {\n      --opacity: 100%;\n      --translate-x: 0px;\n      --translate-y: 0px;\n      --rotation: 0deg;\n      --scale-x: 100%;\n      --scale-y: 100%;\n      --skew-x: 0deg;\n      --skew-y: 0deg;\n      --origin-x: 50%;\n      --origin-y: 50%;\n      --block-transform: none;\n      opacity: var(--opacity, 1);\n      transform: var(--block-transform);\n      transform-origin: var(--origin-x) var(--origin-y);\n    }",
               "src": "/media/ooh-1-0f4eab43.webp",
               "alt": "",
-              "dims": "1676x1158"
+              "dims": "1676x1158",
+              "lightbox": "light"
             },
             {
               "id": "6ee5af61f462aa3c8225",
@@ -560,7 +564,8 @@
               "css": "#block-6ee5af61f462aa3c8225 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 1080/1350;\n      }\n      #block-6ee5af61f462aa3c8225 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-6ee5af61f462aa3c8225 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-6ee5af61f462aa3c8225 .js-content-mode-element-system_desktop {\n        display: block;\n      }\n.fe-block-6ee5af61f462aa3c8225 {\n      --opacity: 100%;\n      --translate-x: 0px;\n      --translate-y: 0px;\n      --rotation: 0deg;\n      --scale-x: 100%;\n      --scale-y: 100%;\n      --skew-x: 0deg;\n      --skew-y: 0deg;\n      --origin-x: 50%;\n      --origin-y: 50%;\n      --block-transform: none;\n      opacity: var(--opacity, 1);\n      transform: var(--block-transform);\n      transform-origin: var(--origin-x) var(--origin-y);\n    }",
               "src": "/media/newyorktimesxfacetime-1-624f4312.webp",
               "alt": "",
-              "dims": "1080x1350"
+              "dims": "1080x1350",
+              "lightbox": "light"
             },
             {
               "id": "945fdc41b366ef09dcb6",
@@ -580,7 +585,8 @@
               "css": "#block-945fdc41b366ef09dcb6 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 1080/1350;\n      }\n      #block-945fdc41b366ef09dcb6 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-945fdc41b366ef09dcb6 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-945fdc41b366ef09dcb6 .js-content-mode-element-system_desktop {\n        display: block;\n      }\n.fe-block-945fdc41b366ef09dcb6 {\n      --opacity: 100%;\n      --translate-x: 0px;\n      --translate-y: 0px;\n      --rotation: 0deg;\n      --scale-x: 100%;\n      --scale-y: 100%;\n      --skew-x: 0deg;\n      --skew-y: 0deg;\n      --origin-x: 50%;\n      --origin-y: 50%;\n      --block-transform: none;\n      opacity: var(--opacity, 1);\n      transform: var(--block-transform);\n      transform-origin: var(--origin-x) var(--origin-y);\n    }",
               "src": "/media/newyorktimesxfacetime-2-81a7bf47.webp",
               "alt": "",
-              "dims": "1080x1350"
+              "dims": "1080x1350",
+              "lightbox": "light"
             },
             {
               "id": "cbcb6b0cd9b9701d3eff",
@@ -600,7 +606,8 @@
               "css": "#block-cbcb6b0cd9b9701d3eff {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 1080/1350;\n      }\n      #block-cbcb6b0cd9b9701d3eff .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-cbcb6b0cd9b9701d3eff .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-cbcb6b0cd9b9701d3eff .js-content-mode-element-system_desktop {\n        display: block;\n      }\n.fe-block-cbcb6b0cd9b9701d3eff {\n      --opacity: 100%;\n      --translate-x: 0px;\n      --translate-y: 0px;\n      --rotation: 0deg;\n      --scale-x: 100%;\n      --scale-y: 100%;\n      --skew-x: 0deg;\n      --skew-y: 0deg;\n      --origin-x: 50%;\n      --origin-y: 50%;\n      --block-transform: none;\n      opacity: var(--opacity, 1);\n      transform: var(--block-transform);\n      transform-origin: var(--origin-x) var(--origin-y);\n    }",
               "src": "/media/newyorktimesxfacetime-3-cc9799e4.webp",
               "alt": "",
-              "dims": "1080x1350"
+              "dims": "1080x1350",
+              "lightbox": "light"
             },
             {
               "id": "2651dc589be6fc892e60",
@@ -620,7 +627,8 @@
               "css": "#block-2651dc589be6fc892e60 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 1920/1080;\n      }\n      #block-2651dc589be6fc892e60 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-2651dc589be6fc892e60 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-2651dc589be6fc892e60 .js-content-mode-element-system_desktop {\n        display: block;\n      }\n.fe-block-2651dc589be6fc892e60 {\n      --opacity: 100%;\n      --translate-x: 0px;\n      --translate-y: 0px;\n      --rotation: 0deg;\n      --scale-x: 100%;\n      --scale-y: 100%;\n      --skew-x: 0deg;\n      --skew-y: 0deg;\n      --origin-x: 50%;\n      --origin-y: 50%;\n      --block-transform: none;\n      opacity: var(--opacity, 1);\n      transform: var(--block-transform);\n      transform-origin: var(--origin-x) var(--origin-y);\n    }",
               "src": "/media/newyorktimesxfacetime-4-d2322e97.webp",
               "alt": "",
-              "dims": "1920x1080"
+              "dims": "1920x1080",
+              "lightbox": "light"
             },
             {
               "id": "fcfadd25cb6b93b66054",
@@ -640,7 +648,8 @@
               "css": "#block-fcfadd25cb6b93b66054 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 607/1080;\n      }\n      #block-fcfadd25cb6b93b66054 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-fcfadd25cb6b93b66054 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-fcfadd25cb6b93b66054 .js-content-mode-element-system_desktop {\n        display: block;\n      }\n.fe-block-fcfadd25cb6b93b66054 {\n      --opacity: 100%;\n      --translate-x: 0px;\n      --translate-y: 0px;\n      --rotation: 0deg;\n      --scale-x: 100%;\n      --scale-y: 100%;\n      --skew-x: 0deg;\n      --skew-y: 0deg;\n      --origin-x: 50%;\n      --origin-y: 50%;\n      --block-transform: none;\n      opacity: var(--opacity, 1);\n      transform: var(--block-transform);\n      transform-origin: var(--origin-x) var(--origin-y);\n    }",
               "src": "/media/social-1-e49ae8e7.webp",
               "alt": "",
-              "dims": "607x1080"
+              "dims": "607x1080",
+              "lightbox": "light"
             },
             {
               "id": "1bd49531ea29e6d53ab0",
@@ -802,7 +811,8 @@
               "css": "#block-9dd7a764de2f104f2d27 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 889/1144;\n      }\n      #block-9dd7a764de2f104f2d27 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-9dd7a764de2f104f2d27 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-9dd7a764de2f104f2d27 .js-content-mode-element-system_desktop {\n        display: block;\n      }\n.fe-block-9dd7a764de2f104f2d27 {\n      --opacity: 100%;\n      --translate-x: 0px;\n      --translate-y: 0px;\n      --rotation: 0deg;\n      --scale-x: 100%;\n      --scale-y: 100%;\n      --skew-x: 0deg;\n      --skew-y: 0deg;\n      --origin-x: 50%;\n      --origin-y: 50%;\n      --block-transform: none;\n      opacity: var(--opacity, 1);\n      transform: var(--block-transform);\n      transform-origin: var(--origin-x) var(--origin-y);\n    }",
               "src": "/media/screenshot-2025-11-19-at-7-59-21-pm-729bf591.webp",
               "alt": "",
-              "dims": "889x1144"
+              "dims": "889x1144",
+              "lightbox": "light"
             },
             {
               "id": "12ae17edae8cd93e8db4",
@@ -822,7 +832,8 @@
               "css": "#block-12ae17edae8cd93e8db4 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 890/1146;\n      }\n      #block-12ae17edae8cd93e8db4 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-12ae17edae8cd93e8db4 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-12ae17edae8cd93e8db4 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/screenshot-2025-11-19-at-7-54-34-pm-d0f53573.webp",
               "alt": "",
-              "dims": "890x1146"
+              "dims": "890x1146",
+              "lightbox": "light"
             },
             {
               "id": "de5e4e86dd384696679f",
@@ -842,7 +853,8 @@
               "css": "#block-de5e4e86dd384696679f {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 876/1138;\n      }\n      #block-de5e4e86dd384696679f .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-de5e4e86dd384696679f .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-de5e4e86dd384696679f .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/screenshot-2025-11-19-at-10-01-25-pm-ad219bf2.webp",
               "alt": "",
-              "dims": "876x1138"
+              "dims": "876x1138",
+              "lightbox": "light"
             },
             {
               "id": "976fd1ebff00d77c9f3a",
@@ -1213,7 +1225,8 @@
               "css": "#block-08864705e4ca041cf87e {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 5400/7200;\n      }\n      #block-08864705e4ca041cf87e .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-08864705e4ca041cf87e .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-08864705e4ca041cf87e .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/compressedimage-1-ac4da443.webp",
               "alt": "",
-              "dims": "5400x7200"
+              "dims": "5400x7200",
+              "lightbox": "light"
             },
             {
               "id": "3414f01456a5aa2122e7",
@@ -1233,7 +1246,8 @@
               "css": "#block-3414f01456a5aa2122e7 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 5400/7200;\n      }\n      #block-3414f01456a5aa2122e7 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-3414f01456a5aa2122e7 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-3414f01456a5aa2122e7 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/compressedimage-d613e850.webp",
               "alt": "",
-              "dims": "5400x7200"
+              "dims": "5400x7200",
+              "lightbox": "light"
             },
             {
               "id": "8f82bcbae2edfe743bfc",
@@ -1253,7 +1267,8 @@
               "css": "#block-8f82bcbae2edfe743bfc {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 5400/7200;\n      }\n      #block-8f82bcbae2edfe743bfc .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-8f82bcbae2edfe743bfc .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-8f82bcbae2edfe743bfc .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/compressedimage-2-99930b88.webp",
               "alt": "",
-              "dims": "5400x7200"
+              "dims": "5400x7200",
+              "lightbox": "light"
             },
             {
               "id": "1a075985671769b6003a",
@@ -1273,7 +1288,8 @@
               "css": "#block-1a075985671769b6003a {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 2268/756;\n      }\n      #block-1a075985671769b6003a .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-1a075985671769b6003a .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-1a075985671769b6003a .js-content-mode-element-system_desktop {\n        display: block;\n      }\n.fe-block-1a075985671769b6003a {\n      --opacity: 100%;\n      --translate-x: 0px;\n      --translate-y: 0px;\n      --rotation: 0deg;\n      --scale-x: 100%;\n      --scale-y: 100%;\n      --skew-x: 0deg;\n      --skew-y: 0deg;\n      --origin-x: 50%;\n      --origin-y: 50%;\n      --block-transform: none;\n      opacity: var(--opacity, 1);\n      transform: var(--block-transform);\n      transform-origin: var(--origin-x) var(--origin-y);\n    }",
               "src": "/media/untitled-design-29-42b1a541.webp",
               "alt": "",
-              "dims": "2268x756"
+              "dims": "2268x756",
+              "lightbox": "light"
             },
             {
               "id": "75c987bb9f95314a9dc7",
@@ -1293,7 +1309,8 @@
               "css": "#block-75c987bb9f95314a9dc7 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 5400/7200;\n      }\n      #block-75c987bb9f95314a9dc7 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-75c987bb9f95314a9dc7 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-75c987bb9f95314a9dc7 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/compressedimage-3-c1d097a8.webp",
               "alt": "",
-              "dims": "5400x7200"
+              "dims": "5400x7200",
+              "lightbox": "light"
             },
             {
               "id": "3e46d145513052115627",
@@ -1435,7 +1452,8 @@
               "css": "#block-f8d20975a3632b5f23c2 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 1556/1949;\n      }\n      #block-f8d20975a3632b5f23c2 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-f8d20975a3632b5f23c2 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-f8d20975a3632b5f23c2 .js-content-mode-element-system_desktop {\n        display: block;\n      }\n.fe-block-f8d20975a3632b5f23c2 {\n      --opacity: 100%;\n      --translate-x: 0px;\n      --translate-y: 0px;\n      --rotation: 0deg;\n      --scale-x: 100%;\n      --scale-y: 100%;\n      --skew-x: 0deg;\n      --skew-y: 0deg;\n      --origin-x: 50%;\n      --origin-y: 50%;\n      --block-transform: none;\n      opacity: var(--opacity, 1);\n      transform: var(--block-transform);\n      transform-origin: var(--origin-x) var(--origin-y);\n    }",
               "src": "/media/google-serp-feng-shui-mockup-final-0c94280d.webp",
               "alt": "",
-              "dims": "1556x1949"
+              "dims": "1556x1949",
+              "lightbox": "dark"
             },
             {
               "id": "d9d0d148094d1df9642b",
@@ -1455,7 +1473,8 @@
               "css": "#block-d9d0d148094d1df9642b {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 1705/1040;\n      }\n      #block-d9d0d148094d1df9642b .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-d9d0d148094d1df9642b .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-d9d0d148094d1df9642b .js-content-mode-element-system_desktop {\n        display: block;\n      }\n.fe-block-d9d0d148094d1df9642b {\n      --opacity: 100%;\n      --translate-x: 0px;\n      --translate-y: 0px;\n      --rotation: 0deg;\n      --scale-x: 100%;\n      --scale-y: 100%;\n      --skew-x: 0deg;\n      --skew-y: 0deg;\n      --origin-x: 50%;\n      --origin-y: 50%;\n      --block-transform: none;\n      opacity: var(--opacity, 1);\n      transform: var(--block-transform);\n      transform-origin: var(--origin-x) var(--origin-y);\n    }",
               "src": "/media/14-a82993f9.webp",
               "alt": "",
-              "dims": "1705x1040"
+              "dims": "1705x1040",
+              "lightbox": "dark"
             },
             {
               "id": "09bec9024b494a543508",
@@ -1475,7 +1494,8 @@
               "css": "#block-09bec9024b494a543508 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 1920/1080;\n      }\n      #block-09bec9024b494a543508 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-09bec9024b494a543508 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-09bec9024b494a543508 .js-content-mode-element-system_desktop {\n        display: block;\n      }\n.fe-block-09bec9024b494a543508 {\n      --opacity: 100%;\n      --translate-x: 0px;\n      --translate-y: 0px;\n      --rotation: 0deg;\n      --scale-x: 100%;\n      --scale-y: 100%;\n      --skew-x: 0deg;\n      --skew-y: 0deg;\n      --origin-x: 50%;\n      --origin-y: 50%;\n      --block-transform: none;\n      opacity: var(--opacity, 1);\n      transform: var(--block-transform);\n      transform-origin: var(--origin-x) var(--origin-y);\n    }",
               "src": "/media/18-bb8e0957.webp",
               "alt": "",
-              "dims": "1920x1080"
+              "dims": "1920x1080",
+              "lightbox": "dark"
             },
             {
               "id": "8353c6fefbe438079dfa",
@@ -1495,7 +1515,8 @@
               "css": "#block-8353c6fefbe438079dfa {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 1080/1350;\n      }\n      #block-8353c6fefbe438079dfa .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-8353c6fefbe438079dfa .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-8353c6fefbe438079dfa .js-content-mode-element-system_desktop {\n        display: block;\n      }\n.fe-block-8353c6fefbe438079dfa {\n      --opacity: 100%;\n      --translate-x: 0px;\n      --translate-y: 0px;\n      --rotation: 0deg;\n      --scale-x: 100%;\n      --scale-y: 100%;\n      --skew-x: 0deg;\n      --skew-y: 0deg;\n      --origin-x: 50%;\n      --origin-y: 50%;\n      --block-transform: none;\n      opacity: var(--opacity, 1);\n      transform: var(--block-transform);\n      transform-origin: var(--origin-x) var(--origin-y);\n    }",
               "src": "/media/1-3da9a304.webp",
               "alt": "",
-              "dims": "1080x1350"
+              "dims": "1080x1350",
+              "lightbox": "dark"
             },
             {
               "id": "546825d9e2b259b4e4d1",
@@ -1515,7 +1536,8 @@
               "css": "#block-546825d9e2b259b4e4d1 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 1080/1350;\n      }\n      #block-546825d9e2b259b4e4d1 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-546825d9e2b259b4e4d1 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-546825d9e2b259b4e4d1 .js-content-mode-element-system_desktop {\n        display: block;\n      }\n.fe-block-546825d9e2b259b4e4d1 {\n      --opacity: 100%;\n      --translate-x: 0px;\n      --translate-y: 0px;\n      --rotation: 0deg;\n      --scale-x: 100%;\n      --scale-y: 100%;\n      --skew-x: 0deg;\n      --skew-y: 0deg;\n      --origin-x: 50%;\n      --origin-y: 50%;\n      --block-transform: none;\n      opacity: var(--opacity, 1);\n      transform: var(--block-transform);\n      transform-origin: var(--origin-x) var(--origin-y);\n    }",
               "src": "/media/2-06987957.webp",
               "alt": "",
-              "dims": "1080x1350"
+              "dims": "1080x1350",
+              "lightbox": "dark"
             },
             {
               "id": "a0e837b3bf9e3515454f",
@@ -1535,7 +1557,8 @@
               "css": "#block-a0e837b3bf9e3515454f {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 1080/1350;\n      }\n      #block-a0e837b3bf9e3515454f .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-a0e837b3bf9e3515454f .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-a0e837b3bf9e3515454f .js-content-mode-element-system_desktop {\n        display: block;\n      }\n.fe-block-a0e837b3bf9e3515454f {\n      --opacity: 100%;\n      --translate-x: 0px;\n      --translate-y: 0px;\n      --rotation: 0deg;\n      --scale-x: 100%;\n      --scale-y: 100%;\n      --skew-x: 0deg;\n      --skew-y: 0deg;\n      --origin-x: 50%;\n      --origin-y: 50%;\n      --block-transform: none;\n      opacity: var(--opacity, 1);\n      transform: var(--block-transform);\n      transform-origin: var(--origin-x) var(--origin-y);\n    }",
               "src": "/media/3-c56a72c9.webp",
               "alt": "",
-              "dims": "1080x1350"
+              "dims": "1080x1350",
+              "lightbox": "dark"
             },
             {
               "id": "cc38137f5f90f72f4353",
@@ -1555,7 +1578,8 @@
               "css": "#block-cc38137f5f90f72f4353 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 1920/1080;\n      }\n      #block-cc38137f5f90f72f4353 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-cc38137f5f90f72f4353 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-cc38137f5f90f72f4353 .js-content-mode-element-system_desktop {\n        display: block;\n      }\n.fe-block-cc38137f5f90f72f4353 {\n      --opacity: 100%;\n      --translate-x: 0px;\n      --translate-y: 0px;\n      --rotation: 0deg;\n      --scale-x: 100%;\n      --scale-y: 100%;\n      --skew-x: 0deg;\n      --skew-y: 0deg;\n      --origin-x: 50%;\n      --origin-y: 50%;\n      --block-transform: none;\n      opacity: var(--opacity, 1);\n      transform: var(--block-transform);\n      transform-origin: var(--origin-x) var(--origin-y);\n    }",
               "src": "/media/16-e8eab677.webp",
               "alt": "",
-              "dims": "1920x1080"
+              "dims": "1920x1080",
+              "lightbox": "dark"
             },
             {
               "id": "34560bee5f73ed690419",
@@ -1575,7 +1599,8 @@
               "css": "#block-34560bee5f73ed690419 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 1920/1080;\n      }\n      #block-34560bee5f73ed690419 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-34560bee5f73ed690419 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-34560bee5f73ed690419 .js-content-mode-element-system_desktop {\n        display: block;\n      }\n.fe-block-34560bee5f73ed690419 {\n      --opacity: 100%;\n      --translate-x: 0px;\n      --translate-y: 0px;\n      --rotation: 0deg;\n      --scale-x: 100%;\n      --scale-y: 100%;\n      --skew-x: 0deg;\n      --skew-y: 0deg;\n      --origin-x: 50%;\n      --origin-y: 50%;\n      --block-transform: none;\n      opacity: var(--opacity, 1);\n      transform: var(--block-transform);\n      transform-origin: var(--origin-x) var(--origin-y);\n    }",
               "src": "/media/map-out-rooms-with-cleans-9-5ecc3bcd.webp",
               "alt": "",
-              "dims": "1920x1080"
+              "dims": "1920x1080",
+              "lightbox": "dark"
             },
             {
               "id": "ecf9f8a66b94e46511e1",
@@ -1595,7 +1620,8 @@
               "css": "#block-ecf9f8a66b94e46511e1 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 1920/1080;\n      }\n      #block-ecf9f8a66b94e46511e1 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-ecf9f8a66b94e46511e1 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-ecf9f8a66b94e46511e1 .js-content-mode-element-system_desktop {\n        display: block;\n      }\n.fe-block-ecf9f8a66b94e46511e1 {\n      --opacity: 100%;\n      --translate-x: 0px;\n      --translate-y: 0px;\n      --rotation: 0deg;\n      --scale-x: 100%;\n      --scale-y: 100%;\n      --skew-x: 0deg;\n      --skew-y: 0deg;\n      --origin-x: 50%;\n      --origin-y: 50%;\n      --block-transform: none;\n      opacity: var(--opacity, 1);\n      transform: var(--block-transform);\n      transform-origin: var(--origin-x) var(--origin-y);\n    }",
               "src": "/media/17-46632b18.webp",
               "alt": "",
-              "dims": "1920x1080"
+              "dims": "1920x1080",
+              "lightbox": "dark"
             },
             {
               "id": "46754c4993bead85a448",
@@ -1615,7 +1641,8 @@
               "css": "#block-46754c4993bead85a448 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 1920/1080;\n      }\n      #block-46754c4993bead85a448 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-46754c4993bead85a448 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-46754c4993bead85a448 .js-content-mode-element-system_desktop {\n        display: block;\n      }\n.fe-block-46754c4993bead85a448 {\n      --opacity: 100%;\n      --translate-x: 0px;\n      --translate-y: 0px;\n      --rotation: 0deg;\n      --scale-x: 100%;\n      --scale-y: 100%;\n      --skew-x: 0deg;\n      --skew-y: 0deg;\n      --origin-x: 50%;\n      --origin-y: 50%;\n      --block-transform: none;\n      opacity: var(--opacity, 1);\n      transform: var(--block-transform);\n      transform-origin: var(--origin-x) var(--origin-y);\n    }",
               "src": "/media/20-557244d1.webp",
               "alt": "",
-              "dims": "1920x1080"
+              "dims": "1920x1080",
+              "lightbox": "dark"
             },
             {
               "id": "7f19040e9734d8e7d9b8",
@@ -1635,7 +1662,8 @@
               "css": "#block-7f19040e9734d8e7d9b8 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 1920/1080;\n      }\n      #block-7f19040e9734d8e7d9b8 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-7f19040e9734d8e7d9b8 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-7f19040e9734d8e7d9b8 .js-content-mode-element-system_desktop {\n        display: block;\n      }\n.fe-block-7f19040e9734d8e7d9b8 {\n      --opacity: 100%;\n      --translate-x: 0px;\n      --translate-y: 0px;\n      --rotation: 0deg;\n      --scale-x: 100%;\n      --scale-y: 100%;\n      --skew-x: 0deg;\n      --skew-y: 0deg;\n      --origin-x: 50%;\n      --origin-y: 50%;\n      --block-transform: none;\n      opacity: var(--opacity, 1);\n      transform: var(--block-transform);\n      transform-origin: var(--origin-x) var(--origin-y);\n    }",
               "src": "/media/19-60e0ca52.webp",
               "alt": "",
-              "dims": "1920x1080"
+              "dims": "1920x1080",
+              "lightbox": "dark"
             },
             {
               "id": "3ba997516ec789b425bd",
@@ -1655,7 +1683,8 @@
               "css": "#block-3ba997516ec789b425bd {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 1920/1080;\n      }\n      #block-3ba997516ec789b425bd .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-3ba997516ec789b425bd .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-3ba997516ec789b425bd .js-content-mode-element-system_desktop {\n        display: block;\n      }\n.fe-block-3ba997516ec789b425bd {\n      --opacity: 100%;\n      --translate-x: 0px;\n      --translate-y: 0px;\n      --rotation: 0deg;\n      --scale-x: 100%;\n      --scale-y: 100%;\n      --skew-x: 0deg;\n      --skew-y: 0deg;\n      --origin-x: 50%;\n      --origin-y: 50%;\n      --block-transform: none;\n      opacity: var(--opacity, 1);\n      transform: var(--block-transform);\n      transform-origin: var(--origin-x) var(--origin-y);\n    }",
               "src": "/media/map-out-rooms-with-cleans-7-07b6ccdb.webp",
               "alt": "",
-              "dims": "1920x1080"
+              "dims": "1920x1080",
+              "lightbox": "dark"
             },
             {
               "id": "f9769e4c4f3fdcc6e622",
@@ -1836,7 +1865,8 @@
               "css": "#block-c4983efeb54bbc08a61d {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 5400/7200;\n      }\n      #block-c4983efeb54bbc08a61d .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-c4983efeb54bbc08a61d .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-c4983efeb54bbc08a61d .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/ninja-crispi-campaign-2-5a5ce195.webp",
               "alt": "",
-              "dims": "5400x7200"
+              "dims": "5400x7200",
+              "lightbox": "dark"
             },
             {
               "id": "956bd28f0efaa93f21ef",
@@ -1856,7 +1886,8 @@
               "css": "#block-956bd28f0efaa93f21ef {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 5400/7200;\n      }\n      #block-956bd28f0efaa93f21ef .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-956bd28f0efaa93f21ef .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-956bd28f0efaa93f21ef .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/ninja-crispi-campaign-3-478287aa.webp",
               "alt": "",
-              "dims": "5400x7200"
+              "dims": "5400x7200",
+              "lightbox": "dark"
             },
             {
               "id": "31206b036f00f1843082",
@@ -1876,7 +1907,8 @@
               "css": "#block-31206b036f00f1843082 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 5400/7200;\n      }\n      #block-31206b036f00f1843082 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-31206b036f00f1843082 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-31206b036f00f1843082 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/ninja-crispi-campaign-1-4a1ae0e4.webp",
               "alt": "",
-              "dims": "5400x7200"
+              "dims": "5400x7200",
+              "lightbox": "dark"
             },
             {
               "id": "c4d5ce7736da3d9af473",
@@ -2320,7 +2352,8 @@
               "css": "#block-1f67771f9434995f1712 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 5599/2696;\n      }\n      #block-1f67771f9434995f1712 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-1f67771f9434995f1712 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-1f67771f9434995f1712 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/big-foot-321c7c7c.webp",
               "alt": "",
-              "dims": "5599x2696"
+              "dims": "5599x2696",
+              "lightbox": "dark"
             },
             {
               "id": "5ea80f68faa324a6d879",
@@ -2340,7 +2373,8 @@
               "css": "#block-5ea80f68faa324a6d879 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 5599/2696;\n      }\n      #block-5ea80f68faa324a6d879 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-5ea80f68faa324a6d879 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-5ea80f68faa324a6d879 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/big-shot-47f2f5a1.webp",
               "alt": "",
-              "dims": "5599x2696"
+              "dims": "5599x2696",
+              "lightbox": "dark"
             },
             {
               "id": "e50c71b53f5eee122386",
@@ -2360,7 +2394,8 @@
               "css": "#block-e50c71b53f5eee122386 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 5599/2696;\n      }\n      #block-e50c71b53f5eee122386 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-e50c71b53f5eee122386 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-e50c71b53f5eee122386 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/big-moments-2dd5c5c8.webp",
               "alt": "",
-              "dims": "5599x2696"
+              "dims": "5599x2696",
+              "lightbox": "dark"
             },
             {
               "id": "90d6f40bcc1fe72c23b7",
@@ -2380,7 +2415,8 @@
               "css": "#block-90d6f40bcc1fe72c23b7 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 5599/2696;\n      }\n      #block-90d6f40bcc1fe72c23b7 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-90d6f40bcc1fe72c23b7 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-90d6f40bcc1fe72c23b7 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/big-dog-bee7fc27.webp",
               "alt": "",
-              "dims": "5599x2696"
+              "dims": "5599x2696",
+              "lightbox": "dark"
             },
             {
               "id": "8454e4c47a3e1ad21a12",
@@ -2400,7 +2436,8 @@
               "css": "#block-8454e4c47a3e1ad21a12 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 5599/2696;\n      }\n      #block-8454e4c47a3e1ad21a12 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-8454e4c47a3e1ad21a12 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-8454e4c47a3e1ad21a12 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/big-camping-6c0009c6.webp",
               "alt": "",
-              "dims": "5599x2696"
+              "dims": "5599x2696",
+              "lightbox": "dark"
             },
             {
               "id": "ac0e0ae914ce95bd7dfe",
@@ -2420,7 +2457,8 @@
               "css": "#block-ac0e0ae914ce95bd7dfe {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 1945/936;\n      }\n      #block-ac0e0ae914ce95bd7dfe .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-ac0e0ae914ce95bd7dfe .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-ac0e0ae914ce95bd7dfe .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/big-bacon-3fc2d35f.webp",
               "alt": "",
-              "dims": "1945x936"
+              "dims": "1945x936",
+              "lightbox": "dark"
             }
           ]
         },
@@ -2721,7 +2759,8 @@
               "css": "#block-219827925781ae720c45 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 5664/3982;\n      }\n      #block-219827925781ae720c45 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-219827925781ae720c45 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-219827925781ae720c45 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/color-4-2-1-4f8e8b44.webp",
               "alt": "",
-              "dims": "5664x3982"
+              "dims": "5664x3982",
+              "lightbox": "dark"
             },
             {
               "id": "f460a6567bf5b0b67c5f",
@@ -2741,7 +2780,8 @@
               "css": "#block-f460a6567bf5b0b67c5f {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 4050/6900;\n      }\n      #block-f460a6567bf5b0b67c5f .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-f460a6567bf5b0b67c5f .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-f460a6567bf5b0b67c5f .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/minimal-photography-final-1-1203326b.webp",
               "alt": "",
-              "dims": "4050x6900"
+              "dims": "4050x6900",
+              "lightbox": "dark"
             },
             {
               "id": "c9cf1cb8c62d229075f1",
@@ -2761,7 +2801,8 @@
               "css": "#block-c9cf1cb8c62d229075f1 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 3000/959;\n      }\n      #block-c9cf1cb8c62d229075f1 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-c9cf1cb8c62d229075f1 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-c9cf1cb8c62d229075f1 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/20230908-201229-edited-5c0388b5.webp",
               "alt": "",
-              "dims": "3000x959"
+              "dims": "3000x959",
+              "lightbox": "dark"
             },
             {
               "id": "ea54fc4f4f783a76a61d",
@@ -2781,7 +2822,8 @@
               "css": "#block-ea54fc4f4f783a76a61d {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 2250/3000;\n      }\n      #block-ea54fc4f4f783a76a61d .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-ea54fc4f4f783a76a61d .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-ea54fc4f4f783a76a61d .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/20230906-191004-edited-32421f22.webp",
               "alt": "",
-              "dims": "2250x3000"
+              "dims": "2250x3000",
+              "lightbox": "dark"
             },
             {
               "id": "29e1457f6ab2234bc615",
@@ -2801,7 +2843,8 @@
               "css": "#block-29e1457f6ab2234bc615 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 2704/3362;\n      }\n      #block-29e1457f6ab2234bc615 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-29e1457f6ab2234bc615 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-29e1457f6ab2234bc615 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/20230831-072236-20d62e7c.webp",
               "alt": "",
-              "dims": "2704x3362"
+              "dims": "2704x3362",
+              "lightbox": "dark"
             },
             {
               "id": "a59c6ccdabdc44a88fbd",
@@ -2821,7 +2864,8 @@
               "css": "#block-a59c6ccdabdc44a88fbd {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 4640/6960;\n      }\n      #block-a59c6ccdabdc44a88fbd .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-a59c6ccdabdc44a88fbd .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-a59c6ccdabdc44a88fbd .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/img-8861-387bd376.webp",
               "alt": "",
-              "dims": "4640x6960"
+              "dims": "4640x6960",
+              "lightbox": "dark"
             },
             {
               "id": "f5b95c890f96b555ffbf",
@@ -2841,7 +2885,8 @@
               "css": "#block-f5b95c890f96b555ffbf {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 6960/4640;\n      }\n      #block-f5b95c890f96b555ffbf .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-f5b95c890f96b555ffbf .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-f5b95c890f96b555ffbf .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/img-1955-22a9b0fe.webp",
               "alt": "",
-              "dims": "6960x4640"
+              "dims": "6960x4640",
+              "lightbox": "dark"
             },
             {
               "id": "d5a91a56fee777bc862a",
@@ -2861,7 +2906,8 @@
               "css": "#block-d5a91a56fee777bc862a {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 6960/4640;\n      }\n      #block-d5a91a56fee777bc862a .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-d5a91a56fee777bc862a .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-d5a91a56fee777bc862a .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/img-8179-498150f6.webp",
               "alt": "",
-              "dims": "6960x4640"
+              "dims": "6960x4640",
+              "lightbox": "dark"
             },
             {
               "id": "03a07d5401bbc87b98e2",
@@ -2881,7 +2927,8 @@
               "css": "#block-03a07d5401bbc87b98e2 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 3813/2084;\n      }\n      #block-03a07d5401bbc87b98e2 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-03a07d5401bbc87b98e2 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-03a07d5401bbc87b98e2 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/20231124-161316-507f4dd1.webp",
               "alt": "",
-              "dims": "3813x2084"
+              "dims": "3813x2084",
+              "lightbox": "dark"
             },
             {
               "id": "b73a17e1f97f76b838cf",
@@ -2901,7 +2948,8 @@
               "css": "#block-b73a17e1f97f76b838cf {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 2040/1667;\n      }\n      #block-b73a17e1f97f76b838cf .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-b73a17e1f97f76b838cf .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-b73a17e1f97f76b838cf .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/img-8834-a587f2a3.webp",
               "alt": "",
-              "dims": "2040x1667"
+              "dims": "2040x1667",
+              "lightbox": "dark"
             },
             {
               "id": "c24600885dc3c16ea2c2",
@@ -2921,7 +2969,8 @@
               "css": "#block-c24600885dc3c16ea2c2 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 2205/3371;\n      }\n      #block-c24600885dc3c16ea2c2 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-c24600885dc3c16ea2c2 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-c24600885dc3c16ea2c2 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/img-8822-2e13515c.webp",
               "alt": "",
-              "dims": "2205x3371"
+              "dims": "2205x3371",
+              "lightbox": "dark"
             },
             {
               "id": "9eecbf7b438e37276a1e",
@@ -2941,7 +2990,8 @@
               "css": "#block-9eecbf7b438e37276a1e {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 2250/3000;\n      }\n      #block-9eecbf7b438e37276a1e .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-9eecbf7b438e37276a1e .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-9eecbf7b438e37276a1e .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/20230905-230450-edited-86cfda48.webp",
               "alt": "",
-              "dims": "2250x3000"
+              "dims": "2250x3000",
+              "lightbox": "dark"
             }
           ]
         },
@@ -3053,7 +3103,8 @@
               "css": "#block-36d9a938888cc544281d {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 3356/2542;\n      }\n      #block-36d9a938888cc544281d .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-36d9a938888cc544281d .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-36d9a938888cc544281d .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/sy-clock-98ec31c2.webp",
               "alt": "",
-              "dims": "3356x2542"
+              "dims": "3356x2542",
+              "lightbox": "dark"
             },
             {
               "id": "37518f7aef1ddba0a1d3",
@@ -3073,7 +3124,8 @@
               "css": "#block-37518f7aef1ddba0a1d3 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 2519/3157;\n      }\n      #block-37518f7aef1ddba0a1d3 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-37518f7aef1ddba0a1d3 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-37518f7aef1ddba0a1d3 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/sy-4-1-13c4d39b.webp",
               "alt": "",
-              "dims": "2519x3157"
+              "dims": "2519x3157",
+              "lightbox": "dark"
             },
             {
               "id": "ee0e15b0fea98aeb6203",
@@ -3093,7 +3145,8 @@
               "css": "#block-ee0e15b0fea98aeb6203 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 3508/2437;\n      }\n      #block-ee0e15b0fea98aeb6203 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-ee0e15b0fea98aeb6203 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-ee0e15b0fea98aeb6203 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/sy-design-1-f26663cb.webp",
               "alt": "",
-              "dims": "3508x2437"
+              "dims": "3508x2437",
+              "lightbox": "dark"
             },
             {
               "id": "d76016664a91522f981b",
@@ -3113,7 +3166,8 @@
               "css": "#block-d76016664a91522f981b {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 1850/2937;\n      }\n      #block-d76016664a91522f981b .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-d76016664a91522f981b .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-d76016664a91522f981b .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/sy-5-b3d80646.webp",
               "alt": "",
-              "dims": "1850x2937"
+              "dims": "1850x2937",
+              "lightbox": "dark"
             },
             {
               "id": "2b727237ddaa4e26d548",
@@ -3133,7 +3187,8 @@
               "css": "#block-2b727237ddaa4e26d548 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 3171/2413;\n      }\n      #block-2b727237ddaa4e26d548 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-2b727237ddaa4e26d548 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-2b727237ddaa4e26d548 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/sy-6-1-9f915f76.webp",
               "alt": "",
-              "dims": "3171x2413"
+              "dims": "3171x2413",
+              "lightbox": "dark"
             },
             {
               "id": "67e67d32b4d8cc6dd063",
@@ -3153,7 +3208,8 @@
               "css": "#block-67e67d32b4d8cc6dd063 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 1866/2394;\n      }\n      #block-67e67d32b4d8cc6dd063 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-67e67d32b4d8cc6dd063 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-67e67d32b4d8cc6dd063 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/20231031-121406-2-2928024b.webp",
               "alt": "",
-              "dims": "1866x2394"
+              "dims": "1866x2394",
+              "lightbox": "dark"
             },
             {
               "id": "fd2870a8ccd13eee5c7e",
@@ -3173,7 +3229,8 @@
               "css": "#block-fd2870a8ccd13eee5c7e {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 2394/3179;\n      }\n      #block-fd2870a8ccd13eee5c7e .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-fd2870a8ccd13eee5c7e .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-fd2870a8ccd13eee5c7e .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/sy-still-life-6b50985b.webp",
               "alt": "",
-              "dims": "2394x3179"
+              "dims": "2394x3179",
+              "lightbox": "dark"
             },
             {
               "id": "a21cc3ab0e08043ac42a",
@@ -3193,7 +3250,8 @@
               "css": "#block-a21cc3ab0e08043ac42a {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 1195/1141;\n      }\n      #block-a21cc3ab0e08043ac42a .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-a21cc3ab0e08043ac42a .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-a21cc3ab0e08043ac42a .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/seoyoung-7-1d8a2259.webp",
               "alt": "",
-              "dims": "1195x1141"
+              "dims": "1195x1141",
+              "lightbox": "dark"
             },
             {
               "id": "dc745847666a5a0f6103",
@@ -3213,7 +3271,8 @@
               "css": "#block-dc745847666a5a0f6103 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 2475/3103;\n      }\n      #block-dc745847666a5a0f6103 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-dc745847666a5a0f6103 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-dc745847666a5a0f6103 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/img-2246-2-34c2c964.webp",
               "alt": "",
-              "dims": "2475x3103"
+              "dims": "2475x3103",
+              "lightbox": "dark"
             },
             {
               "id": "df4a22b85f371a508bb8",
@@ -3233,7 +3292,8 @@
               "css": "#block-df4a22b85f371a508bb8 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 2467/2967;\n      }\n      #block-df4a22b85f371a508bb8 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-df4a22b85f371a508bb8 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-df4a22b85f371a508bb8 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/img-1705-98d686e7.webp",
               "alt": "",
-              "dims": "2467x2967"
+              "dims": "2467x2967",
+              "lightbox": "dark"
             },
             {
               "id": "3cef8311aa62ccef9ade",
@@ -3275,7 +3335,8 @@
               "css": "#block-836c036cbc5b4553fdca {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 4375/1798;\n      }\n      #block-836c036cbc5b4553fdca .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-836c036cbc5b4553fdca .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-836c036cbc5b4553fdca .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/img-2220-330c4fbf.webp",
               "alt": "",
-              "dims": "4375x1798"
+              "dims": "4375x1798",
+              "lightbox": "dark"
             },
             {
               "id": "yui_3_17_2_1_1763753672970_104443",
@@ -3328,7 +3389,8 @@
               "css": "#block-044fb3bf1bc6987e2548 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 3514/2324;\n      }\n      #block-044fb3bf1bc6987e2548 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-044fb3bf1bc6987e2548 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-044fb3bf1bc6987e2548 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/sy-series-4-2-9903b6c7.webp",
               "alt": "",
-              "dims": "3514x2324"
+              "dims": "3514x2324",
+              "lightbox": "light"
             },
             {
               "id": "a5db17c2c5ad2d6051d7",
@@ -3367,7 +3429,8 @@
               "css": "#block-5d9275b23805fbc36cca {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 2348/3592;\n      }\n      #block-5d9275b23805fbc36cca .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-5d9275b23805fbc36cca .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-5d9275b23805fbc36cca .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/sy-series-02-f37b30cc.webp",
               "alt": "",
-              "dims": "2348x3592"
+              "dims": "2348x3592",
+              "lightbox": "light"
             },
             {
               "id": "691bfb7468544e744024",
@@ -3387,7 +3450,8 @@
               "css": "#block-691bfb7468544e744024 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 3424/2335;\n      }\n      #block-691bfb7468544e744024 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-691bfb7468544e744024 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-691bfb7468544e744024 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/sy-series-03-62af75a9.webp",
               "alt": "",
-              "dims": "3424x2335"
+              "dims": "3424x2335",
+              "lightbox": "light"
             },
             {
               "id": "898c7d553a47477ffe49",
@@ -3407,7 +3471,8 @@
               "css": "#block-898c7d553a47477ffe49 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 3586/2387;\n      }\n      #block-898c7d553a47477ffe49 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-898c7d553a47477ffe49 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-898c7d553a47477ffe49 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/sy-series-04-506071bc.webp",
               "alt": "",
-              "dims": "3586x2387"
+              "dims": "3586x2387",
+              "lightbox": "light"
             }
           ]
         }
@@ -3744,7 +3809,8 @@
               "css": "#block-yui_3_17_2_1_1764398309562_24351 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 1920/808;\n      }\n      #block-yui_3_17_2_1_1764398309562_24351 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-yui_3_17_2_1_1764398309562_24351 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-yui_3_17_2_1_1764398309562_24351 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/frame-14030-ce4d5277.webp",
               "alt": "",
-              "dims": "1920x808"
+              "dims": "1920x808",
+              "lightbox": "dark"
             },
             {
               "id": "9d4b0b331fda65296ab0",
@@ -3764,7 +3830,8 @@
               "css": "#block-9d4b0b331fda65296ab0 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 1920/803;\n      }\n      #block-9d4b0b331fda65296ab0 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-9d4b0b331fda65296ab0 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-9d4b0b331fda65296ab0 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/frame-10669-1-1-1c16b98b.webp",
               "alt": "",
-              "dims": "1920x803"
+              "dims": "1920x803",
+              "lightbox": "dark"
             },
             {
               "id": "69d99142b5314705f83b",
@@ -3784,7 +3851,8 @@
               "css": "#block-69d99142b5314705f83b {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 1920/807;\n      }\n      #block-69d99142b5314705f83b .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-69d99142b5314705f83b .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-69d99142b5314705f83b .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/frame-16018-70fc0dda.webp",
               "alt": "",
-              "dims": "1920x807"
+              "dims": "1920x807",
+              "lightbox": "dark"
             },
             {
               "id": "5a253ec2c40c419c214d",
@@ -3804,7 +3872,8 @@
               "css": "#block-5a253ec2c40c419c214d {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 13274/3000;\n      }\n      #block-5a253ec2c40c419c214d .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-5a253ec2c40c419c214d .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-5a253ec2c40c419c214d .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/img-7862-8c976b8c.webp",
               "alt": "",
-              "dims": "13274x3000"
+              "dims": "13274x3000",
+              "lightbox": "dark"
             }
           ]
         },
@@ -4163,7 +4232,8 @@
               "css": "#block-8903e21edec351fcc946 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 710/1692;\n      }\n      #block-8903e21edec351fcc946 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-8903e21edec351fcc946 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-8903e21edec351fcc946 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/image-6487327-1-edited-fe0d98f3.webp",
               "alt": "",
-              "dims": "710x1692"
+              "dims": "710x1692",
+              "lightbox": "light"
             },
             {
               "id": "yui_3_17_2_1_1764398309562_32267",
@@ -4269,7 +4339,8 @@
               "css": "#block-6630826b66b60cee7464 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 2167/1401;\n      }\n      #block-6630826b66b60cee7464 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-6630826b66b60cee7464 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-6630826b66b60cee7464 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/screen-shot-2023-11-14-at-9-46-34-pm-42458170.webp",
               "alt": "",
-              "dims": "2167x1401"
+              "dims": "2167x1401",
+              "lightbox": "dark"
             }
           ]
         },
@@ -4340,7 +4411,8 @@
               "css": "#block-400d341baa25b8640313 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 2100/3150;\n      }\n      #block-400d341baa25b8640313 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-400d341baa25b8640313 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-400d341baa25b8640313 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/cover-bac20ee8.webp",
               "alt": "",
-              "dims": "2100x3150"
+              "dims": "2100x3150",
+              "lightbox": "light"
             },
             {
               "id": "8e677cf69c3a070e03d1",
@@ -4360,7 +4432,8 @@
               "css": "#block-8e677cf69c3a070e03d1 {\n        --image-component-focal-point: 53.600225014063376% 72.00450028126758%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 2100/3150;\n      }\n      #block-8e677cf69c3a070e03d1 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-8e677cf69c3a070e03d1 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-8e677cf69c3a070e03d1 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/page-1-a4f4b590.webp",
               "alt": "",
-              "dims": "2100x3150"
+              "dims": "2100x3150",
+              "lightbox": "light"
             },
             {
               "id": "1037357e477e27ec1b47",
@@ -4380,7 +4453,8 @@
               "css": "#block-1037357e477e27ec1b47 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 2100/3150;\n      }\n      #block-1037357e477e27ec1b47 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-1037357e477e27ec1b47 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-1037357e477e27ec1b47 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/page-2-a6d09dfa.webp",
               "alt": "",
-              "dims": "2100x3150"
+              "dims": "2100x3150",
+              "lightbox": "light"
             },
             {
               "id": "8d3f15b791845fd67aac",
@@ -4400,7 +4474,8 @@
               "css": "#block-8d3f15b791845fd67aac {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 2100/3150;\n      }\n      #block-8d3f15b791845fd67aac .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-8d3f15b791845fd67aac .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-8d3f15b791845fd67aac .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/page-3-2dad52f4.webp",
               "alt": "",
-              "dims": "2100x3150"
+              "dims": "2100x3150",
+              "lightbox": "light"
             },
             {
               "id": "e2be9adfdd561d39ab46",
@@ -4420,7 +4495,8 @@
               "css": "#block-e2be9adfdd561d39ab46 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 2100/3150;\n      }\n      #block-e2be9adfdd561d39ab46 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-e2be9adfdd561d39ab46 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-e2be9adfdd561d39ab46 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/page-4-7d74d6ab.webp",
               "alt": "",
-              "dims": "2100x3150"
+              "dims": "2100x3150",
+              "lightbox": "light"
             },
             {
               "id": "7b3f15570d7adaf854af",
@@ -4440,7 +4516,8 @@
               "css": "#block-7b3f15570d7adaf854af {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 2100/3150;\n      }\n      #block-7b3f15570d7adaf854af .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-7b3f15570d7adaf854af .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-7b3f15570d7adaf854af .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/page-5-6169a7d3.webp",
               "alt": "",
-              "dims": "2100x3150"
+              "dims": "2100x3150",
+              "lightbox": "light"
             },
             {
               "id": "f8a10c94d755bea2072d",
@@ -4460,7 +4537,8 @@
               "css": "#block-f8a10c94d755bea2072d {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 2100/3150;\n      }\n      #block-f8a10c94d755bea2072d .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-f8a10c94d755bea2072d .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-f8a10c94d755bea2072d .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/page-7-ae307208.webp",
               "alt": "",
-              "dims": "2100x3150"
+              "dims": "2100x3150",
+              "lightbox": "light"
             },
             {
               "id": "ff8bfa304be4995c5691",
@@ -4480,7 +4558,8 @@
               "css": "#block-ff8bfa304be4995c5691 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 2100/3150;\n      }\n      #block-ff8bfa304be4995c5691 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-ff8bfa304be4995c5691 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-ff8bfa304be4995c5691 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/page-6-d0fdabac.webp",
               "alt": "",
-              "dims": "2100x3150"
+              "dims": "2100x3150",
+              "lightbox": "light"
             },
             {
               "id": "d9f067774bce90c1b43b",
@@ -4500,7 +4579,8 @@
               "css": "#block-d9f067774bce90c1b43b {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 2100/3150;\n      }\n      #block-d9f067774bce90c1b43b .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-d9f067774bce90c1b43b .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-d9f067774bce90c1b43b .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/page-8-9309efc1.webp",
               "alt": "",
-              "dims": "2100x3150"
+              "dims": "2100x3150",
+              "lightbox": "light"
             },
             {
               "id": "d8368bc10a2013ac43d6",
@@ -4539,7 +4619,8 @@
               "css": "#block-fb509adbcee935de5417 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 990/1490;\n      }\n      #block-fb509adbcee935de5417 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-fb509adbcee935de5417 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-fb509adbcee935de5417 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/screenshot-2025-11-29-at-2-07-52-am-bf617372.webp",
               "alt": "",
-              "dims": "990x1490"
+              "dims": "990x1490",
+              "lightbox": "light"
             },
             {
               "id": "21b8742f1a6e916ea281",
@@ -4559,7 +4640,8 @@
               "css": "#block-21b8742f1a6e916ea281 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 987/1486;\n      }\n      #block-21b8742f1a6e916ea281 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-21b8742f1a6e916ea281 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-21b8742f1a6e916ea281 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/screenshot-2025-11-29-at-2-08-12-am-4fde3ca7.webp",
               "alt": "",
-              "dims": "987x1486"
+              "dims": "987x1486",
+              "lightbox": "light"
             },
             {
               "id": "30e98075f686b6b7facd",
@@ -4579,7 +4661,8 @@
               "css": "#block-30e98075f686b6b7facd {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 988/1486;\n      }\n      #block-30e98075f686b6b7facd .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-30e98075f686b6b7facd .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-30e98075f686b6b7facd .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/screenshot-2025-11-29-at-2-08-35-am-40f149b7.webp",
               "alt": "",
-              "dims": "988x1486"
+              "dims": "988x1486",
+              "lightbox": "light"
             },
             {
               "id": "b1d81584c7476d7f6a5f",
@@ -4599,7 +4682,8 @@
               "css": "#block-b1d81584c7476d7f6a5f {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 988/1486;\n      }\n      #block-b1d81584c7476d7f6a5f .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-b1d81584c7476d7f6a5f .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-b1d81584c7476d7f6a5f .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/screenshot-2025-11-29-at-2-08-53-am-da2b77a8.webp",
               "alt": "",
-              "dims": "988x1486"
+              "dims": "988x1486",
+              "lightbox": "light"
             },
             {
               "id": "6fde5b3948820cb1fa45",
@@ -4619,7 +4703,8 @@
               "css": "#block-6fde5b3948820cb1fa45 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 990/1486;\n      }\n      #block-6fde5b3948820cb1fa45 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-6fde5b3948820cb1fa45 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-6fde5b3948820cb1fa45 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/screenshot-2025-11-29-at-2-09-08-am-48470351.webp",
               "alt": "",
-              "dims": "990x1486"
+              "dims": "990x1486",
+              "lightbox": "light"
             },
             {
               "id": "b10c97be3653143f1ea5",
@@ -4639,7 +4724,8 @@
               "css": "#block-b10c97be3653143f1ea5 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 990/1488;\n      }\n      #block-b10c97be3653143f1ea5 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-b10c97be3653143f1ea5 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-b10c97be3653143f1ea5 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/screenshot-2025-11-29-at-2-09-29-am-3b823861.webp",
               "alt": "",
-              "dims": "990x1488"
+              "dims": "990x1488",
+              "lightbox": "light"
             },
             {
               "id": "02057ea99ed68959df34",
@@ -4659,7 +4745,8 @@
               "css": "#block-02057ea99ed68959df34 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 990/1486;\n      }\n      #block-02057ea99ed68959df34 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-02057ea99ed68959df34 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-02057ea99ed68959df34 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/screenshot-2025-11-29-at-2-09-44-am-fc745ffa.webp",
               "alt": "",
-              "dims": "990x1486"
+              "dims": "990x1486",
+              "lightbox": "light"
             },
             {
               "id": "529a7c9144d512aba9c4",
@@ -4679,7 +4766,8 @@
               "css": "#block-529a7c9144d512aba9c4 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 990/1490;\n      }\n      #block-529a7c9144d512aba9c4 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-529a7c9144d512aba9c4 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-529a7c9144d512aba9c4 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/screenshot-2025-11-29-at-2-10-00-am-84372f1d.webp",
               "alt": "",
-              "dims": "990x1490"
+              "dims": "990x1490",
+              "lightbox": "light"
             },
             {
               "id": "186a28d377a560aa78be",
@@ -4699,7 +4787,8 @@
               "css": "#block-186a28d377a560aa78be {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 988/1486;\n      }\n      #block-186a28d377a560aa78be .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-186a28d377a560aa78be .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-186a28d377a560aa78be .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/screenshot-2025-11-29-at-2-10-20-am-6cd171ad.webp",
               "alt": "",
-              "dims": "988x1486"
+              "dims": "988x1486",
+              "lightbox": "light"
             },
             {
               "id": "d87e5d71652a0f87a4d0",
@@ -4738,7 +4827,8 @@
               "css": "#block-913964a0b6e7579b2119 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 940/1406;\n      }\n      #block-913964a0b6e7579b2119 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-913964a0b6e7579b2119 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-913964a0b6e7579b2119 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/screenshot-2025-11-29-at-1-53-37-am-db616e3e.webp",
               "alt": "",
-              "dims": "940x1406"
+              "dims": "940x1406",
+              "lightbox": "light"
             },
             {
               "id": "a82a020896be1b5c72e0",
@@ -4758,7 +4848,8 @@
               "css": "#block-a82a020896be1b5c72e0 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 2100/3150;\n      }\n      #block-a82a020896be1b5c72e0 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-a82a020896be1b5c72e0 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-a82a020896be1b5c72e0 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/page-3-sketch-done-b8226413.webp",
               "alt": "",
-              "dims": "2100x3150"
+              "dims": "2100x3150",
+              "lightbox": "light"
             },
             {
               "id": "2a35bcaa08b40f069bca",
@@ -4778,7 +4869,8 @@
               "css": "#block-2a35bcaa08b40f069bca {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 2100/3150;\n      }\n      #block-2a35bcaa08b40f069bca .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-2a35bcaa08b40f069bca .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-2a35bcaa08b40f069bca .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/page-2-jpg-1-a872a71b.webp",
               "alt": "",
-              "dims": "2100x3150"
+              "dims": "2100x3150",
+              "lightbox": "light"
             },
             {
               "id": "f78f935478316bd84c30",
@@ -4798,7 +4890,8 @@
               "css": "#block-f78f935478316bd84c30 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 2100/3150;\n      }\n      #block-f78f935478316bd84c30 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-f78f935478316bd84c30 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-f78f935478316bd84c30 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/page-1-final-7d58eaf9.webp",
               "alt": "",
-              "dims": "2100x3150"
+              "dims": "2100x3150",
+              "lightbox": "light"
             },
             {
               "id": "76c7ff593fe2cb3d43cb",
@@ -4818,7 +4911,8 @@
               "css": "#block-76c7ff593fe2cb3d43cb {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 2100/3150;\n      }\n      #block-76c7ff593fe2cb3d43cb .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-76c7ff593fe2cb3d43cb .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-76c7ff593fe2cb3d43cb .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/page-4-sketch-done-c7c82da2.webp",
               "alt": "",
-              "dims": "2100x3150"
+              "dims": "2100x3150",
+              "lightbox": "light"
             },
             {
               "id": "95f427d95ade964c2493",
@@ -4838,7 +4932,8 @@
               "css": "#block-95f427d95ade964c2493 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 2100/3150;\n      }\n      #block-95f427d95ade964c2493 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-95f427d95ade964c2493 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-95f427d95ade964c2493 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/page-7-sketch-done-536fde51.webp",
               "alt": "",
-              "dims": "2100x3150"
+              "dims": "2100x3150",
+              "lightbox": "light"
             },
             {
               "id": "d8b49108e985d7265fa4",
@@ -4858,7 +4953,8 @@
               "css": "#block-d8b49108e985d7265fa4 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 2100/3150;\n      }\n      #block-d8b49108e985d7265fa4 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-d8b49108e985d7265fa4 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-d8b49108e985d7265fa4 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/page-6-sketches-6e0cfd4b.webp",
               "alt": "",
-              "dims": "2100x3150"
+              "dims": "2100x3150",
+              "lightbox": "light"
             },
             {
               "id": "fe0bdb23765a3abded4f",
@@ -4878,7 +4974,8 @@
               "css": "#block-fe0bdb23765a3abded4f {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 2100/3150;\n      }\n      #block-fe0bdb23765a3abded4f .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-fe0bdb23765a3abded4f .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-fe0bdb23765a3abded4f .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/page-5-sketch-done-1c3bda69.webp",
               "alt": "",
-              "dims": "2100x3150"
+              "dims": "2100x3150",
+              "lightbox": "light"
             },
             {
               "id": "d0ffb5188b7822680130",
@@ -4898,7 +4995,8 @@
               "css": "#block-d0ffb5188b7822680130 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 2100/3150;\n      }\n      #block-d0ffb5188b7822680130 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-d0ffb5188b7822680130 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-d0ffb5188b7822680130 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/page-8-no-time-lapse-sketch-done-c9cf0b55.webp",
               "alt": "",
-              "dims": "2100x3150"
+              "dims": "2100x3150",
+              "lightbox": "light"
             },
             {
               "id": "b1cd6602e3d93e79f000",
@@ -4937,7 +5035,8 @@
               "css": "#block-yui_3_17_2_1_1764398309562_25601 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 2100/3150;\n      }\n      #block-yui_3_17_2_1_1764398309562_25601 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-yui_3_17_2_1_1764398309562_25601 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-yui_3_17_2_1_1764398309562_25601 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/pacifistsoldier-1-d665511d.webp",
               "alt": "",
-              "dims": "2100x3150"
+              "dims": "2100x3150",
+              "lightbox": "light"
             },
             {
               "id": "3db8a1b0b9411f71b373",
@@ -4957,7 +5056,8 @@
               "css": "#block-3db8a1b0b9411f71b373 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 2100/3150;\n      }\n      #block-3db8a1b0b9411f71b373 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-3db8a1b0b9411f71b373 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-3db8a1b0b9411f71b373 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/thumbnails-a2a097a4.webp",
               "alt": "",
-              "dims": "2100x3150"
+              "dims": "2100x3150",
+              "lightbox": "light"
             }
           ]
         },
@@ -5603,7 +5703,8 @@
               "css": "#block-e0940eb95a9b650381bb {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 890/1146;\n      }\n      #block-e0940eb95a9b650381bb .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-e0940eb95a9b650381bb .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-e0940eb95a9b650381bb .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/screenshot-2025-11-19-at-7-54-34-pm-d0f53573.webp",
               "alt": "",
-              "dims": "890x1146"
+              "dims": "890x1146",
+              "lightbox": "light"
             },
             {
               "id": "cda3955dafec947386ac",
@@ -5623,7 +5724,8 @@
               "css": "#block-cda3955dafec947386ac {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 889/1144;\n      }\n      #block-cda3955dafec947386ac .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-cda3955dafec947386ac .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-cda3955dafec947386ac .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/screenshot-2025-11-19-at-7-59-21-pm-729bf591.webp",
               "alt": "",
-              "dims": "889x1144"
+              "dims": "889x1144",
+              "lightbox": "light"
             },
             {
               "id": "b10650fe957bf762903c",
@@ -5643,7 +5745,8 @@
               "css": "#block-b10650fe957bf762903c {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 876/1138;\n      }\n      #block-b10650fe957bf762903c .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-b10650fe957bf762903c .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-b10650fe957bf762903c .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/screenshot-2025-11-19-at-10-01-25-pm-ad219bf2.webp",
               "alt": "",
-              "dims": "876x1138"
+              "dims": "876x1138",
+              "lightbox": "light"
             },
             {
               "id": "fd1e0dd0b5efa7e4cb0a",
@@ -5714,7 +5817,8 @@
               "css": "#block-bb7b9b3432209042d312 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 5400/7200;\n      }\n      #block-bb7b9b3432209042d312 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-bb7b9b3432209042d312 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-bb7b9b3432209042d312 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/ninja-crispi-campaign-2-5a5ce195.webp",
               "alt": "",
-              "dims": "5400x7200"
+              "dims": "5400x7200",
+              "lightbox": "dark"
             },
             {
               "id": "625746adc35028676e45",
@@ -5734,7 +5838,8 @@
               "css": "#block-625746adc35028676e45 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 5400/7200;\n      }\n      #block-625746adc35028676e45 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-625746adc35028676e45 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-625746adc35028676e45 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/ninja-crispi-campaign-3-478287aa.webp",
               "alt": "",
-              "dims": "5400x7200"
+              "dims": "5400x7200",
+              "lightbox": "dark"
             },
             {
               "id": "7fa0e34f818936361dae",
@@ -5754,7 +5859,8 @@
               "css": "#block-7fa0e34f818936361dae {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 5400/7200;\n      }\n      #block-7fa0e34f818936361dae .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-7fa0e34f818936361dae .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-7fa0e34f818936361dae .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/ninja-crispi-campaign-1-4a1ae0e4.webp",
               "alt": "",
-              "dims": "5400x7200"
+              "dims": "5400x7200",
+              "lightbox": "dark"
             },
             {
               "id": "43af6039d66e5938231e",
@@ -5899,7 +6005,8 @@
               "css": "#block-fce4f4260a03f36d950f {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 5599/2696;\n      }\n      #block-fce4f4260a03f36d950f .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-fce4f4260a03f36d950f .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-fce4f4260a03f36d950f .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/big-foot-321c7c7c.webp",
               "alt": "",
-              "dims": "5599x2696"
+              "dims": "5599x2696",
+              "lightbox": "dark"
             },
             {
               "id": "6df4a764c9e1d2ce4a2e",
@@ -5919,7 +6026,8 @@
               "css": "#block-6df4a764c9e1d2ce4a2e {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 5599/2696;\n      }\n      #block-6df4a764c9e1d2ce4a2e .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-6df4a764c9e1d2ce4a2e .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-6df4a764c9e1d2ce4a2e .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/big-moments-2dd5c5c8.webp",
               "alt": "",
-              "dims": "5599x2696"
+              "dims": "5599x2696",
+              "lightbox": "dark"
             },
             {
               "id": "c5ab528c8edc35423abe",
@@ -5939,7 +6047,8 @@
               "css": "#block-c5ab528c8edc35423abe {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 5599/2696;\n      }\n      #block-c5ab528c8edc35423abe .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-c5ab528c8edc35423abe .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-c5ab528c8edc35423abe .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/big-dog-bee7fc27.webp",
               "alt": "",
-              "dims": "5599x2696"
+              "dims": "5599x2696",
+              "lightbox": "dark"
             },
             {
               "id": "41efbabc5a3dee125194",
@@ -5959,7 +6068,8 @@
               "css": "#block-41efbabc5a3dee125194 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 5599/2696;\n      }\n      #block-41efbabc5a3dee125194 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-41efbabc5a3dee125194 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-41efbabc5a3dee125194 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/big-camping-6c0009c6.webp",
               "alt": "",
-              "dims": "5599x2696"
+              "dims": "5599x2696",
+              "lightbox": "dark"
             },
             {
               "id": "0bb146c35a132a51094b",
@@ -5979,7 +6089,8 @@
               "css": "#block-0bb146c35a132a51094b {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 5599/2696;\n      }\n      #block-0bb146c35a132a51094b .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-0bb146c35a132a51094b .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-0bb146c35a132a51094b .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/big-shot-47f2f5a1.webp",
               "alt": "",
-              "dims": "5599x2696"
+              "dims": "5599x2696",
+              "lightbox": "dark"
             },
             {
               "id": "8c3f75ffa545bc912686",
@@ -5999,7 +6110,8 @@
               "css": "#block-8c3f75ffa545bc912686 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 1945/936;\n      }\n      #block-8c3f75ffa545bc912686 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-8c3f75ffa545bc912686 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-8c3f75ffa545bc912686 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/big-bacon-3fc2d35f.webp",
               "alt": "",
-              "dims": "1945x936"
+              "dims": "1945x936",
+              "lightbox": "dark"
             },
             {
               "id": "52fff3c8825d1e6bb1db",
@@ -6070,7 +6182,8 @@
               "css": "#block-b43a0b5280e32544a8bc {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: cover;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 2258/1244;\n      }\n      #block-b43a0b5280e32544a8bc .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;border-top-left-radius: 20px;border-top-right-radius: 20px;border-bottom-left-radius: 20px;border-bottom-right-radius: 20px;\n      }\n      #block-b43a0b5280e32544a8bc .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-b43a0b5280e32544a8bc .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": null,
               "alt": "",
-              "dims": "2258x1244"
+              "dims": "2258x1244",
+              "lightbox": "light"
             },
             {
               "id": "b28b0bbf2dd78d374744",
@@ -6159,7 +6272,8 @@
               "css": "#block-faa2d144b51479fd53e7 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 1728/2304;\n      }\n      #block-faa2d144b51479fd53e7 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-faa2d144b51479fd53e7 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-faa2d144b51479fd53e7 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/valentine-s-day-1-2-d11a4f12.webp",
               "alt": "",
-              "dims": "1728x2304"
+              "dims": "1728x2304",
+              "lightbox": "dark"
             },
             {
               "id": "13796727d9665902ef4b",
@@ -6179,7 +6293,8 @@
               "css": "#block-13796727d9665902ef4b {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 1728/2304;\n      }\n      #block-13796727d9665902ef4b .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-13796727d9665902ef4b .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-13796727d9665902ef4b .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/valentine-s-day-2-1-fb0c45eb.webp",
               "alt": "",
-              "dims": "1728x2304"
+              "dims": "1728x2304",
+              "lightbox": "dark"
             },
             {
               "id": "524790460a3b450b7837",
@@ -6199,7 +6314,8 @@
               "css": "#block-524790460a3b450b7837 {\n        --image-component-focal-point: 50% 50%;\n  --image-component-object-fit: contain;\n  --image-component-overlay-opacity: 0;\n  --image-component-overlay-blend-mode: normal;\n  --image-component-native-aspect-ratio: 1728/2304;\n      }\n      #block-524790460a3b450b7837 .fluid-image-container.visitor-mode {\n  overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);clip-path: none;-webkit-clip-path: none;\n      }\n      #block-524790460a3b450b7837 .js-content-mode-element-wrapper {\n        position: relative;\n        width: 100%;\n        height: 100%;\n        display: none;\n      }\n      #block-524790460a3b450b7837 .js-content-mode-element-system_desktop {\n        display: block;\n      }",
               "src": "/media/valentine-s-day-3-1-90435a0f.webp",
               "alt": "",
-              "dims": "1728x2304"
+              "dims": "1728x2304",
+              "lightbox": "dark"
             },
             {
               "id": "5774b42b868066065e69",
