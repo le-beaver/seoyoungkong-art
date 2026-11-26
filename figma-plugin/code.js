@@ -228,8 +228,11 @@ async function buildPage({ page, images, site, seed, isFooter }) {
   await loadFonts();
   const name = `Site · ${page.title}`;
   await figma.loadAllPagesAsync();
-  let fp = figma.root.children.find(p => p.getSharedPluginData(NS, 'slug') === page.slug && p.getSharedPluginData(NS, 'kind') === 'canvas');
-  if (!fp) { fp = figma.createPage(); set(fp, { kind: 'canvas', slug: page.slug }); }
+  // slugs are stored as "/path" because Figma drops empty plugin-data values (the homepage slug is "")
+  const key = '/' + page.slug;
+  let fp = figma.root.children.find(p => p.getSharedPluginData(NS, 'kind') === 'canvas' && p.getSharedPluginData(NS, 'slug') === key)
+    || figma.root.children.find(p => p.getSharedPluginData(NS, 'kind') === 'canvas' && [page.slug, ''].includes(p.getSharedPluginData(NS, 'slug')) && p.name === name);
+  if (!fp) { fp = figma.createPage(); set(fp, { kind: 'canvas', slug: key }); }
   fp.name = name;
   for (const c of [...fp.children]) c.remove();
 
@@ -237,7 +240,7 @@ async function buildPage({ page, images, site, seed, isFooter }) {
   root.name = `${page.title} — ${page.slug ? '/' + page.slug : '/'}`;
   root.layoutMode = 'VERTICAL'; root.primaryAxisSizingMode = 'AUTO'; root.counterAxisSizingMode = 'FIXED';
   root.resize(G.frameWidth, 100); root.itemSpacing = 0; root.fills = []; root.clipsContent = false;
-  set(root, { kind: 'page', slug: page.slug, seed });
+  set(root, { kind: 'page', slug: key, seed });
   fp.appendChild(root);
 
   if (!isFooter) {
@@ -264,7 +267,7 @@ async function buildPage({ page, images, site, seed, isFooter }) {
     const f = figma.createFrame();
     f.name = `Section ${i + 1}`;
     f.resize(G.frameWidth, h); f.fills = solid(theme.bg); f.clipsContent = true;
-    set(f, { kind: 'section', slug: page.slug, index: String(i), padTop: String(padTop), seed });
+    set(f, { kind: 'section', slug: key, index: String(i), padTop: String(padTop), seed });
     root.appendChild(f);
     const blocks = [...sec.blocks].sort((a, b) => a.d.z - b.d.z);
     for (const b of blocks) {
@@ -285,7 +288,7 @@ figma.ui.onmessage = async msg => {
     } else if (msg.type === 'page') {
       const fp = await buildPage(msg);
       figma.ui.postMessage({ type: 'page-done', slug: msg.page.slug });
-      if (msg.last) { await figma.setCurrentPageAsync(figma.root.children.find(p => p.getSharedPluginData(NS, 'slug') === '') || fp); figma.notify('Website pages are ready to edit.'); }
+      if (msg.last) { await figma.setCurrentPageAsync(figma.root.children.find(p => p.getSharedPluginData(NS, 'slug') === '/') || fp); figma.notify('Website pages are ready to edit.'); }
     } else if (msg.type === 'notify') {
       figma.notify(msg.text, { error: !!msg.error });
     }

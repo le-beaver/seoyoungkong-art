@@ -148,7 +148,7 @@ if (!pageFrames.length) { console.log('No "Site · …" pages in this Figma file
 const newState = { version: file.version, nodes: { ...state.nodes } };
 
 for (const pf of pageFrames) {
-  const slug = pd(pf).slug;
+  const slug = (pd(pf).slug || '').replace(/^\//, '');
   const page = slug === '__footer' ? { title: 'Footer', sections: site.footer.sections } : site.pages.find(p => p.slug === slug);
   if (!page) { console.log('Skipping unknown page', slug); continue; }
   const sectionFrames = (pf.children || []).filter(c => pd(c).kind === 'section');

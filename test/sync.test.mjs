@@ -48,10 +48,10 @@ for (const page of site.pages) {
       if (b.type === 'image') { data.img = 'hash-' + b.id; return { ...base, type: 'RECTANGLE', fills: [{ type: 'IMAGE', imageRef: 'hash-' + b.id }], sharedPluginData: { sqsite: data } }; }
       return { ...base, type: 'FRAME', children: [], sharedPluginData: { sqsite: data } };
     });
-    sections.push({ id: `s${nid++}`, type: 'FRAME', absoluteBoundingBox: { x: 0, y, width: 1440, height: h }, sharedPluginData: { sqsite: { kind: 'section', index: String(si), padTop: '0', slug: page.slug } }, children });
+    sections.push({ id: `s${nid++}`, type: 'FRAME', absoluteBoundingBox: { x: 0, y, width: 1440, height: h }, sharedPluginData: { sqsite: { kind: 'section', index: String(si), padTop: '0', slug: '/' + page.slug } }, children });
     y += h;
   });
-  pages.push({ id: `p${nid++}`, type: 'FRAME', sharedPluginData: { sqsite: { kind: 'page', slug: page.slug } }, children: sections });
+  pages.push({ id: `p${nid++}`, type: 'FRAME', sharedPluginData: { sqsite: { kind: 'page', slug: '/' + page.slug } }, children: sections });
 }
 const doc = { version: 'v1', document: { id: '0:0', type: 'DOCUMENT', children: [{ id: '0:1', type: 'CANVAS', children: pages }] } };
 const write = (name, d) => { fs.writeFileSync(path.join(tmp, name), JSON.stringify(d)); return path.join(tmp, name); };
@@ -65,7 +65,7 @@ let o = run(write('f1.json', doc));
 check('untouched Figma file makes no content changes', fs.readFileSync(path.join(tmp, 'content/site.json'), 'utf8') === before, o.trim().split('\n').pop());
 
 // 2) Edits
-const about = pages.find(p => pd(p).slug === 'about-me');
+const about = pages.find(p => pd(p).slug === '/about-me');
 function pd(n) { return n.sharedPluginData.sqsite; }
 const aboutSec = about.children[0];
 const bio = aboutSec.children.find(c => c.type === 'TEXT' && c.characters.startsWith('My name is'));
@@ -76,10 +76,10 @@ photo.fills = [{ type: 'IMAGE', imageRef: 'newphoto123' }];
 fs.mkdirSync(path.join(tmp, 'imgs'), { recursive: true });
 await sharp({ create: { width: 1200, height: 900, channels: 3, background: '#3366ff' } }).png().toFile(path.join(tmp, 'imgs/newphoto123.png'));
 await sharp({ create: { width: 600, height: 600, channels: 3, background: '#ff6633' } }).png().toFile(path.join(tmp, 'imgs/brandnew456.png'));
-const home = pages.find(p => pd(p).slug === '').children[0];
+const home = pages.find(p => pd(p).slug === '/').children[0];
 const shape = home.children.find(c => pd(c).type === 'shape');
 shape.absoluteBoundingBox = { ...shape.absoluteBoundingBox, x: shape.absoluteBoundingBox.x + 150 };
-const art = pages.find(p => pd(p).slug === 'art').children[1];
+const art = pages.find(p => pd(p).slug === '/art').children[1];
 const removed = art.children.splice(art.children.findIndex(c => c.type === 'RECTANGLE'), 1)[0];
 art.children.push({ id: '999:9', name: 'my new painting', type: 'RECTANGLE', fills: [{ type: 'IMAGE', imageRef: 'brandnew456' }], absoluteBoundingBox: { x: 100, y: art.absoluteBoundingBox.y + 400, width: 500, height: 500 } });
 art.children.push({ id: '999:10', name: 'caption', ...textNode({ html: '<p>Hello from Figma</p>' }, 'white'), absoluteBoundingBox: { x: 700, y: art.absoluteBoundingBox.y + 400, width: 400, height: 30 } });
@@ -107,7 +107,7 @@ doc.version = 'v3'; run(write('f3.json', doc));
 check('second sync with same Figma content is a no-op', fs.readFileSync(path.join(tmp, 'content/site.json'), 'utf8') === after2);
 
 // 4) Safety: wiping a page in Figma does not wipe the site
-const adw = pages.find(p => pd(p).slug === 'ad-work'); adw.children.forEach(s => (s.children = [])); doc.version = 'v4';
+const adw = pages.find(p => pd(p).slug === '/ad-work'); adw.children.forEach(s => (s.children = [])); doc.version = 'v4';
 o = run(write('f4.json', doc));
 check('mass deletion is refused', load().pages.find(p => p.slug === 'ad-work').sections.reduce((n, s) => n + s.blocks.length, 0) > 50, o.match(/⚠.*/)?.[0] || '');
 
