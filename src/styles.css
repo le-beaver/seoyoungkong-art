@@ -93,6 +93,8 @@ a { color: inherit; }
 
 /* ---------- header ---------- */
 .hdr { position: fixed; inset: 0 0 auto; z-index: 100; height: var(--hdr-h); background: var(--bg); box-shadow: 0 12px 12px rgba(0,0,0,.15); transition: height .14s ease-in-out, transform .14s ease-in-out .14s; }
+/* once scrolled (Squarespace .shrink) the header slides without the 140ms delay and resizes without a transition */
+:root.hdr-shrink .hdr { transition: transform .14s ease-in-out; }
 /* Squarespace "scroll back" header: slides away on scroll down, returns on scroll up */
 .hdr.hdr-hidden { transform: translateY(-100%); box-shadow: none; }
 body.menu-open .hdr { transform: none; }
@@ -101,24 +103,30 @@ body.menu-open .hdr { transform: none; }
 .hdr-nav { display: flex; gap: 1.1em; justify-self: center; }
 .hdr-nav a { color: var(--nav); text-decoration: none; font-size: 1rem; padding: .2em 0; background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat; transition: background-size .2s; }
 .hdr-nav a:hover, .hdr-nav a[aria-current] { background-size: 100% 1px; }
-.hdr-burger { display: none; justify-self: end; box-sizing: border-box; width: 47px; background: none; border: 0; padding: 6px; color: var(--nav); cursor: pointer; }
-.hdr-burger span { display: block; width: 35px; height: 1px; background: currentColor; margin: 10px 0; transition: transform .25s cubic-bezier(.2,.6,.3,1), width .25s cubic-bezier(.2,.6,.3,1); }
+/* Squarespace burger markup and CSS: 47x37 button, 35px box, two 1px buns centred and moved +-5.5px with
+   will-change: transform, so they sit on fractional pixels and render soft like Squarespace's */
+.hdr-burger { display: none; justify-self: end; box-sizing: border-box; width: 47px; height: 37px; background: none; border: 0; padding: 1px 6px; color: var(--nav); cursor: pointer; }
+.burger-box { position: relative; display: flex; align-items: center; justify-content: center; width: 35px; height: 35px; }
+.burger-inner { width: 100%; height: 100%; }
+.burger-inner > span { position: absolute; display: block; top: 0; left: 0; bottom: 0; margin: auto; width: 100%; height: 1px; background: currentColor; transition: transform 250ms cubic-bezier(.2,.6,.3,1), width 250ms cubic-bezier(.2,.6,.3,1); will-change: transform, width; }
+.top-bun { transform: translateY(-5.5px); }
+.bottom-bun { transform: translateY(5.5px); }
 .menu { position: fixed; inset: var(--hdr-h) 0 0; z-index: 99; display: none; flex-direction: column; align-items: center; justify-content: center; background: var(--bg); }
 .menu a { color: var(--nav); text-decoration: none; font-size: 8.5vmin; line-height: 1; margin: 3vw 5vw; font-weight: 600; }
 @media (min-width: 576px) { .menu a { font-size: 6.6vmin; } }
 body.menu-open .hdr { box-shadow: none; }
 body.menu-open .menu { display: flex; }
-/* open: Squarespace closes into a 28px-long thin X centred on the burger */
-body.menu-open .hdr-burger span { width: 28px; }
-body.menu-open .hdr-burger span:nth-child(1) { transform: translate(3.5px, 5.5px) rotate(45deg); }
-body.menu-open .hdr-burger span:nth-child(2) { transform: translate(3.5px, -5.5px) rotate(-45deg); }
+/* open: Squarespace's .burger--active turns the buns into a 28px thin X */
+body.menu-open .top-bun { transform: translateX(3.5px) rotate(-135deg); width: 28px; }
+body.menu-open .bottom-bun { transform: translateX(3.5px) rotate(135deg); width: 28px; }
 @media (max-width: 767px) {
   .hdr-in { grid-template-columns: 1fr auto; padding: 0 var(--sqs-mobile-site-gutter); }
   .hdr-nav { display: none; }
   .hdr-burger { display: block; }
-  :root { --hdr-h: 84px; }
+  /* Squarespace mobile header: 37px row inside 6vw top/bottom padding (83.78px at 390 wide) */
+  :root { --hdr-h: calc(37px + 12vw); }
   /* scrolled past 10px: Squarespace's .shrink swaps the 6vw top/bottom padding for min(6vw, 2vmax) */
-  :root.hdr-shrink { --hdr-h: calc(84px - 12vw + 2 * min(6vw, 2vmax)); }
+  :root.hdr-shrink { --hdr-h: calc(37px + 2 * min(6vw, 2vmax)); }
   .hdr-title { font-size: 16px; }
 }
 main { padding-top: var(--hdr-h); }
@@ -209,9 +217,15 @@ main { padding-top: var(--hdr-h); }
 .acc summary { cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 1rem; line-height: normal;
   padding: var(--accordion-item-padding-top, 30px) var(--accordion-item-padding-right, 0) var(--accordion-item-padding-bottom, 30px) var(--accordion-item-padding-left, 0); }
 .acc summary::-webkit-details-marker { display: none; }
-.acc summary::after { content: ""; flex: none; width: var(--accordion-icon-size, 30px); height: var(--accordion-icon-size, 30px);
-  background: linear-gradient(currentColor, currentColor) center / 100% var(--accordion-icon-thickness, 3px) no-repeat, linear-gradient(currentColor, currentColor) center / var(--accordion-icon-thickness, 3px) 100% no-repeat; }
-.acc details[open] summary::after { background-size: 100% var(--accordion-icon-thickness, 3px), var(--accordion-icon-thickness, 3px) 0; }
+.acc-ic { position: relative; flex: none; width: var(--accordion-icon-size, 30px); height: var(--accordion-icon-size, 30px); }
+/* Squarespace plus icon: two bars, the vertical one is the horizontal one turned 90deg and turns flat (minus) when open */
+.acc-ic i { position: absolute; left: 0; top: 0; bottom: 0; margin: auto 0; width: 100%; height: var(--accordion-icon-thickness, 3px); background: currentColor; transition: transform .25s; }
+.acc-ic i + i { transform: rotate(90deg); }
+.acc details[open]:not(.acc-closing) .acc-ic i + i { transform: rotate(0deg); }
+/* site.js animates open/close like Squarespace: height over 250ms cubic-bezier(.66,0,.34,1) */
+.acc details { box-sizing: border-box; }
+.acc details.acc-anim { overflow: hidden; transition: height 250ms cubic-bezier(.66, 0, .34, 1); }
+@media (prefers-reduced-motion: reduce) { .acc-ic i { transition: none; } }
 /* Squarespace .accordion-item__description has a 1rem margin above and below on top of its padding, and its
    first/last paragraph margins are zeroed; padding here so the gap stays inside the open item like on Squarespace */
 .acc details > div { padding: calc(1rem + var(--accordion-description-padding-top, 0px)) var(--accordion-description-padding-right, 0) calc(1rem + var(--accordion-description-padding-bottom, 30px)) var(--accordion-description-padding-left, 0); max-width: var(--accordion-description-width, 100%); }
@@ -270,14 +284,34 @@ footer > .sec > .sec-in { width: 100%; }
 .vp-btn { width: 24px; height: 24px; margin-left: 20px !important; border-radius: 4px; color: #e7e7e7 !important; }
 .vp-btn:hover, .vp-btn:focus-visible { color: #fff !important; }
 .vp-btn svg { filter: drop-shadow(0 0 .5px rgba(0,0,0,.4)); }
-.vp-seek { flex: 0 0 100%; order: 9; margin: 3px 0 0; height: 14px; padding: 0; -webkit-appearance: none; appearance: none; background: transparent; cursor: pointer; --p: 0%; --b: 0%; }
-.vp-seek::-webkit-slider-runnable-track { height: 3px; border-radius: 3px; background: linear-gradient(#fff, #fff) 0 0 / var(--p) 100% no-repeat, linear-gradient(rgba(255,255,255,.35), rgba(255,255,255,.35)) 0 0 / var(--b) 100% no-repeat, rgba(255,255,255,.25); }
-.vp-seek::-moz-range-track { height: 3px; border-radius: 3px; background: linear-gradient(#fff, #fff) 0 0 / var(--p) 100% no-repeat, linear-gradient(rgba(255,255,255,.35), rgba(255,255,255,.35)) 0 0 / var(--b) 100% no-repeat, rgba(255,255,255,.25); }
-.vp-seek::-webkit-slider-thumb { -webkit-appearance: none; width: 13px; height: 13px; margin-top: -5px; border-radius: 50%; background: #fff; box-shadow: 0 1px 1px rgba(0,0,0,.15), 0 0 0 1px rgba(0,0,0,.2); opacity: 0; transition: opacity .2s; }
-.vp-seek::-moz-range-thumb { width: 13px; height: 13px; border: 0; border-radius: 50%; background: #fff; opacity: 0; }
-.vp-seek:hover::-webkit-slider-thumb, .vp-seek:focus-visible::-webkit-slider-thumb { opacity: 1; }
-.vp-seek:hover::-moz-range-thumb, .vp-seek:focus-visible::-moz-range-thumb { opacity: 1; }
+.vp-vol { position: relative; display: flex; width: 24px; height: 24px; margin-left: 20px; }
+.vp-vol .vp-btn { margin-left: 0 !important; }
+/* plyr volume: vertical slider in a dark rounded box above the mute button, on hover (not on touch devices) */
+.vp-volume { position: absolute; top: calc(-50% - 12px); left: 50%; z-index: 2; box-sizing: border-box; width: 85.71428571px; height: 28px; padding: 0 10px; margin: 0; -webkit-appearance: none; appearance: none; color: #fff; background-color: rgba(38,38,38,.9); border: 0; border-radius: 8px; cursor: pointer; transform-origin: center left; transform: rotate(-90deg) translateX(-5px); visibility: hidden; opacity: 0; transition: all 100ms ease-in-out, outline-offset 1ms; transition-delay: .1s; --value: 100%; }
+.vp-vol:hover::before, .vp-vol:focus-within::before { content: ""; position: absolute; top: -107px; left: -10px; right: -10px; bottom: calc(100% - 2px); }
+.vp:not(.vp-touch) .vp-vol:hover .vp-volume, .vp:not(.vp-touch) .vp-vol:focus-within .vp-volume { transform: rotate(-90deg) translateX(0); opacity: 1; visibility: visible; transition-delay: 0s; width: 90px; }
+.vp-touch .vp-volume { display: none; }
+.vp-volume:focus { outline: none; }
+.vp-volume::-webkit-slider-runnable-track { height: 3px; border: 0; border-radius: 0; background: linear-gradient(to right, currentColor var(--value), transparent var(--value)), rgba(255,255,255,.25); }
+.vp-volume::-moz-range-track { height: 3px; border: 0; border-radius: 0; background: linear-gradient(to right, currentColor var(--value), transparent var(--value)), rgba(255,255,255,.25); }
+.vp-volume::-webkit-slider-thumb { -webkit-appearance: none; width: 13px; height: 13px; margin-top: -5px; border: 0; border-radius: 50%; background: #fff; }
+.vp-volume::-moz-range-thumb { width: 13px; height: 13px; border: 0; border-radius: 50%; background: #fff; }
+.vp-volume:active::-webkit-slider-thumb { box-shadow: 0 0 0 3px rgba(255,255,255,.5); }
+/* plyr seek bar: 3px track (5px on hover), no knob except while dragging, time bubble over the pointer */
+.vp-prog { position: relative; flex: 0 0 100%; order: 9; height: 14px; margin-top: 3px; }
+.vp-seek { display: block; width: 100%; margin: 0; height: 14px; padding: 0; -webkit-appearance: none; appearance: none; background: transparent; cursor: pointer; --p: 0%; --b: 0%; }
+.vp-seek::-webkit-slider-runnable-track { height: 3px; border-radius: 0; background: linear-gradient(#fff, #fff) 0 0 / var(--p) 100% no-repeat, linear-gradient(rgba(255,255,255,.35), rgba(255,255,255,.35)) 0 0 / var(--b) 100% no-repeat, rgba(255,255,255,.25); }
+.vp-seek::-moz-range-track { height: 3px; border-radius: 0; background: linear-gradient(#fff, #fff) 0 0 / var(--p) 100% no-repeat, linear-gradient(rgba(255,255,255,.35), rgba(255,255,255,.35)) 0 0 / var(--b) 100% no-repeat, rgba(255,255,255,.25); }
+.vp-prog:hover .vp-seek::-webkit-slider-runnable-track, .vp-seek:active::-webkit-slider-runnable-track { height: 5px; }
+.vp-prog:hover .vp-seek::-moz-range-track, .vp-seek:active::-moz-range-track { height: 5px; }
+.vp-seek::-webkit-slider-thumb { -webkit-appearance: none; visibility: hidden; width: 14px; height: 14px; margin-top: -5px; border: 0; border-radius: 50%; background: #fff; box-shadow: none; }
+.vp-prog:hover .vp-seek::-webkit-slider-thumb { margin-top: -4px; }
+.vp-seek::-moz-range-thumb { visibility: hidden; width: 14px; height: 14px; border: 0; border-radius: 50%; background: #fff; }
+.vp-seek:active::-webkit-slider-thumb { visibility: visible; }
+.vp-seek:active::-moz-range-thumb { visibility: visible; }
 .vp-seek:focus { outline: none; }
+.vp-tip { position: absolute; bottom: 100%; left: 0; z-index: 2; margin-bottom: 12px; padding: 3px 6px; border-radius: 18px; background: #fff; color: #000; font-size: 12px; font-weight: 400; line-height: 1.3; white-space: nowrap; max-width: 120px; box-shadow: 0 0 10px rgba(0,0,0,.2); pointer-events: none; opacity: 0; transform: translate(-50%, 0); transition: opacity .1s ease-in-out; }
+.vp-tip.on { opacity: 1; }
 .vp :focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
 @container (min-width: 768px) {
   .vp-big { width: 120px; height: 120px; padding: 24px !important; }

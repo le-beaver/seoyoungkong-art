@@ -65,30 +65,78 @@ if (triggers.length) {
   document.addEventListener('keydown', e => { if (lb.classList.contains('on') && e.key === 'Escape') close(); });
 }
 
-// Header hides on scroll down and comes back after scrolling up a little over 200px (or within 10px of the top), like Squarespace
+// Header: a straight port of Squarespace's "scroll back" header (site-bundle HeaderController).
+// Scroll events are batched per animation frame, then run at most once per 100ms (the first event of a burst
+// starts a 100ms timer; the handler reads scrollY when it fires). Up-scroll distance between runs adds up,
+// but is reset when the previous up-scroll run was more than 500ms ago; the header comes back once it passes
+// 200px. Any down-scroll run hides it; within 10px of the top (or with focus inside) it always shows.
 const hdr = document.querySelector('.hdr');
 if (hdr) {
-  let last = scrollY, upFrom = null, ticking = false;
-  const update = () => {
-    ticking = false;
-    const y = Math.max(0, scrollY);
+  let scrollTop = scrollY, distance = 0, then = 0, timer = null, raf = false;
+  const shrunk = () => scrollY > 10;
+  const show = () => hdr.classList.remove('hdr-hidden');
+  const hide = () => hdr.classList.add('hdr-hidden');
+  const shrink = () => {
     // past 10px Squarespace adds .shrink: on mobile the header padding drops from 6vw to min(6vw, 2vmax)
-    // (84px -> 71px at 390 wide) and the page spacer under it shrinks too, so content moves up with it
-    document.documentElement.classList.toggle('hdr-shrink', y > 10);
-    if (y <= 10) { hdr.classList.remove('hdr-hidden'); upFrom = null; }
-    else if (y > last) { hdr.classList.add('hdr-hidden'); upFrom = null; }
-    else if (y < last) {
-      if (upFrom === null) upFrom = last;
-      // Squarespace checks the distance up to the previous scroll position, so it returns on the first
-      // scroll event after more than 200px of scrolling up
-      if (upFrom - last > 200) hdr.classList.remove('hdr-hidden');
-    }
-    last = y;
+    // and the page spacer under it shrinks too, so content moves up with it (removed 300ms after reaching the top)
+    if (shrunk()) document.documentElement.classList.add('hdr-shrink');
+    else setTimeout(() => document.documentElement.classList.remove('hdr-shrink'), 300);
   };
-  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
-  hdr.addEventListener('focusin', () => hdr.classList.remove('hdr-hidden'));
-  update(); // a reload part-way down the page starts shrunk, like Squarespace
+  const onScroll = () => {
+    if (!shrunk() || hdr.matches(':focus-within')) show();
+    else if (scrollY > scrollTop) hide();
+    else { // "up" (also when unchanged, as on Squarespace)
+      const now = Date.now();
+      distance += Math.abs(scrollY - scrollTop);
+      if (now - then > 500) distance = 0;
+      if (distance > 200) show();
+      then = now;
+    }
+    shrink();
+    scrollTop = scrollY;
+  };
+  const throttled = () => { if (!timer) timer = setTimeout(() => { timer = null; onScroll(); }, 100); };
+  addEventListener('scroll', () => { if (!raf) { raf = true; requestAnimationFrame(() => { raf = false; throttled(); }); } });
+  hdr.addEventListener('focusin', show);
+  // Squarespace's header sets scroll-behavior: smooth inline on <html> at start and again whenever the
+  // header resizes (ResizeObserver; on phones the scroll shrink resizes it)
+  const smooth = () => document.documentElement.style.setProperty('scroll-behavior', 'smooth');
+  smooth();
+  if (window.ResizeObserver) new ResizeObserver(smooth).observe(hdr);
+  if (shrunk()) document.documentElement.classList.add('hdr-shrink'); // a reload part-way down starts shrunk
 }
+
+// Accordion (Squarespace website.components.accordion): clicks are ignored while an item animates; unless the
+// block allows several open items, opening one closes the others; height animates over 250ms
+document.querySelectorAll('.acc').forEach(acc => {
+  const multiple = acc.hasAttribute('data-multiple');
+  let busy = 0;
+  const animate = (d, open) => {
+    busy++;
+    const from = d.getBoundingClientRect().height;
+    if (open) d.open = true; else d.classList.add('acc-closing');
+    const to = open ? d.getBoundingClientRect().height : from - d.lastElementChild.getBoundingClientRect().height;
+    d.style.height = from + 'px';
+    d.classList.add('acc-anim');
+    // Squarespace's runOnNextFrame: two animation frames later the target height is set
+    requestAnimationFrame(() => requestAnimationFrame(() => { d.style.height = to + 'px'; }));
+    setTimeout(() => {
+      if (!open) d.open = false;
+      d.classList.remove('acc-anim', 'acc-closing');
+      d.style.removeProperty('height');
+      busy--;
+    }, 250);
+  };
+  acc.querySelectorAll('details').forEach(d => {
+    d.querySelector('summary').addEventListener('click', e => {
+      e.preventDefault();
+      if (busy) return;
+      if (d.open) return animate(d, false);
+      if (!multiple) acc.querySelectorAll('details[open]').forEach(o => animate(o, false));
+      animate(d, true);
+    });
+  });
+});
 
 // Video player that looks like Squarespace's (plyr): round centre play button, bottom bar with
 // "00:00 / 00:35", mute and fullscreen, seek bar. Duration comes from data-duration until metadata loads.
@@ -102,7 +150,8 @@ const ICON = {
 };
 const mmss = t => { t = Math.max(0, Math.floor(t || 0)); const h = Math.floor(t / 3600), m = Math.floor(t / 60) % 60, s = t % 60; return (h ? h + ':' : '') + String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0'); };
 // Squarespace shows the last whole second a clip reaches (a 15.00s clip reads 00:14, 35.08s reads 00:35)
-const durText = d => mmss(d > 0 ? Math.ceil(d) - 1 : 0);
+const wholeDur = d => d > 0 ? Math.ceil(d) - 1 : 0;
+const durText = d => mmss(wholeDur(d));
 document.querySelectorAll('.vp').forEach(frame => {
   const v = frame.querySelector('video');
   if (!v) return;
@@ -110,11 +159,14 @@ document.querySelectorAll('.vp').forEach(frame => {
   frame.classList.add('vp-paused', 'vp-fresh');
   frame.insertAdjacentHTML('beforeend', `<button type="button" class="vp-big" aria-label="Play">${ICON.play}</button>
 <div class="vp-bar"><span class="vp-time"><span class="vp-cur">00:00</span> / <span class="vp-dur">${durText(+v.dataset.duration)}</span></span>
-<button type="button" class="vp-btn vp-mute" aria-label="Mute">${ICON.vol}</button><button type="button" class="vp-btn vp-fs" aria-label="Enter fullscreen">${ICON.full}</button>
-<input class="vp-seek" type="range" min="0" max="1000" step="1" value="0" aria-label="Seek"></div>`);
+<span class="vp-vol"><button type="button" class="vp-btn vp-mute" aria-label="Mute">${ICON.vol}</button><input class="vp-volume" type="range" min="0" max="1" step="0.05" value="1" aria-label="Volume" style="--value:100%"></span><button type="button" class="vp-btn vp-fs" aria-label="Enter fullscreen">${ICON.full}</button>
+<span class="vp-prog"><input class="vp-seek" type="range" min="0" max="1000" step="1" value="0" aria-label="Seek"><span class="vp-tip" aria-hidden="true">00:00</span></span></div>`);
+  if ('ontouchstart' in document.documentElement) frame.classList.add('vp-touch'); // plyr--is-touch: no volume slider
   const big = frame.querySelector('.vp-big'), cur = frame.querySelector('.vp-cur'), dur = frame.querySelector('.vp-dur');
   const mute = frame.querySelector('.vp-mute'), fs = frame.querySelector('.vp-fs'), seek = frame.querySelector('.vp-seek');
   const total = () => (isFinite(v.duration) && v.duration) || +v.dataset.duration || 0;
+  // the seek bubble is scaled to the duration Squarespace displays (its plyr gets a whole-second duration)
+  const shownDur = () => wholeDur(+v.dataset.duration || total());
   const toggle = () => { v.paused || v.ended ? v.play() : v.pause(); };
   let idle;
   const wake = () => { frame.classList.remove('vp-idle'); clearTimeout(idle); if (!v.paused) idle = setTimeout(() => frame.classList.add('vp-idle'), 2000); };
@@ -145,8 +197,22 @@ document.querySelectorAll('.vp').forEach(frame => {
     seek.style.setProperty('--p', seek.value / 10 + '%');
     if (v.readyState) v.currentTime = t; else v.addEventListener('loadedmetadata', () => { v.currentTime = t; }, { once: true }), v.preload = 'metadata', v.load();
   });
-  mute.addEventListener('click', () => { v.muted = !v.muted; });
-  v.addEventListener('volumechange', () => { mute.innerHTML = v.muted ? ICON.muted : ICON.vol; mute.setAttribute('aria-label', v.muted ? 'Unmute' : 'Mute'); });
+  // plyr seek tooltip: a time bubble follows the pointer over the seek bar
+  const prog = frame.querySelector('.vp-prog'), tip = frame.querySelector('.vp-tip');
+  prog.addEventListener('mousemove', e => { // mouse events give whole-pixel clientX, as plyr reads it
+    const r = seek.getBoundingClientRect(), pc = Math.min(100, Math.max(0, 100 / r.width * (e.clientX - r.left)));
+    tip.textContent = mmss(shownDur() * pc / 100); tip.style.left = pc + '%'; tip.classList.add('on');
+  });
+  prog.addEventListener('pointerleave', () => tip.classList.remove('on'));
+  // plyr volume: slider shows 0 while muted; raising it unmutes, 0 shows the muted icon
+  const vol = frame.querySelector('.vp-volume');
+  vol.addEventListener('input', () => { v.volume = +vol.value; if (v.muted && v.volume > 0) v.muted = false; else if (v.volume === 0) v.muted = true; });
+  mute.addEventListener('click', () => { if (!v.muted && v.volume === 0) v.volume = 1; v.muted = !v.muted; });
+  v.addEventListener('volumechange', () => {
+    const off = v.muted || v.volume === 0, val = v.muted ? 0 : v.volume;
+    vol.value = val; vol.style.setProperty('--value', val * 100 + '%');
+    mute.innerHTML = off ? ICON.muted : ICON.vol; mute.setAttribute('aria-label', off ? 'Unmute' : 'Mute');
+  });
   fs.addEventListener('click', () => {
     if (document.fullscreenElement) document.exitFullscreen();
     else if (frame.requestFullscreen) frame.requestFullscreen();

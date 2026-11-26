@@ -93,7 +93,8 @@ function renderBlock(b) {
       break;
     case 'accordion':
       cls += ' accordion-block';
-      inner = `<div class="acc sqs-html-content">${b.items.map(i => `<details><summary>${esc(i.title)}</summary><div>${i.html}</div></details>`).join('')}</div>`;
+      // Squarespace's "allow multiple open items" is off unless the block says so: opening one item closes the others
+      inner = `<div class="acc sqs-html-content"${b.multiple ? ' data-multiple' : ''}>${b.items.map(i => `<details><summary>${esc(i.title)}<span class="acc-ic" aria-hidden="true"><i></i><i></i></span></summary><div>${i.html}</div></details>`).join('')}</div>`;
       break;
     default:
       return '';
@@ -175,7 +176,7 @@ ${page.hidden ? '<meta name="robots" content="noindex">' : ''}
   <div class="hdr-in">
     <a class="hdr-title" href="/">${esc(site.title)}</a>
     <nav class="hdr-nav" aria-label="Main">${navLinks}</nav>
-    <button class="hdr-burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+    <button class="hdr-burger" aria-label="Open menu" aria-expanded="false"><span class="burger-box"><span class="burger-inner"><span class="top-bun"></span><span class="bottom-bun"></span></span></span></button>
   </div>
 </header>
 <nav class="menu" data-theme="${first}" aria-label="Mobile">${navLinks}</nav>

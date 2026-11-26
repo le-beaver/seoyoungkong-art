@@ -232,6 +232,7 @@ function parseBlock($, B, pos) {
       title: $(li).find('.accordion-item__title').text().trim(),
       html: cleanHtml($, $(li).find('.accordion-item__description')),
     })).get();
+    if (B.find('[data-should-allow-multiple-open-items="true"]').length) block.multiple = true;
   } else {
     block.skipped = true; // product / form: Squarespace commerce, not portable
   }
