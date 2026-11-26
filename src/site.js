@@ -132,6 +132,14 @@ document.querySelectorAll('.vp').forEach(frame => {
     const p = total() ? v.currentTime / total() : 0;
     seek.value = Math.round(p * 1000); seek.style.setProperty('--p', p * 100 + '%');
   });
+  // plyr's buffer bar: the loaded stretch around the playhead shows as a lighter band under the white fill
+  const buffered = () => {
+    const r = v.buffered, d = total();
+    let end = 0;
+    for (let i = 0; i < r.length; i++) if (r.start(i) <= v.currentTime + .5) end = Math.max(end, r.end(i));
+    seek.style.setProperty('--b', (d ? Math.min(1, end / d) : 0) * 100 + '%');
+  };
+  ['progress', 'loadeddata', 'seeked', 'timeupdate', 'emptied'].forEach(e => v.addEventListener(e, buffered));
   seek.addEventListener('input', () => {
     const t = seek.value / 1000 * total();
     seek.style.setProperty('--p', seek.value / 10 + '%');

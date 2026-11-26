@@ -165,6 +165,7 @@ main { padding-top: var(--hdr-h); }
 .fluid-image-container { overflow: hidden; }
 .fluid-image-container a, .fluid-image-container .content-fill { display: block; width: 100%; height: 100%; }
 .fluid-image-container img { width: 100%; height: 100%; object-fit: var(--image-component-object-fit, cover); object-position: var(--image-component-focal-point, 50% 50%); }
+.fit-contain .fluid-image-container img { object-position: 50% 50%; }
 .img-missing { width: 100%; height: 100%; border: 1px solid #f1f1f1; }
 .image-caption { margin-top: .5rem; font-size: .9rem; }
 .fluidImageOverlay { position: absolute; inset: 0; pointer-events: none; opacity: var(--image-component-overlay-opacity, 0); }
@@ -200,8 +201,9 @@ main { padding-top: var(--hdr-h); }
 
 /* accordion (Squarespace website.components.accordion; per-block vars come from block css) */
 .acc { --v: .9; color: var(--p-s); }
-.acc details { border-top: var(--accordion-divider-thickness, 1px) solid color-mix(in srgb, currentColor calc(var(--accordion-divider-opacity, 1) * 100%), transparent); }
-.acc details:last-child { border-bottom: inherit; border-bottom-width: var(--accordion-divider-thickness, 1px); border-bottom-style: solid; border-bottom-color: color-mix(in srgb, currentColor calc(var(--accordion-divider-opacity, 1) * 100%), transparent); }
+/* like Squarespace: every item owns the divider below it, the first item also the one above */
+.acc details { border-bottom: var(--accordion-divider-thickness, 1px) solid color-mix(in srgb, currentColor calc(var(--accordion-divider-opacity, 1) * 100%), transparent); }
+.acc details:first-child { border-top: var(--accordion-divider-thickness, 1px) solid color-mix(in srgb, currentColor calc(var(--accordion-divider-opacity, 1) * 100%), transparent); }
 .acc summary, .acc details > div { font-size: calc((var(--v) - 1) * .012 * min(100vh, 900px) + 1rem); }
 @media (min-width: 768px) { .acc summary, .acc details > div { font-size: min(calc((var(--v) - 1) * 1.2vw + 1rem), max(calc((var(--v) - 1) * .012 * var(--maxPageWidth) + 1rem), calc(var(--v) * 1rem))); } }
 .acc summary { cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 1rem; line-height: normal;
@@ -210,8 +212,12 @@ main { padding-top: var(--hdr-h); }
 .acc summary::after { content: ""; flex: none; width: var(--accordion-icon-size, 30px); height: var(--accordion-icon-size, 30px);
   background: linear-gradient(currentColor, currentColor) center / 100% var(--accordion-icon-thickness, 3px) no-repeat, linear-gradient(currentColor, currentColor) center / var(--accordion-icon-thickness, 3px) 100% no-repeat; }
 .acc details[open] summary::after { background-size: 100% var(--accordion-icon-thickness, 3px), var(--accordion-icon-thickness, 3px) 0; }
-.acc details > div { padding: var(--accordion-description-padding-top, 0) var(--accordion-description-padding-right, 0) var(--accordion-description-padding-bottom, 30px) var(--accordion-description-padding-left, 0); max-width: var(--accordion-description-width, 100%); }
+/* Squarespace .accordion-item__description has a 1rem margin above and below on top of its padding, and its
+   first/last paragraph margins are zeroed; padding here so the gap stays inside the open item like on Squarespace */
+.acc details > div { padding: calc(1rem + var(--accordion-description-padding-top, 0px)) var(--accordion-description-padding-right, 0) calc(1rem + var(--accordion-description-padding-bottom, 30px)) var(--accordion-description-padding-left, 0); max-width: var(--accordion-description-width, 100%); }
 .acc details > div p { font-size: inherit; color: inherit; }
+.acc details > div > :first-child { margin-top: 0; }
+.acc details > div > :last-child { margin-bottom: 0; }
 
 /* ---------- lightbox (Squarespace "View fullsize") ---------- */
 .lb-trigger { all: unset; display: block; width: 100%; height: 100%; cursor: zoom-in; }
@@ -264,9 +270,9 @@ footer > .sec > .sec-in { width: 100%; }
 .vp-btn { width: 24px; height: 24px; margin-left: 20px !important; border-radius: 4px; color: #e7e7e7 !important; }
 .vp-btn:hover, .vp-btn:focus-visible { color: #fff !important; }
 .vp-btn svg { filter: drop-shadow(0 0 .5px rgba(0,0,0,.4)); }
-.vp-seek { flex: 0 0 100%; order: 9; margin: 3px 0 0; height: 14px; padding: 0; -webkit-appearance: none; appearance: none; background: transparent; cursor: pointer; --p: 0%; }
-.vp-seek::-webkit-slider-runnable-track { height: 3px; border-radius: 3px; background: linear-gradient(#fff, #fff) 0 0 / var(--p) 100% no-repeat, rgba(255,255,255,.35); }
-.vp-seek::-moz-range-track { height: 3px; border-radius: 3px; background: linear-gradient(#fff, #fff) 0 0 / var(--p) 100% no-repeat, rgba(255,255,255,.35); }
+.vp-seek { flex: 0 0 100%; order: 9; margin: 3px 0 0; height: 14px; padding: 0; -webkit-appearance: none; appearance: none; background: transparent; cursor: pointer; --p: 0%; --b: 0%; }
+.vp-seek::-webkit-slider-runnable-track { height: 3px; border-radius: 3px; background: linear-gradient(#fff, #fff) 0 0 / var(--p) 100% no-repeat, linear-gradient(rgba(255,255,255,.35), rgba(255,255,255,.35)) 0 0 / var(--b) 100% no-repeat, rgba(255,255,255,.25); }
+.vp-seek::-moz-range-track { height: 3px; border-radius: 3px; background: linear-gradient(#fff, #fff) 0 0 / var(--p) 100% no-repeat, linear-gradient(rgba(255,255,255,.35), rgba(255,255,255,.35)) 0 0 / var(--b) 100% no-repeat, rgba(255,255,255,.25); }
 .vp-seek::-webkit-slider-thumb { -webkit-appearance: none; width: 13px; height: 13px; margin-top: -5px; border-radius: 50%; background: #fff; box-shadow: 0 1px 1px rgba(0,0,0,.15), 0 0 0 1px rgba(0,0,0,.2); opacity: 0; transition: opacity .2s; }
 .vp-seek::-moz-range-thumb { width: 13px; height: 13px; border: 0; border-radius: 50%; background: #fff; opacity: 0; }
 .vp-seek:hover::-webkit-slider-thumb, .vp-seek:focus-visible::-webkit-slider-thumb { opacity: 1; }

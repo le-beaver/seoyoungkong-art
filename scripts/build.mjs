@@ -40,6 +40,9 @@ function renderBlock(b) {
       break;
     case 'image': {
       cls += ' image-block';
+      // Squarespace "container-fit": with object-fit contain the frame shrinks to the image's aspect and is
+      // centred in the cell, so the focal point never shifts the picture. Centre it the same way here.
+      if (/object-fit:\s*contain/.test(b.css || '')) cls += ' fit-contain';
       if (!b.src) { // image missing on Squarespace too (404): it shows the browser's empty broken-image frame
         inner = `<div class="img-missing" data-edit="${b.id}"></div>`;
         break;
