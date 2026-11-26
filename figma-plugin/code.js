@@ -110,7 +110,7 @@ async function imageFill(bytes) {
 
 async function buildBlock(b, sec, theme, padTop, images, seed, parent) {
   const bx = G.box(b.d.area, padTop);
-  const meta = { kind: 'block', id: b.id, type: b.type, seed };
+  const meta = { kind: 'block', id: b.id, type: b.type, seed, area: b.d.area };
   let node;
   if (b.type === 'text') {
     node = figma.createText();

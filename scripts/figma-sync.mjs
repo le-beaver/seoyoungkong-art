@@ -200,21 +200,23 @@ for (const pf of pageFrames) {
       const fresh = !prev || prev.seed !== d.seed;
       const isText = n.type === 'TEXT';
 
-      // position / size
+      // position / size: work out the grid area from where the layer is now, relative to where the
+      // plugin put it (orig box + orig area). Applies on any move since the last sync, including moving back.
       let orig; try { orig = JSON.parse(d.box || 'null'); } catch { orig = null; }
-      if (moved(box, orig, isText)) {
-        // Rows move by the drag distance (text may sit centred in its block); columns come from x/width.
-        const [or1, , or2] = parseArea(block.d.area);
+      const lastBox = prev && prev.box;
+      const changedSinceLast = lastBox ? moved(box, lastBox, isText) : moved(box, orig, isText);
+      if (orig && changedSinceLast) {
+        const base = d.area || block.d.area;
+        const [or1, oc1, or2, oc2] = parseArea(base);
         const dRows = Math.round((box.y - orig[1]) / (rowH + g.gap));
-        const span = isText ? (or2 - or1) : Math.max(1, Math.round((box.height + g.gap) / (rowH + g.gap)));
-        const cols = areaFromBox(box, padTop).split('/');
+        const sameCols = Math.abs(box.x - orig[0]) <= 3 && Math.abs(box.width - orig[2]) <= 3;
+        const sameH = isText || Math.abs(box.height - orig[3]) <= 3;
+        const span = sameH ? (or2 - or1) : Math.max(1, Math.round((box.height + g.gap) / (rowH + g.gap)));
+        const cols = sameCols ? [oc1, oc2] : areaFromBox(box, padTop).split('/').filter((_, i) => i % 2 === 1).map(Number);
         const r1 = Math.max(1, or1 + dRows);
-        const area = `${r1}/${cols[1]}/${r1 + span}/${cols[3]}`;
+        const area = `${r1}/${cols[0]}/${r1 + span}/${cols[1]}`;
         if (area !== block.d.area) {
-          const lastBox = prev && prev.box;
-          if (!lastBox || moved(box, lastBox, isText)) {
-            pending.push(async () => { block.d.area = area; sec.rowsDesktop = Math.max(sec.rowsDesktop, parseArea(area)[2] - 1); out(`${page.title}: moved/resized ${block.type} ${d.id}`); });
-          }
+          pending.push(async () => { block.d.area = area; sec.rowsDesktop = Math.max(sec.rowsDesktop, r1 + span - 1); out(`${page.title}: moved/resized ${block.type} ${d.id}`); });
         }
       }
 

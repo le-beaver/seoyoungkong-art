@@ -43,7 +43,7 @@ for (const page of site.pages) {
     const children = sec.blocks.map(b => {
       const bx = box(b.d.area, pt); const abs = { x: bx.x, y: y + bx.y, width: bx.width, height: bx.height };
       const base = { id: `${nid++}:1`, name: b.type, absoluteBoundingBox: abs };
-      const data = { kind: 'block', id: b.id, type: b.type, seed, box: JSON.stringify([bx.x, bx.y, bx.width, bx.height]) };
+      const data = { kind: 'block', id: b.id, type: b.type, seed, area: b.d.area, box: JSON.stringify([bx.x, bx.y, bx.width, bx.height]) };
       if (b.type === 'text') { const t = textNode(b, sec.theme); data.chars = t.characters; return { ...base, ...t, sharedPluginData: { sqsite: data } }; }
       if (b.type === 'image') { data.img = 'hash-' + b.id; return { ...base, type: 'RECTANGLE', fills: [{ type: 'IMAGE', imageRef: 'hash-' + b.id }], sharedPluginData: { sqsite: data } }; }
       return { ...base, type: 'FRAME', children: [], sharedPluginData: { sqsite: data } };
@@ -105,6 +105,11 @@ check('other pages untouched', JSON.stringify(untouched) === JSON.stringify(site
 const after2 = fs.readFileSync(path.join(tmp, 'content/site.json'), 'utf8');
 doc.version = 'v3'; run(write('f3.json', doc));
 check('second sync with same Figma content is a no-op', fs.readFileSync(path.join(tmp, 'content/site.json'), 'utf8') === after2);
+
+// 3b) Moving the layer back restores the original area
+shape.absoluteBoundingBox = { ...shape.absoluteBoundingBox, x: shape.absoluteBoundingBox.x - 150 }; doc.version = 'v3b';
+run(write('f3b.json', doc));
+check('moving a layer back restores its original area', load().pages[0].sections[0].blocks.find(b => b.id === pd(shape).id).d.area === shOld.d.area);
 
 // 4) Safety: wiping a page in Figma does not wipe the site
 const adw = pages.find(p => pd(p).slug === '/ad-work'); adw.children.forEach(s => (s.children = [])); doc.version = 'v4';
