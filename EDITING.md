@@ -1,6 +1,7 @@
 # Editing your site from Figma
 
 Your site: **https://le-beaver.github.io/seoyoungkong-art/** (later: your own domain).
+Your Figma file: **https://www.figma.com/design/jTcylE29HWPZX0raAYuQmM** (already connected — step 3 below is done; renaming the file is fine).
 It costs nothing to run. The only bill is your domain.
 
 How it works: Figma holds an editable copy of every page. When you save in Figma, a free GitHub robot checks the file every 10 minutes, copies your changes into the site, and publishes them. Press **Publish my edits now** in the plugin to skip the wait (it takes about 2 minutes).
