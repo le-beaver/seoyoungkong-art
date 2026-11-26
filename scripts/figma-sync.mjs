@@ -195,6 +195,8 @@ for (const pf of pageFrames) {
       const block = sec.blocks.find(b => b.id === d.id);
       present.add(d.id); seen++;
       if (!block) continue;
+      // Galleries are drawn read-only (locked) in Figma; they are edited in content/site.json only.
+      if (block.type === 'gallery') continue;
       const key = `${slug}/${d.id}`;
       const prev = newState.nodes[key];
       const fresh = !prev || prev.seed !== d.seed;

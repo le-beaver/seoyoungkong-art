@@ -194,6 +194,7 @@ $('build').onclick = async () => {
         if (b.type === 'text') b.paras = RichText.htmlToParas(b.html || '');
         const srcs = [];
         if (b.type === 'image' && b.src) srcs.push([b.src, b.src.endsWith('.webp') ? b.src.replace(/\.webp$/, '-800.webp') : b.src]);
+        if (b.type === 'gallery') for (const it of b.items || []) if (it.src) srcs.push([it.src, it.src.replace(/\.webp$/, '-800.webp')]);
         if (b.video && b.video.kind === 'native') { const p = `/video/${b.video.id}/poster.webp`; srcs.push([p, p]); }
         for (const [key, file] of srcs) {
           if (images[key]) continue;

@@ -284,3 +284,15 @@ footer > .sec > .sec-in { width: 100%; }
   .vp-bar { padding: 0 20px 16.5px; }
 }
 .vp:fullscreen { width: 100%; height: 100%; aspect-ratio: auto !important; }
+
+/* ---------- gallery strips section (Squarespace gallery-section, layout "strips") ---------- */
+.sec-gallery { padding: var(--gal-pt-m, var(--sqs-mobile-site-gutter)) var(--sqs-mobile-site-gutter) var(--sqs-mobile-site-gutter); }
+.gal { display: grid; gap: var(--gal-gap, 20px); }
+.gal-row { display: grid; gap: var(--gal-gap, 20px); }
+.gal-item { margin: 0; aspect-ratio: var(--ar); min-width: 0; overflow: hidden; }
+.gal-item img { width: 100%; height: 100%; object-fit: cover; }
+@media (min-width: 768px) {
+  .sec-gallery { padding: var(--sqs-site-gutter); }
+  .gal-row { display: flex; }
+  .gal-item { flex: var(--ar) 1 0; }
+}

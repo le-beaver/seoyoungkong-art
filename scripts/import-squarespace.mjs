@@ -252,6 +252,20 @@ function parseSection($, S) {
   if (bgimg.length) sec.bgImage = addMedia(bgimg.attr('data-src') || bgimg.attr('data-image'));
   const ov = S.find('.section-background-overlay').first().attr('style');
   if (ov) sec.overlay = ov.replace(/\s+/g, ' ').trim();
+  // Gallery section, "strips" layout: justified rows of images (rendered by build.mjs renderGallery)
+  const strips = S.find('.gallery-strips').first();
+  if (strips.length) {
+    let props = {}; try { props = JSON.parse(strips.attr('data-props') || '{}'); } catch {}
+    const id = 'gal' + (S.attr('data-section-id') || Math.random().toString(36).slice(2));
+    const items = strips.find('img').map((_, im) => {
+      const src = addMedia($(im).attr('data-src') || $(im).attr('data-image'));
+      return src && { src, dims: $(im).attr('data-image-dimensions') || '', alt: $(im).attr('alt') || '' };
+    }).get().filter(Boolean);
+    Object.assign(sec, { rowsMobile: 1, rowsDesktop: 1, rowScale: 0.0215, gap: 11 });
+    sec.blocks = items.length ? [{ id, type: 'gallery', layout: 'strips', gutter: props.gutter ?? 20, rowHeight: props.rowHeight ?? 300,
+      m: { area: '1/2/2/10', z: 1 }, d: { area: '1/2/2/26', z: 1 }, items }] : [];
+    return sec;
+  }
   const fe = S.find('[data-fluid-engine]').first();
   const gridCss = fe.children('style').first().html() || '';
   const { grid, blocks } = parseGrid(gridCss);

@@ -101,7 +101,39 @@ function renderBlock(b) {
   return `<div class="fe-block fe-block-${b.id}" style="${vars}"><div class="${cls}" id="block-${b.id}"><div class="sqs-block-content">${inner}</div></div></div>`;
 }
 
+// Squarespace "gallery strips" section: justified rows of images, all of one row the same height.
+// Desktop rows are grouped once at build time for the 1440px reference frame (Squarespace's rule as observed:
+// take the images that fit at rowHeight, then keep one more if that lands the row height closer to rowHeight).
+// Each row then scales fluidly with CSS (flex-grow = aspect ratio). Phones show one image per row.
+const aspectOf = it => { const [w, h] = String(it.dims || '').split('x').map(Number); return w && h ? w / h : 1; };
+function stripRows(items, { gutter = 20, rowHeight = 300, frame = 1440, gutterVw = 3 } = {}) {
+  const W = frame * (1 - 2 * gutterVw / 100), rows = [];
+  for (let i = 0; i < items.length;) {
+    let k = 1, sum = aspectOf(items[i]);
+    while (i + k < items.length && (sum + aspectOf(items[i + k])) * rowHeight + gutter * k <= W) sum += aspectOf(items[i + k++]);
+    if (i + k < items.length) {
+      const h = (W - gutter * (k - 1)) / sum, h2 = (W - gutter * k) / (sum + aspectOf(items[i + k]));
+      if (Math.abs(h2 - rowHeight) < Math.abs(h - rowHeight)) k++;
+    }
+    rows.push(items.slice(i, i + k)); i += k;
+  }
+  return rows;
+}
+function renderGallery(s, b, i) {
+  const rows = b.rows ? b.rows.reduce((a, n) => (a.out.push(b.items.slice(a.i, a.i + n)), a.i += n, a), { out: [], i: 0 }).out : stripRows(b.items, b);
+  const fig = it => {
+    const ar = aspectOf(it), [w, h] = String(it.dims || '').split('x');
+    const small = it.src.replace(/\.webp$/, '-800.webp');
+    return `<figure class="gal-item" style="--ar:${+ar.toFixed(5)}"><img src="${it.src}" srcset="${small} 800w, ${it.src} 2000w" sizes="(max-width: 767px) 100vw, ${Math.min(100, Math.round(ar / rows.find(r => r.includes(it)).reduce((n, x) => n + aspectOf(x), 0) * 100))}vw"${w ? ` width="${w}" height="${h}"` : ''} alt="${esc(it.alt)}" loading="lazy" decoding="async"></figure>`;
+  };
+  // mobilePadTop: Squarespace adds 20px above some galleries on phones only (gutter-sized, as measured)
+  const secStyle = b.mobilePadTop ? ` style="--gal-pt-m:${b.mobilePadTop}"` : '';
+  return `<section class="sec sec-gallery" data-theme="${s.theme || 'white'}" data-section="${i}"${secStyle}><div class="gal gal-strips fe-block-${b.id}" id="block-${b.id}" style="--gal-gap:${b.gutter ?? 20}px">${rows.map(r => `<div class="gal-row">${r.map(fig).join('')}</div>`).join('')}</div></section>`;
+}
+
 function renderSection(s, i) {
+  const gal = s.blocks.length === 1 && s.blocks[0].type === 'gallery' && s.blocks[0];
+  if (gal) return renderGallery(s, gal, i);
   const vars = [`--rows-m:${s.rowsMobile}`, `--rows-d:${s.rowsDesktop}`, `--row-scale:${s.rowScale}`];
   const pad = [s.padTop && `--pt:${s.padTop}`, s.padBottom && `--pb:${s.padBottom}`].filter(Boolean);
   const bg = s.bgImage ? `<div class="sec-bg"><img src="${s.bgImage}" alt="" loading="lazy"></div>` : '';
@@ -187,7 +219,10 @@ const fsrc = 'node_modules/@fontsource';
 copy(`${fsrc}/archivo-black/files/archivo-black-latin-400-normal.woff2`, path.join(DIST, 'fonts/archivo-black-400.woff2'));
 for (const w of [400, 500, 600, 700]) copy(`${fsrc}/space-grotesk/files/space-grotesk-latin-${w}-normal.woff2`, path.join(DIST, `fonts/space-grotesk-${w}.woff2`));
 fs.writeFileSync(path.join(DIST, '.nojekyll'), '');
-fs.writeFileSync(path.join(DIST, 'content.json'), JSON.stringify({ ...site, basePath: BASE_PATH, theme: JSON.parse(fs.readFileSync('src/theme.json', 'utf8')) }));
+// Figma plugin needs the gallery row grouping the site uses (desktop, 1440px frame)
+const withRowSizes = secs => secs.map(s => ({ ...s, blocks: s.blocks.map(b => b.type !== 'gallery' ? b : { ...b, rowSizes: b.rows || stripRows(b.items, b).map(r => r.length) }) }));
+const pagesOut = site.pages.map(p => ({ ...p, sections: withRowSizes(p.sections) }));
+fs.writeFileSync(path.join(DIST, 'content.json'), JSON.stringify({ ...site, pages: pagesOut, basePath: BASE_PATH, theme: JSON.parse(fs.readFileSync('src/theme.json', 'utf8')) }));
 if (site.domain) fs.writeFileSync(path.join(DIST, 'CNAME'), site.domain + '\n');
 
 // sitemap + robots

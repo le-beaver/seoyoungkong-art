@@ -192,6 +192,29 @@ async function buildBlock(b, sec, theme, padTop, images, seed, parent) {
     node.appendChild(t);
     node.name = (b.type === 'video' ? 'Video' : 'Embed') + (native ? ' (uploaded file)' : '');
     meta.url = url;
+  } else if (b.type === 'gallery') {
+    // Read-only picture of the gallery: locked, images laid out like the site at 1440px. Edit in content/site.json.
+    const { rows, gap, h } = galleryRows(b);
+    node = figma.createFrame();
+    node.resize(G.frameWidth, h); node.fills = []; node.clipsContent = false;
+    let y = G.gutter;
+    for (const r of rows) {
+      let x = G.gutter;
+      for (const it of r.row) {
+        const rect = figma.createRectangle();
+        const w = r.h * arOf(it);
+        rect.resize(Math.max(1, w), Math.max(1, r.h)); rect.x = x; rect.y = y;
+        const hash = await imageFill(images[it.src]);
+        rect.fills = hash ? [{ type: 'IMAGE', imageHash: hash, scaleMode: 'FILL' }] : solid('#DDDDDD');
+        rect.name = 'Image: ' + (it.alt || '');
+        set(rect, { kind: 'chrome' });
+        node.appendChild(rect); x += w + gap;
+      }
+      y += r.h + gap;
+    }
+    node.name = 'Gallery (edit in code — not synced)';
+    node.locked = true;
+    bx.x = 0; bx.y = 0;
   } else {
     node = figma.createFrame();
     node.resize(bx.w, bx.h);
@@ -214,7 +237,24 @@ async function safeBlock(b, sec, theme, padTop, images, seed, parent) {
   }
 }
 
+// Gallery-strips sections have no grid rows: their height comes from the justified image rows
+// (rowSizes is worked out by scripts/build.mjs for the 1440px frame and shipped in content.json).
+const galleryOf = sec => sec.blocks.length === 1 && sec.blocks[0].type === 'gallery' ? sec.blocks[0] : null;
+const arOf = it => { const [w, h] = String(it.dims || '').split('x').map(Number); return w && h ? w / h : 1; };
+function galleryRows(b) {
+  const W = G.frameWidth - 2 * G.gutter, gap = b.gutter == null ? 20 : b.gutter, out = [];
+  let i = 0;
+  for (const n of b.rowSizes || [b.items.length]) {
+    const row = b.items.slice(i, i + n); i += n;
+    const sum = row.reduce((a, it) => a + arOf(it), 0);
+    out.push({ row, h: (W - gap * (row.length - 1)) / sum });
+  }
+  return { rows: out, gap, h: out.reduce((a, r) => a + r.h, 0) + gap * (out.length - 1) + 2 * G.gutter };
+}
+
 function sectionHeight(sec) {
+  const gal = galleryOf(sec);
+  if (gal) return { h: galleryRows(gal).h, padTop: G.gutter };
   const content = G.rowsHeight(sec.rowsDesktop);
   if (sec.height === 'medium') {
     const h = Math.max(G.mediumMinHeight, content + 2 * G.mediumPad);

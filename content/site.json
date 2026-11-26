@@ -5304,7 +5304,46 @@
           "rowsDesktop": 1,
           "rowScale": 0.0215,
           "gap": 11,
-          "blocks": []
+          "blocks": [
+            {
+              "id": "gal69209bf913277a41852c54b2",
+              "type": "gallery",
+              "layout": "strips",
+              "gutter": 20,
+              "rowHeight": 300,
+              "m": {
+                "area": "1/2/2/10",
+                "z": 1
+              },
+              "d": {
+                "area": "1/2/2/26",
+                "z": 1
+              },
+              "mobilePadTop": "calc(6vw + 20px)",
+              "items": [
+                {
+                  "src": "/media/sy-series-4-2-9903b6c7.webp",
+                  "dims": "3514x2324",
+                  "alt": "sy series-4 (2).jpg"
+                },
+                {
+                  "src": "/media/sy-series-02-f37b30cc.webp",
+                  "dims": "2348x3592",
+                  "alt": "sy series-02.jpg"
+                },
+                {
+                  "src": "/media/sy-series-03-62af75a9.webp",
+                  "dims": "3424x2335",
+                  "alt": "sy series-03.jpg"
+                },
+                {
+                  "src": "/media/sy-series-04-506071bc.webp",
+                  "dims": "3586x2387",
+                  "alt": "sy series-04.jpg"
+                }
+              ]
+            }
+          ]
         },
         {
           "theme": "white",
@@ -5314,7 +5353,55 @@
           "rowsDesktop": 1,
           "rowScale": 0.0215,
           "gap": 11,
-          "blocks": []
+          "blocks": [
+            {
+              "id": "gal69209bf913277a41852c54b4",
+              "type": "gallery",
+              "layout": "strips",
+              "gutter": 20,
+              "rowHeight": 300,
+              "m": {
+                "area": "1/2/2/10",
+                "z": 1
+              },
+              "d": {
+                "area": "1/2/2/26",
+                "z": 1
+              },
+              "items": [
+                {
+                  "src": "/media/sy-clock-98ec31c2.webp",
+                  "dims": "3356x2542",
+                  "alt": "SY-CLOCK.jpg"
+                },
+                {
+                  "src": "/media/sy-6-1-9f915f76.webp",
+                  "dims": "3171x2413",
+                  "alt": "sy-6 (1).jpg"
+                },
+                {
+                  "src": "/media/seoyoung-7-1d8a2259.webp",
+                  "dims": "1195x1141",
+                  "alt": "seoyoung-7.jpg"
+                },
+                {
+                  "src": "/media/sy-5-b3d80646.webp",
+                  "dims": "1850x2937",
+                  "alt": "sy-5.jpg"
+                },
+                {
+                  "src": "/media/sy-design-1-f26663cb.webp",
+                  "dims": "3508x2437",
+                  "alt": "SY DESIGN (1).jpg"
+                },
+                {
+                  "src": "/media/sy-4-1-13c4d39b.webp",
+                  "dims": "2519x3157",
+                  "alt": "sy-4 (1).jpg"
+                }
+              ]
+            }
+          ]
         },
         {
           "theme": "white",

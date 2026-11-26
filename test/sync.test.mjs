@@ -101,6 +101,17 @@ check('new text layer becomes a text block', art2.blocks.some(b => b.id === 'fig
 const untouched = s2.pages.find(p => p.slug === 'ad-work');
 check('other pages untouched', JSON.stringify(untouched) === JSON.stringify(site.pages.find(p => p.slug === 'ad-work')));
 
+// 2b) Galleries are read-only in Figma: dragging the locked gallery frame changes nothing
+const galPage = pages.find(p => pd(p).slug === '/art-1');
+const galLayer = galPage && galPage.children.flatMap(s => s.children).find(c => pd(c).type === 'gallery');
+if (galLayer) {
+  const before2b = fs.readFileSync(path.join(tmp, 'content/site.json'), 'utf8');
+  galLayer.absoluteBoundingBox = { ...galLayer.absoluteBoundingBox, x: galLayer.absoluteBoundingBox.x + 200, y: galLayer.absoluteBoundingBox.y + 300 };
+  doc.version = 'v2b'; run(write('f2b.json', doc));
+  check('moving a gallery layer is ignored', fs.readFileSync(path.join(tmp, 'content/site.json'), 'utf8') === before2b);
+  galLayer.absoluteBoundingBox = { ...galLayer.absoluteBoundingBox, x: galLayer.absoluteBoundingBox.x - 200, y: galLayer.absoluteBoundingBox.y - 300 };
+} else check('art-1 gallery layer present in fixture', false);
+
 // 3) Re-running with no further edits is a no-op
 const after2 = fs.readFileSync(path.join(tmp, 'content/site.json'), 'utf8');
 doc.version = 'v3'; run(write('f3.json', doc));
