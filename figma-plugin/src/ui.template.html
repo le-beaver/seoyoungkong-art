@@ -15,11 +15,12 @@
   hr { border: 0; border-top: 1px solid var(--figma-color-border); margin: 16px 0 6px; }
   #log { margin-top: 10px; white-space: pre-wrap; font-family: ui-monospace, Menlo, monospace; font-size: 11px; max-height: 150px; overflow: auto; color: var(--figma-color-text-secondary); }
   .warn { color: var(--figma-color-text-warning); }
+  .err { color: var(--figma-color-text-danger); font-weight: 600; }
 </style>
 </head>
 <body>
 <h1>Seoyoung Site Sync</h1>
-<p>Edit text and images on the “Site · …” pages, then press Publish (or just wait — the site checks Figma every 10 minutes).</p>
+<p>Edit text and images on the “Site · …” pages. Keep this window open and your edits go live by themselves about 20 seconds after you stop editing, or press Publish.</p>
 
 <label for="site">Website address</label>
 <input id="site" placeholder="https://le-beaver.github.io/seoyoungkong-art">
@@ -28,11 +29,12 @@
 <p class="warn" style="margin-top:6px">Rebuilding replaces the “Site · …” pages with what is live now. Publish your edits first.</p>
 
 <hr>
-<label for="token">GitHub publish key <span style="font-weight:400">(only for the Publish button)</span></label>
+<label for="token">GitHub publish key</label>
 <input id="token" type="password" placeholder="github_pat_…" autocomplete="off">
 <label for="repo">GitHub repository</label>
 <input id="repo" placeholder="le-beaver/seoyoungkong-art">
 <button id="publish">Publish my edits now</button>
+<label style="font-weight:400;display:flex;gap:6px;align-items:center"><input id="auto" type="checkbox" checked style="width:auto"> Publish automatically while this window is open</label>
 
 <div id="log"></div>
 
@@ -50,13 +52,17 @@ onmessage = e => {
     $('site').value = m.settings.site || 'https://le-beaver.github.io/seoyoungkong-art';
     $('repo').value = m.settings.repo || 'le-beaver/seoyoungkong-art';
     $('token').value = m.settings.token || '';
+    $('auto').checked = m.settings.auto !== false;
   }
+  if (m.type === 'edits-settled' && $('auto').checked && !busy) publish(true);
+  if (m.type === 'exported' && exportWaiter) { exportWaiter(m); exportWaiter = null; }
   if (m.type === 'page-done' && waiters[m.slug]) { waiters[m.slug](); delete waiters[m.slug]; }
   if (m.type === 'error') { log('Error: ' + m.message); if (m.slug !== undefined && waiters[m.slug]) { waiters[m.slug](); delete waiters[m.slug]; } }
 };
 post({ type: 'load-settings' });
-const save = () => post({ type: 'save-settings', settings: { site: $('site').value.trim(), repo: $('repo').value.trim(), token: $('token').value.trim() } });
-['site', 'repo', 'token'].forEach(id => $(id).addEventListener('change', save));
+const save = () => post({ type: 'save-settings', settings: { site: $('site').value.trim(), repo: $('repo').value.trim(), token: $('token').value.trim(), auto: $('auto').checked } });
+['site', 'repo', 'token', 'auto'].forEach(id => $(id).addEventListener('change', save));
+let busy = false, exportWaiter = null;
 
 async function toPng(url) {
   const r = await fetch(url);
@@ -71,7 +77,7 @@ async function toPng(url) {
 $('build').onclick = async () => {
   const site = $('site').value.trim().replace(/\/$/, '');
   save();
-  $('build').disabled = true;
+  $('build').disabled = true; busy = true;
   try {
     log('Reading ' + site + '/content.json …');
     const content = await (await fetch(site + '/content.json', { cache: 'no-store' })).json();
@@ -97,25 +103,53 @@ $('build').onclick = async () => {
     }
     log('Done. Edit away!');
   } catch (e) { log('Error: ' + e.message); }
-  $('build').disabled = false;
+  $('build').disabled = false; setTimeout(() => { busy = false; }, 25000);
 };
 
-$('publish').onclick = async () => {
+
+// ---------- Publish: commit the Figma export to GitHub (one commit) ----------
+const b64 = bytes => { let s = ''; for (let i = 0; i < bytes.length; i += 0x8000) s += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000)); return btoa(s); };
+async function gh(token, method, path, body) {
+  const r = await fetch('https://api.github.com' + path, { method, headers: { Authorization: 'Bearer ' + token, Accept: 'application/vnd.github+json', 'Content-Type': 'application/json' }, body: body ? JSON.stringify(body) : undefined });
+  if (r.status === 401) throw Object.assign(new Error('expired'), { code: 401 });
+  if (!r.ok) throw Object.assign(new Error(`GitHub ${r.status}: ${(await r.text()).slice(0, 160)}`), { code: r.status });
+  return r.json();
+}
+async function publish(auto) {
   save();
   const token = $('token').value.trim(), repo = $('repo').value.trim();
-  if (!token) { log('Add a GitHub publish key first (see EDITING.md).'); return; }
-  $('publish').disabled = true;
+  if (!token) { if (!auto) log('Add your GitHub publish key first (see EDITING.md).'); return; }
+  busy = true; $('publish').disabled = true;
   try {
-    const r = await fetch(`https://api.github.com/repos/${repo}/actions/workflows/figma-sync.yml/dispatches`, {
-      method: 'POST',
-      headers: { Authorization: 'Bearer ' + token, Accept: 'application/vnd.github+json' },
-      body: JSON.stringify({ ref: 'main', inputs: { force: 'true' } }),
-    });
-    if (r.status === 204) { log('Publishing… your changes will be live in about 2 minutes.'); post({ type: 'notify', text: 'Publishing — live in ~2 minutes' }); }
-    else log('GitHub said ' + r.status + ': ' + (await r.text()).slice(0, 200));
-  } catch (e) { log('Error: ' + e.message); }
-  $('publish').disabled = false;
-};
+    log(auto ? 'Edits settled — publishing…' : 'Publishing…');
+    const { file, images } = await new Promise(res => { exportWaiter = res; post({ type: 'export' }); });
+    for (let attempt = 0; attempt < 3; attempt++) {
+      const ref = await gh(token, 'GET', `/repos/${repo}/git/ref/heads/main`);
+      const head = await gh(token, 'GET', `/repos/${repo}/git/commits/${ref.object.sha}`);
+      const tree = [];
+      const exp = await gh(token, 'POST', `/repos/${repo}/git/blobs`, { content: JSON.stringify(file), encoding: 'utf-8' });
+      tree.push({ path: 'figma-inbox/export.json', mode: '100644', type: 'blob', sha: exp.sha });
+      for (const [hash, bytes] of Object.entries(images)) {
+        const bl = await gh(token, 'POST', `/repos/${repo}/git/blobs`, { content: b64(new Uint8Array(bytes)), encoding: 'base64' });
+        tree.push({ path: `figma-inbox/images/${hash}.png`, mode: '100644', type: 'blob', sha: bl.sha });
+      }
+      const t = await gh(token, 'POST', `/repos/${repo}/git/trees`, { base_tree: head.tree.sha, tree });
+      const c = await gh(token, 'POST', `/repos/${repo}/git/commits`, { message: 'Figma: publish edits', tree: t.sha, parents: [ref.object.sha] });
+      try { await gh(token, 'PATCH', `/repos/${repo}/git/refs/heads/main`, { sha: c.sha }); }
+      catch (e) { if (e.code === 422 && attempt < 2) continue; throw e; }
+      log(`Sent ✓ (${Object.keys(images).length} new image${Object.keys(images).length === 1 ? '' : 's'}). Live in about 2 minutes.`);
+      if (!auto) post({ type: 'notify', text: 'Publishing — live in ~2 minutes' });
+      break;
+    }
+  } catch (e) {
+    if (e.code === 401) {
+      $('log').innerHTML = '<span class="err">Your GitHub publish key has expired.</span> Make a new one (EDITING.md → “Renew the publish key”) and paste it above.\n' + $('log').innerHTML;
+      post({ type: 'notify', text: 'GitHub publish key expired — paste a new one in the plugin', error: true });
+    } else log('Error: ' + e.message);
+  }
+  busy = false; $('publish').disabled = false;
+}
+$('publish').onclick = () => publish(false);
 </script>
 </body>
 </html>

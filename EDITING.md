@@ -1,44 +1,28 @@
 # Editing your site from Figma
 
 Your site: **https://le-beaver.github.io/seoyoungkong-art/** (later: your own domain).
-Your Figma file: **https://www.figma.com/design/jTcylE29HWPZX0raAYuQmM** (already connected — step 3 below is done; renaming the file is fine).
+Your Figma file: **https://www.figma.com/design/jTcylE29HWPZX0raAYuQmM** (“Seoyoung Site”).
 It costs nothing to run. The only bill is your domain.
 
-How it works: Figma holds an editable copy of every page. When you save in Figma, a free GitHub robot checks the file every 10 minutes, copies your changes into the site, and publishes them. Press **Publish my edits now** in the plugin to skip the wait (it takes about 2 minutes).
+How it works: Figma holds an editable copy of every page. Keep the **Seoyoung Site Sync** plugin window open while you edit. About 20 seconds after you stop editing, it sends your changes to GitHub, and the site updates about 2 minutes later. With the plugin closed, nothing is sent; open it and press **Publish my edits now**.
 
 ---
 
-## One-time setup (about 10 minutes)
+## One-time setup (done, except the publish key)
 
-### 1. Make a Figma access key
-1. In Figma, click your avatar (top-left) → **Settings** → **Security** → **Personal access tokens** → **Generate new token**.
-2. Name it `website`. Under scopes, set **File content** to **Read-only**. Leave everything else as **No access**.
-3. Copy the token. Figma shows it only once.
+1. ✅ The Figma file **Seoyoung Site** has a “Site · …” page for each page of the website.
+2. ✅ The **Seoyoung Site Sync** plugin is installed in your Figma desktop app (**Plugins → Development → Seoyoung Site Sync**).
+3. **GitHub publish key.** This lets the plugin send your edits to the website.
+   1. Go to https://github.com/settings/personal-access-tokens/new
+   2. **Token name:** `figma-publish`. **Expiration:** choose the longest option offered, or *No expiration* if you see it.
+   3. **Repository access:** *Only select repositories* → `seoyoungkong-art`.
+   4. **Permissions → Repository permissions → Contents:** *Read and write*.
+   5. Click **Generate token**, copy it, and paste it into the plugin's **GitHub publish key** box. It's stored only in your Figma app.
 
-### 2. Give the key to GitHub
-In Terminal, run the command below and paste the token when it asks:
-```bash
-gh secret set FIGMA_TOKEN --repo le-beaver/seoyoungkong-art
-```
+No Figma API key is needed. On Figma's free plan, reading a file through Figma's API is limited to a few times a month, so the plugin sends your edits instead.
 
-### 3. Tell GitHub which Figma file to read
-Open the Figma file you want to edit the site in, and copy its link. It looks like `figma.com/design/AbC123xyz/...`. The `AbC123xyz` part is the file key. Then run:
-```bash
-gh variable set FIGMA_FILE_KEY --repo le-beaver/seoyoungkong-art --body "AbC123xyz"
-```
-
-### 4. Install the plugin (Figma desktop app)
-1. Download this repo's `figma-plugin` folder. It's already on your Mac at `~/Developer/seoyoungkong-art/figma-plugin`.
-2. In the Figma **desktop app**, open your file and go to **Plugins** → **Development** → **Import plugin from manifest…**, then pick `figma-plugin/manifest.json`.
-3. Run it: **Plugins** → **Development** → **Seoyoung Site Sync**.
-4. Click **Rebuild Figma pages from the live site**. You'll get one Figma page per website page, named **Site · Home**, **Site · AD Work**, and so on, plus **Site · Footer (all pages)**.
-
-### 5. (Optional) Turn on the Publish button
-1. On GitHub: **Settings** → **Developer settings** → **Fine-grained tokens** → **Generate new token**.
-2. For **Repository access**, choose **Only select repositories** → `seoyoungkong-art`. Under permissions, set **Actions** to **Read and write**.
-3. Paste the token into the plugin's **GitHub publish key** box. It's stored only in your Figma app.
-
----
+### Renew the publish key
+When the key expires, the plugin tells you: *“Your GitHub publish key has expired”*. Repeat step 3 above and paste the new key into the same box. Nothing else needs to change, and your Figma pages stay as they are.
 
 ## Everyday editing
 
@@ -55,7 +39,7 @@ Make all changes inside the **Site · …** pages, directly inside a **Section**
 | Delete something | Delete the layer. |
 | Change a button | Edit its label, and its link on the label text. |
 | Replace a video or embed | Edit the **Link** text inside it to a new YouTube / Canva / Google link. |
-| See it live | Save, then wait up to 10 minutes or press **Publish my edits now**. |
+| See it live | Keep the plugin open (auto-publish), or press **Publish my edits now**. Live in ~2 minutes. |
 
 ### Good to know
 - **Phone layout.** Figma shows the desktop layout. Phones keep their own arrangement. New items you add are stacked at the bottom of their section on phones.

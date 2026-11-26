@@ -277,6 +277,76 @@ async function buildPage({ page, images, site, seed, isFooter }) {
   return fp;
 }
 
+
+// ---------- Publish: export the Site pages in the same shape as the Figma REST API ----------
+function pluginDataOf(node) {
+  const keys = node.getSharedPluginDataKeys(NS);
+  if (!keys.length) return undefined;
+  const d = {}; for (const k of keys) d[k] = node.getSharedPluginData(NS, k);
+  return { [NS]: d };
+}
+function paints(fills) {
+  if (!fills || fills === figma.mixed) return [];
+  return fills.map(f => f.type === 'IMAGE' ? { type: 'IMAGE', imageRef: f.imageHash, visible: f.visible !== false }
+    : f.type === 'SOLID' ? { type: 'SOLID', color: { ...f.color, a: f.opacity == null ? 1 : f.opacity }, visible: f.visible !== false }
+    : { type: f.type, visible: f.visible !== false });
+}
+function textFields(node) {
+  const segs = node.getStyledTextSegments(['fontName', 'fontSize', 'fontWeight', 'fills', 'hyperlink', 'listOptions']);
+  const table = {}; const over = new Array(node.characters.length).fill(0); const keyToId = {};
+  for (const sg of segs) {
+    const st = { fontFamily: sg.fontName.family, fontSize: sg.fontSize, fontWeight: sg.fontWeight, italic: /italic/i.test(sg.fontName.style), fills: paints(sg.fills) };
+    if (sg.hyperlink && sg.hyperlink.type === 'URL') st.hyperlink = { type: 'URL', url: sg.hyperlink.value };
+    const k = JSON.stringify(st); if (!keyToId[k]) { keyToId[k] = Object.keys(keyToId).length + 1; table[keyToId[k]] = st; }
+    for (let i = sg.start; i < sg.end; i++) over[i] = keyToId[k];
+  }
+  const first = segs[0] || { fontName: { family: '' }, fontSize: 16, fontWeight: 400 };
+  const lineTypes = []; let pos = 0;
+  for (const line of node.characters.split('\n')) {
+    const sg = segs.find(s => s.start <= pos && pos < s.end) || segs[segs.length - 1];
+    lineTypes.push(sg && sg.listOptions && sg.listOptions.type !== 'NONE' ? sg.listOptions.type : 'NONE');
+    pos += line.length + 1;
+  }
+  return { characters: node.characters, characterStyleOverrides: over, styleOverrideTable: table, lineTypes,
+    style: { fontFamily: first.fontName.family, fontSize: first.fontSize, fontWeight: first.fontWeight, textAlignHorizontal: node.textAlignHorizontal },
+    fills: paints(first.fills) };
+}
+function serialize(node, imagesWanted) {
+  const out = { id: node.id, type: node.type, name: node.name, visible: node.visible, absoluteBoundingBox: node.absoluteBoundingBox };
+  const data = pluginDataOf(node); if (data) out.sharedPluginData = data;
+  if (node.type === 'TEXT') Object.assign(out, textFields(node));
+  else if ('fills' in node) out.fills = paints(node.fills);
+  // images we need to upload: new layers, or a fill that differs from what the plugin put there
+  for (const f of out.fills || []) if (f.type === 'IMAGE' && f.imageRef && (!data || data[NS].img !== f.imageRef)) imagesWanted.add(f.imageRef);
+  if ('children' in node && node.type !== 'BOOLEAN_OPERATION') out.children = node.children.map(c => serialize(c, imagesWanted));
+  return out;
+}
+async function exportSite() {
+  await figma.loadAllPagesAsync();
+  const frames = [];
+  const wanted = new Set();
+  for (const pg of figma.root.children) {
+    if (pg.getSharedPluginData(NS, 'kind') !== 'canvas') continue;
+    for (const f of pg.children) if (f.getSharedPluginData(NS, 'kind') === 'page') frames.push(serialize(f, wanted));
+  }
+  const images = {};
+  for (const hash of wanted) {
+    const img = figma.getImageByHash(hash);
+    if (img) images[hash] = await img.getBytesAsync();
+  }
+  return { file: { version: String(Date.now()), document: { id: '0:0', type: 'DOCUMENT', children: [{ id: '0:1', type: 'CANVAS', children: frames }] } }, images };
+}
+
+// Auto-publish: after edits on the Site pages settle for a while, ask the UI to publish.
+let editTimer = null;
+figma.loadAllPagesAsync().then(() => figma.on('documentchange', e => {
+  // only edits on the Site · pages count
+  const onSite = e.documentChanges.some(c => { let n = c.node; while (n && n.type !== 'PAGE') n = n.parent; return !n || n.getSharedPluginData(NS, 'kind') === 'canvas'; });
+  if (!onSite) return;
+  clearTimeout(editTimer);
+  editTimer = setTimeout(() => figma.ui.postMessage({ type: 'edits-settled' }), 20000);
+}));
+
 figma.ui.onmessage = async msg => {
   try {
     if (msg.type === 'load-settings') {
@@ -289,6 +359,9 @@ figma.ui.onmessage = async msg => {
       const fp = await buildPage(msg);
       figma.ui.postMessage({ type: 'page-done', slug: msg.page.slug });
       if (msg.last) { await figma.setCurrentPageAsync(figma.root.children.find(p => p.getSharedPluginData(NS, 'slug') === '/') || fp); figma.notify('Website pages are ready to edit.'); }
+    } else if (msg.type === 'export') {
+      const { file, images } = await exportSite();
+      figma.ui.postMessage({ type: 'exported', file, images });
     } else if (msg.type === 'notify') {
       figma.notify(msg.text, { error: !!msg.error });
     }
