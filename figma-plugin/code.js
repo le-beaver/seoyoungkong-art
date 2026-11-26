@@ -10,6 +10,10 @@ const hex = h => { const n = parseInt(h.slice(1), 16); return { r: ((n >> 16) & 
 const solid = h => [{ type: 'SOLID', color: hex(h) }];
 
 let T = null; // theme.json from content.json
+let SITE_URL = ''; // e.g. https://le-beaver.github.io/seoyoungkong-art
+// Figma only accepts full URLs as links; site-internal links become SITE_URL + path.
+const absUrl = h => !h ? h : /^[a-z]+:/i.test(h) ? h : SITE_URL + (h.startsWith('/') ? h : '/' + h);
+const link = (node, s, e, h) => { try { node.setRangeHyperlink(s, e, { type: 'URL', value: absUrl(h) }); } catch (err) { console.warn('link skipped', h, err); } };
 let G = null; // grid helpers
 
 function grid(theme) {
@@ -39,13 +43,23 @@ function cssRadius(css) {
   return m ? +m[1] : 0;
 }
 
+// Resolve real style names (Figma may call it "SemiBold" or "Semi Bold"), with fallbacks.
+const FONT = {};
 async function loadFonts() {
-  await Promise.all([
-    figma.loadFontAsync({ family: 'Archivo Black', style: 'Regular' }),
-    figma.loadFontAsync({ family: 'Space Grotesk', style: 'SemiBold' }),
-    figma.loadFontAsync({ family: 'Space Grotesk', style: 'Bold' }),
-    figma.loadFontAsync({ family: 'Space Grotesk', style: 'Regular' }),
-  ]);
+  const all = await figma.listAvailableFontsAsync();
+  const styles = fam => all.filter(f => f.fontName.family === fam).map(f => f.fontName.style);
+  const pick = (fam, wants, fallbackFam) => {
+    const have = styles(fam);
+    for (const w of wants) { const hit = have.find(s => s.replace(/\s+/g, '').toLowerCase() === w); if (hit) return { family: fam, style: hit }; }
+    if (have.length) return { family: fam, style: have.includes('Regular') ? 'Regular' : have[0] };
+    return fallbackFam;
+  };
+  FONT.heading = pick('Archivo Black', ['regular'], { family: 'Inter', style: 'Black' });
+  FONT.body = pick('Space Grotesk', ['semibold', 'medium', 'bold', 'regular'], { family: 'Inter', style: 'Semi Bold' });
+  FONT.bold = pick('Space Grotesk', ['bold', 'semibold'], { family: 'Inter', style: 'Bold' });
+  for (const f of [FONT.heading, FONT.body, FONT.bold, { family: 'Inter', style: 'Regular' }]) {
+    try { await figma.loadFontAsync(f); } catch (e) { console.warn('font', f, e); }
+  }
 }
 
 function colorFor(run, para, theme) {
@@ -57,7 +71,7 @@ function colorFor(run, para, theme) {
 // Write paragraphs into a text node with per-range styles.
 function fillText(node, paras, theme, sizeScale = 1) {
   const text = paras.map(p => p.runs.map(r => r.text).join('')).join('\n') || ' ';
-  node.fontName = { family: 'Space Grotesk', style: 'SemiBold' };
+  node.fontName = FONT.body;
   node.characters = text;
   let i = 0;
   paras.forEach((p, pi) => {
@@ -66,19 +80,18 @@ function fillText(node, paras, theme, sizeScale = 1) {
     for (const r of p.runs) {
       const len = r.text.length; if (!len) continue;
       const s = i, e = i + len;
-      const style = ty.font === 'Archivo Black' ? 'Regular' : r.bold ? 'Bold' : 'SemiBold';
-      node.setRangeFontName(s, e, { family: ty.font, style });
+      node.setRangeFontName(s, e, ty.font === 'Archivo Black' ? FONT.heading : r.bold ? FONT.bold : FONT.body);
       node.setRangeFontSize(s, e, ty.size * sizeScale);
       node.setRangeLineHeight(s, e, { unit: 'PIXELS', value: ty.line * sizeScale });
       node.setRangeLetterSpacing(s, e, { unit: 'PERCENT', value: ty.tracking * 100 });
       if (ty.upper) node.setRangeTextCase(s, e, 'UPPER');
       node.setRangeFills(s, e, solid(colorFor(r, p, theme)));
-      if (r.href) node.setRangeHyperlink(s, e, { type: 'URL', value: r.href });
+      if (r.href) link(node, s, e, r.href);
       if (r.italic) { /* Space Grotesk has no italic; leave upright */ }
       i = e;
     }
     if (i === pStart && i < text.length) { // empty paragraph: style the newline so it keeps its size
-      node.setRangeFontName(i, i + 1, { family: ty.font, style: ty.font === 'Archivo Black' ? 'Regular' : 'SemiBold' });
+      node.setRangeFontName(i, i + 1, ty.font === 'Archivo Black' ? FONT.heading : FONT.body);
       node.setRangeFontSize(i, i + 1, ty.size * sizeScale);
     }
     if (p.list && i > pStart) node.setRangeListOptions(pStart, i, { type: p.list });
@@ -95,7 +108,7 @@ async function imageFill(bytes) {
   return img.hash;
 }
 
-async function buildBlock(b, sec, theme, padTop, images, seed) {
+async function buildBlock(b, sec, theme, padTop, images, seed, parent) {
   const bx = G.box(b.d.area, padTop);
   const meta = { kind: 'block', id: b.id, type: b.type, seed };
   let node;
@@ -110,6 +123,10 @@ async function buildBlock(b, sec, theme, padTop, images, seed) {
     }
     node.textAutoResize = 'HEIGHT';
     node.resize(bx.w, Math.max(1, node.height));
+    // vertical alignment inside the block, like the site's flex column
+    const free = bx.h - node.height;
+    if (free > 0 && b.d.justify === 'center') bx.y += free / 2;
+    else if (free > 0 && b.d.justify === 'flex-end') bx.y += free;
     node.name = (b.scaled ? 'Big text: ' : 'Text: ') + (node.characters.split('\n')[0] || '').slice(0, 40);
     meta.chars = node.characters;
     if (b.scaled) meta.scaled = '1';
@@ -149,11 +166,11 @@ async function buildBlock(b, sec, theme, padTop, images, seed) {
     node.layoutMode = 'HORIZONTAL'; node.primaryAxisAlignItems = 'CENTER'; node.counterAxisAlignItems = 'CENTER';
     node.primaryAxisSizingMode = 'FIXED'; node.counterAxisSizingMode = 'FIXED';
     const t = figma.createText();
-    t.fontName = { family: 'Space Grotesk', style: 'SemiBold' };
+    t.fontName = FONT.body;
     t.characters = b.text || 'Button';
     t.fontSize = 16; t.textCase = 'UPPER';
     t.fills = solid(outline ? c : '#FFFFFF');
-    if (b.href) t.setRangeHyperlink(0, t.characters.length, { type: 'URL', value: b.href });
+    if (b.href) link(t, 0, t.characters.length, b.href);
     t.name = 'Button label';
     node.appendChild(t);
     node.name = 'Button: ' + (b.text || '');
@@ -165,7 +182,7 @@ async function buildBlock(b, sec, theme, padTop, images, seed) {
     const posterHash = native ? await imageFill(images[`/video/${b.video.id}/poster.webp`]) : null;
     node.fills = posterHash ? [{ type: 'IMAGE', imageHash: posterHash, scaleMode: 'FILL' }] : solid('#1E1E1E');
     const t = figma.createText();
-    t.fontName = { family: 'Space Grotesk', style: 'SemiBold' };
+    t.fontName = FONT.body;
     const url = native ? `video:${b.video.id}` : (b.video ? b.video.url : b.url) || '';
     t.characters = url || '(embed)';
     t.fontSize = 14;
@@ -185,6 +202,16 @@ async function buildBlock(b, sec, theme, padTop, images, seed) {
   meta.box = [node.x, node.y, node.width, node.height].map(v => Math.round(v * 10) / 10);
   set(node, meta);
   return node;
+}
+
+async function safeBlock(b, sec, theme, padTop, images, seed, parent) {
+  const before = new Set(figma.currentPage.children.map(n => n.id));
+  try { parent.appendChild(await buildBlock(b, sec, theme, padTop, images, seed)); }
+  catch (e) {
+    // never leave half-built layers lying around on the current page
+    for (const n of figma.currentPage.children) if (!before.has(n.id)) n.remove();
+    console.error('block', b.id, e); figma.notify(`Skipped a ${b.type} block (${e.message})`);
+  }
 }
 
 function sectionHeight(sec) {
@@ -220,11 +247,11 @@ async function buildPage({ page, images, site, seed, isFooter }) {
     hdr.resize(G.frameWidth, 61); hdr.fills = solid(first.bg);
     hdr.effects = [{ type: 'DROP_SHADOW', color: { r: 0, g: 0, b: 0, a: 0.28 }, offset: { x: 0, y: 3 }, radius: 12, visible: true, blendMode: 'NORMAL' }];
     const title = figma.createText();
-    title.fontName = { family: 'Archivo Black', style: 'Regular' }; title.characters = site.title; title.fontSize = 26.6;
+    title.fontName = FONT.heading; title.characters = site.title; title.fontSize = 26.6;
     title.textCase = 'UPPER'; title.letterSpacing = { unit: 'PERCENT', value: -2 }; title.fills = solid(first.nav);
     title.x = G.gutter; title.y = (61 - title.height) / 2; hdr.appendChild(title);
     const nav = figma.createText();
-    nav.fontName = { family: 'Space Grotesk', style: 'SemiBold' }; nav.characters = site.nav.map(n => n.label).join('     ');
+    nav.fontName = FONT.body; nav.characters = site.nav.map(n => n.label).join('     ');
     nav.fontSize = 18; nav.fills = solid(first.nav); nav.x = 595; nav.y = (61 - nav.height) / 2; hdr.appendChild(nav);
     hdr.locked = true; set(hdr, { kind: 'chrome' });
     root.appendChild(hdr);
@@ -241,8 +268,7 @@ async function buildPage({ page, images, site, seed, isFooter }) {
     root.appendChild(f);
     const blocks = [...sec.blocks].sort((a, b) => a.d.z - b.d.z);
     for (const b of blocks) {
-      try { f.appendChild(await buildBlock(b, sec, theme, padTop, images, seed)); }
-      catch (e) { console.error('block', b.id, e); figma.notify(`Skipped a ${b.type} block (${e.message})`); }
+      await safeBlock(b, sec, theme, padTop, images, seed, f);
     }
   }
   return fp;
@@ -255,7 +281,7 @@ figma.ui.onmessage = async msg => {
     } else if (msg.type === 'save-settings') {
       await figma.clientStorage.setAsync('settings', msg.settings);
     } else if (msg.type === 'begin') {
-      T = msg.theme; G = grid(T);
+      T = msg.theme; G = grid(T); SITE_URL = (msg.siteUrl || '').replace(/\/$/, '');
     } else if (msg.type === 'page') {
       const fp = await buildPage(msg);
       figma.ui.postMessage({ type: 'page-done', slug: msg.page.slug });
@@ -265,6 +291,6 @@ figma.ui.onmessage = async msg => {
     }
   } catch (e) {
     console.error(e);
-    figma.ui.postMessage({ type: 'error', message: String(e.message || e) });
+    figma.ui.postMessage({ type: 'error', message: String(e.message || e), slug: msg.page && msg.page.slug });
   }
 };

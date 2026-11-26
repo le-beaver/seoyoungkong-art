@@ -52,7 +52,7 @@ onmessage = e => {
     $('token').value = m.settings.token || '';
   }
   if (m.type === 'page-done' && waiters[m.slug]) { waiters[m.slug](); delete waiters[m.slug]; }
-  if (m.type === 'error') { log('Error: ' + m.message); }
+  if (m.type === 'error') { log('Error: ' + m.message); if (m.slug !== undefined && waiters[m.slug]) { waiters[m.slug](); delete waiters[m.slug]; } }
 };
 post({ type: 'load-settings' });
 const save = () => post({ type: 'save-settings', settings: { site: $('site').value.trim(), repo: $('repo').value.trim(), token: $('token').value.trim() } });
@@ -75,7 +75,7 @@ $('build').onclick = async () => {
   try {
     log('Reading ' + site + '/content.json …');
     const content = await (await fetch(site + '/content.json', { cache: 'no-store' })).json();
-    post({ type: 'begin', theme: content.theme });
+    post({ type: 'begin', theme: content.theme, siteUrl: site });
     const seed = String(Date.now());
     const pages = [...content.pages];
     if (content.footer) pages.push({ slug: '__footer', title: 'Footer (all pages)', sections: content.footer.sections, isFooter: true });

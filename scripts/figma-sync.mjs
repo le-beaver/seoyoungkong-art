@@ -60,6 +60,9 @@ const moved = (box, orig, isText) => {
   return d > 3;
 };
 const imageFillOf = n => (n.fills || []).find(f => f.type === 'IMAGE' && f.visible !== false && f.imageRef);
+// Links pointing at the site itself (Figma needs full URLs) go back to site paths.
+const SITE_BASES = ['https://le-beaver.github.io/seoyoungkong-art', 'https://www.seoyoungkong.art', 'https://seoyoungkong.art', 'http://localhost:5302'];
+const relHref = h => { if (!h) return h; for (const b of SITE_BASES) if (h === b || h.startsWith(b + '/')) return h.slice(b.length) || '/'; return h; };
 const slugify = s => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40) || 'img';
 
 // ---------- text: REST node -> paragraphs ----------
@@ -91,7 +94,7 @@ function textToParas(node, themeName, origParas, scaled) {
       const def = th[/^h/.test(type) ? 'h' : type] || th.p;
       if (color === def) color = null;
       else if (color) { const name = Object.entries(theme.palette).find(([, v]) => v === color); if (name) color = name[0]; }
-      const href = st.hyperlink && st.hyperlink.type === 'URL' ? st.hyperlink.url : null;
+      const href = st.hyperlink && st.hyperlink.type === 'URL' ? relHref(st.hyperlink.url) : null;
       const bold = st.fontFamily !== 'Archivo Black' && (st.fontWeight || 600) >= 700;
       const italic = !!st.italic;
       const last = p.runs[p.runs.length - 1];
@@ -200,8 +203,13 @@ for (const pf of pageFrames) {
       // position / size
       let orig; try { orig = JSON.parse(d.box || 'null'); } catch { orig = null; }
       if (moved(box, orig, isText)) {
-        const span = isText ? (parseArea(block.d.area)[2] - parseArea(block.d.area)[0]) : null;
-        const area = areaFromBox(box, padTop, span);
+        // Rows move by the drag distance (text may sit centred in its block); columns come from x/width.
+        const [or1, , or2] = parseArea(block.d.area);
+        const dRows = Math.round((box.y - orig[1]) / (rowH + g.gap));
+        const span = isText ? (or2 - or1) : Math.max(1, Math.round((box.height + g.gap) / (rowH + g.gap)));
+        const cols = areaFromBox(box, padTop).split('/');
+        const r1 = Math.max(1, or1 + dRows);
+        const area = `${r1}/${cols[1]}/${r1 + span}/${cols[3]}`;
         if (area !== block.d.area) {
           const lastBox = prev && prev.box;
           if (!lastBox || moved(box, lastBox, isText)) {
@@ -237,9 +245,9 @@ for (const pf of pageFrames) {
       } else if (block.type === 'button') {
         const t = (n.children || []).find(c => c.type === 'TEXT');
         if (t) {
-          const href = (t.style && t.style.hyperlink && t.style.hyperlink.url) || Object.values(t.styleOverrideTable || {}).map(s => s.hyperlink && s.hyperlink.url).find(Boolean) || block.href;
+          const href = relHref((t.style && t.style.hyperlink && t.style.hyperlink.url) || Object.values(t.styleOverrideTable || {}).map(s => s.hyperlink && s.hyperlink.url).find(Boolean)) || block.href;
           const label = t.characters.trim();
-          if (label !== d.label || href !== (d.href || block.href)) {
+          if (label !== d.label || href !== block.href) {
             pending.push(async () => { block.text = label; block.href = href; out(`${page.title}: button → “${label}” ${href}`); });
           }
         }

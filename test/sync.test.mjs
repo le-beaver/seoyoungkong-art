@@ -25,7 +25,7 @@ function textNode(b, themeName) {
     const ty = theme.type[p.type];
     for (const r of p.runs) {
       const color = r.color ? (r.color[0] === '#' ? r.color : theme.palette[r.color]) : th[/^h/.test(p.type) ? 'h' : p.type];
-      const st = { fontFamily: ty.font, fontSize: ty.size, fontWeight: r.bold ? 700 : 600, fills: [{ type: 'SOLID', color: hexToRgb(color) }], ...(r.href ? { hyperlink: { type: 'URL', url: r.href } } : {}) };
+      const st = { fontFamily: ty.font, fontSize: ty.size, fontWeight: r.bold ? 700 : 600, fills: [{ type: 'SOLID', color: hexToRgb(color) }], ...(r.href ? { hyperlink: { type: 'URL', url: r.href.startsWith('/') ? 'https://le-beaver.github.io/seoyoungkong-art' + r.href : r.href } } : {}) };
       const k = JSON.stringify(st); if (!ids[k]) { ids[k] = nextId++; table[ids[k]] = st; }
       chars += r.text; over.push(...Array(r.text.length).fill(ids[k]));
     }
