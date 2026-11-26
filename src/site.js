@@ -65,7 +65,7 @@ if (triggers.length) {
   document.addEventListener('keydown', e => { if (lb.classList.contains('on') && e.key === 'Escape') close(); });
 }
 
-// Header hides on scroll down and comes back after scrolling up ~250px (or at the very top), like Squarespace
+// Header hides on scroll down and comes back after scrolling up a little over 200px (or at the very top), like Squarespace
 const hdr = document.querySelector('.hdr');
 if (hdr) {
   let last = scrollY, upFrom = null, ticking = false;
@@ -76,7 +76,9 @@ if (hdr) {
     else if (y > last) { hdr.classList.add('hdr-hidden'); upFrom = null; }
     else if (y < last) {
       if (upFrom === null) upFrom = last;
-      if (upFrom - y >= 250) hdr.classList.remove('hdr-hidden');
+      // Squarespace checks the distance up to the previous scroll position, so it returns on the first
+      // scroll event after more than 200px of scrolling up
+      if (upFrom - last > 200) hdr.classList.remove('hdr-hidden');
     }
     last = y;
   };
@@ -95,13 +97,15 @@ const ICON = {
   exit: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 10H4V8h4V4h2zM14 10h6V8h-4V4h-2zM4 14h6v6H8v-4H4zM14 14h6v2h-4v4h-2z"/></svg>',
 };
 const mmss = t => { t = Math.max(0, Math.floor(t || 0)); const h = Math.floor(t / 3600), m = Math.floor(t / 60) % 60, s = t % 60; return (h ? h + ':' : '') + String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0'); };
+// Squarespace shows the last whole second a clip reaches (a 15.00s clip reads 00:14, 35.08s reads 00:35)
+const durText = d => mmss(d > 0 ? Math.ceil(d) - 1 : 0);
 document.querySelectorAll('.vp').forEach(frame => {
   const v = frame.querySelector('video');
   if (!v) return;
   v.controls = false;
   frame.classList.add('vp-paused', 'vp-fresh');
   frame.insertAdjacentHTML('beforeend', `<button type="button" class="vp-big" aria-label="Play">${ICON.play}</button>
-<div class="vp-bar"><span class="vp-time"><span class="vp-cur">00:00</span> / <span class="vp-dur">${mmss(v.dataset.duration)}</span></span>
+<div class="vp-bar"><span class="vp-time"><span class="vp-cur">00:00</span> / <span class="vp-dur">${durText(+v.dataset.duration)}</span></span>
 <button type="button" class="vp-btn vp-mute" aria-label="Mute">${ICON.vol}</button><button type="button" class="vp-btn vp-fs" aria-label="Enter fullscreen">${ICON.full}</button>
 <input class="vp-seek" type="range" min="0" max="1000" step="1" value="0" aria-label="Seek"></div>`);
   const big = frame.querySelector('.vp-big'), cur = frame.querySelector('.vp-cur'), dur = frame.querySelector('.vp-dur');
@@ -114,7 +118,7 @@ document.querySelectorAll('.vp').forEach(frame => {
   v.addEventListener('click', toggle);
   v.addEventListener('play', () => { frame.classList.remove('vp-paused', 'vp-fresh'); big.setAttribute('aria-label', 'Pause'); big.innerHTML = ICON.pause; wake(); });
   v.addEventListener('pause', () => { frame.classList.add('vp-paused'); big.setAttribute('aria-label', 'Play'); big.innerHTML = ICON.play; wake(); });
-  v.addEventListener('loadedmetadata', () => { dur.textContent = mmss(total()); });
+  v.addEventListener('loadedmetadata', () => { dur.textContent = durText(+v.dataset.duration || total()); });
   v.addEventListener('timeupdate', () => {
     cur.textContent = mmss(v.currentTime);
     const p = total() ? v.currentTime / total() : 0;
@@ -138,4 +142,5 @@ document.querySelectorAll('.vp').forEach(frame => {
   });
   frame.addEventListener('pointermove', wake);
   frame.addEventListener('focusin', wake);
+  frame.addEventListener('pointerleave', () => { if (!v.paused) { clearTimeout(idle); frame.classList.add('vp-idle'); } });
 });

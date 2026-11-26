@@ -19,7 +19,7 @@ const PAGES = [
   { file: 'about-me.html', slug: 'about-me', title: 'About', nav: 'About' },
   { file: 'fun-things-and-hobbies.html', slug: 'fun-things-and-hobbies', title: 'Fun!', nav: 'Fun!' },
   { file: 'art-1.html', slug: 'art-1', title: 'Art (Copy)', hidden: true },
-  { file: 'ads-1.html', slug: 'ads-1', title: 'Ads (Copy)', hidden: true },
+  { file: 'ads-1.html', slug: 'ads-1', title: 'Ads (Copy without the slides)', hidden: true },
 ];
 const LINKMAP = Object.fromEntries(PAGES.map(p => [p.file, '/' + p.slug]));
 LINKMAP['home.html'] = '/';
@@ -264,7 +264,7 @@ function parseSection($, S) {
 }
 
 const site = {
-  title: 'SEOYOUNG (ELLY) KONG',
+  title: 'Seoyoung (Elly) Kong',
   description: 'Art Director Seoyoung (Elly) Kong — portfolio of advertising, art, and fun things.',
   palette: { accent: '#E42278', darkAccent: '#ED7BAB', lightAccent: '#F5D3DD', black: '#000000', white: '#FFFFFF' },
   nav: PAGES.filter(p => p.nav).map(p => ({ label: p.nav, href: '/' + p.slug })),
