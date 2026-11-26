@@ -1,13 +1,12 @@
-name: Sync from Figma
+name: Publish Figma edits
 
+# The Figma plugin commits figma-inbox/export.json (+ any new images) when you press Publish.
+# This job turns that export into site content and deploys. No Figma API key is needed.
 on:
-  schedule:
-    - cron: "*/10 * * * *"
+  push:
+    branches: [main]
+    paths: ["figma-inbox/export.json"]
   workflow_dispatch:
-    inputs:
-      force:
-        description: Re-read Figma even if its version did not change
-        default: "false"
 
 concurrency:
   group: figma-sync
@@ -30,20 +29,20 @@ jobs:
       - id: sync
         run: node scripts/figma-sync.mjs
         env:
-          FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
-          FIGMA_FILE_KEY: ${{ vars.FIGMA_FILE_KEY }}
-          FORCE: ${{ inputs.force || 'false' }}
+          FIGMA_FIXTURE: figma-inbox/export.json
+          FIGMA_IMAGES_FIXTURE: figma-inbox/images
           SYNC_SUMMARY: ${{ runner.temp }}/summary.md
       - name: Commit
         run: |
           git config user.name "figma-sync[bot]"
           git config user.email "figma-sync@users.noreply.github.com"
+          git rm -r -q --ignore-unmatch figma-inbox/images
           git add content public/media
           if git diff --cached --quiet; then echo "Nothing to commit"; exit 0; fi
           if [ "${{ steps.sync.outputs.changed }}" = "true" ]; then
             git commit -q -F "${{ runner.temp }}/summary.md"
           else
-            git commit -q -m "chore(figma): record Figma version"
+            git commit -q -m "chore(figma): record Figma state"
           fi
           git push
           cat "${{ runner.temp }}/summary.md" >> "$GITHUB_STEP_SUMMARY"
