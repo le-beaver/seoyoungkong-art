@@ -45,8 +45,9 @@ html { font-size: 16px; -webkit-text-size-adjust: 100%; }
 body { margin: 0; font-family: var(--body-font); font-weight: 600; line-height: 1.5; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 img, video, svg, iframe { display: block; max-width: 100%; }
 a { color: inherit; }
-.skip { position: absolute; left: -9999px; top: 0; z-index: 1000; padding: .6em 1em; background: #000; color: #fff; }
-.skip:focus { left: 1rem; top: 1rem; }
+/* Squarespace's header skip link: a filled primary button in the header theme, uppercase */
+.skip { position: absolute; left: -1000em; top: 1.5em; z-index: 2; max-width: calc(100vw - 2.6em); padding: .6em 1.2em; border: 2px solid var(--b1-bg); border-radius: 300px; background: var(--b1-bg); color: var(--b1-fg); font-family: var(--body-font); font-weight: 600; font-size: 1rem; line-height: normal; text-transform: uppercase; text-decoration: underline; }
+.skip:focus { left: 1.3em; }
 
 /* Type scale: same formulas Squarespace uses, size values 4 / 2.8 / 2.2 / 1.6 / 1.4 / 1 / .9 */
 .sqs-html-content h1 { --v: 4; color: var(--h); }
@@ -91,7 +92,7 @@ a { color: inherit; }
 .scaled .sqs-html-content > * { font-size: var(--fit, inherit) !important; line-height: 1; margin: 0 !important; }
 
 /* ---------- header ---------- */
-.hdr { position: fixed; inset: 0 0 auto; z-index: 100; height: var(--hdr-h); background: var(--bg); box-shadow: 0 12px 12px rgba(0,0,0,.15); transition: transform .14s ease-in-out .14s; }
+.hdr { position: fixed; inset: 0 0 auto; z-index: 100; height: var(--hdr-h); background: var(--bg); box-shadow: 0 12px 12px rgba(0,0,0,.15); transition: height .14s ease-in-out, transform .14s ease-in-out .14s; }
 /* Squarespace "scroll back" header: slides away on scroll down, returns on scroll up */
 .hdr.hdr-hidden { transform: translateY(-100%); box-shadow: none; }
 body.menu-open .hdr { transform: none; }
@@ -116,6 +117,8 @@ body.menu-open .hdr-burger span:nth-child(2) { transform: translate(3.5px, -5.5p
   .hdr-nav { display: none; }
   .hdr-burger { display: block; }
   :root { --hdr-h: 84px; }
+  /* scrolled past 10px: Squarespace's .shrink swaps the 6vw top/bottom padding for min(6vw, 2vmax) */
+  :root.hdr-shrink { --hdr-h: calc(84px - 12vw + 2 * min(6vw, 2vmax)); }
   .hdr-title { font-size: 16px; }
 }
 main { padding-top: var(--hdr-h); }
@@ -245,7 +248,7 @@ footer > .sec > .sec-in { width: 100%; }
 .vp video { cursor: pointer; }
 .vp button { -webkit-appearance: none; appearance: none; border: 0; margin: 0; padding: 0; background: none; color: inherit; cursor: pointer; }
 .vp svg { display: block; width: 100%; height: 100%; fill: currentColor; }
-.vp-big { position: absolute; left: 50%; top: 50%; z-index: 2; width: 44px; height: 44px; padding: 7px !important; transform: translate(-50%, -50%); border-radius: 100%; background: rgba(0,0,0,.5) !important; opacity: .9; transition: opacity .3s, background .3s; }
+.vp-big { position: absolute; left: 50%; top: 50%; z-index: 2; width: 44px; height: 44px; padding: 7px !important; transform: translate(-50%, -50%); border-radius: 100%; background: rgba(0,0,0,.5) !important; -webkit-backdrop-filter: blur(15px); backdrop-filter: blur(15px); opacity: .9; transition: opacity .3s, background .3s; }
 .vp-big:hover, .vp-big:focus-visible { opacity: 1; background: rgba(0,0,0,.7) !important; }
 /* playing: centre pause button shows with the controls and hides with them when idle (plyr) */
 .vp:not(.vp-paused) .vp-big { opacity: 1; }

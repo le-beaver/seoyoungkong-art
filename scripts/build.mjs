@@ -135,8 +135,8 @@ ${page.hidden ? '<meta name="robots" content="noindex">' : ''}
 <style>${blockCss([...page.sections, ...(site.footer?.sections || [])])}</style>
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
 <header class="hdr" data-theme="${first}">
+  <a class="skip" href="#main">Skip to Content</a>
   <div class="hdr-in">
     <a class="hdr-title" href="/">${esc(site.title)}</a>
     <nav class="hdr-nav" aria-label="Main">${navLinks}</nav>
@@ -162,9 +162,9 @@ for (const page of site.pages) {
   fs.mkdirSync(dir, { recursive: true });
   fs.writeFileSync(path.join(dir, 'index.html'), withBase(renderPage(page)));
 }
-// /home was the same as the homepage on Squarespace
+// /home was the same as the homepage on Squarespace (same title "Seoyoung (Elly) Kong", canonical to /)
 fs.mkdirSync(path.join(DIST, 'home'), { recursive: true });
-fs.writeFileSync(path.join(DIST, 'home', 'index.html'), withBase(renderPage({ ...site.pages[0], slug: 'home' })));
+fs.writeFileSync(path.join(DIST, 'home', 'index.html'), withBase(renderPage(site.pages[0])));
 // 404
 fs.writeFileSync(path.join(DIST, '404.html'), withBase(renderPage({
   slug: '404', title: 'Page not found', hidden: true,

@@ -65,14 +65,17 @@ if (triggers.length) {
   document.addEventListener('keydown', e => { if (lb.classList.contains('on') && e.key === 'Escape') close(); });
 }
 
-// Header hides on scroll down and comes back after scrolling up a little over 200px (or at the very top), like Squarespace
+// Header hides on scroll down and comes back after scrolling up a little over 200px (or within 10px of the top), like Squarespace
 const hdr = document.querySelector('.hdr');
 if (hdr) {
   let last = scrollY, upFrom = null, ticking = false;
   const update = () => {
     ticking = false;
     const y = Math.max(0, scrollY);
-    if (y <= 0) { hdr.classList.remove('hdr-hidden'); upFrom = null; }
+    // past 10px Squarespace adds .shrink: on mobile the header padding drops from 6vw to min(6vw, 2vmax)
+    // (84px -> 71px at 390 wide) and the page spacer under it shrinks too, so content moves up with it
+    document.documentElement.classList.toggle('hdr-shrink', y > 10);
+    if (y <= 10) { hdr.classList.remove('hdr-hidden'); upFrom = null; }
     else if (y > last) { hdr.classList.add('hdr-hidden'); upFrom = null; }
     else if (y < last) {
       if (upFrom === null) upFrom = last;
@@ -84,6 +87,7 @@ if (hdr) {
   };
   addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
   hdr.addEventListener('focusin', () => hdr.classList.remove('hdr-hidden'));
+  update(); // a reload part-way down the page starts shrunk, like Squarespace
 }
 
 // Video player that looks like Squarespace's (plyr): round centre play button, bottom bar with
@@ -116,7 +120,11 @@ document.querySelectorAll('.vp').forEach(frame => {
   const wake = () => { frame.classList.remove('vp-idle'); clearTimeout(idle); if (!v.paused) idle = setTimeout(() => frame.classList.add('vp-idle'), 2000); };
   big.addEventListener('click', toggle);
   v.addEventListener('click', toggle);
-  v.addEventListener('play', () => { frame.classList.remove('vp-paused', 'vp-fresh'); big.setAttribute('aria-label', 'Pause'); big.innerHTML = ICON.pause; wake(); });
+  // plyr hides the controls the moment playback starts; they come back on the next pointer move / focus
+  v.addEventListener('play', () => {
+    frame.classList.remove('vp-paused', 'vp-fresh'); big.setAttribute('aria-label', 'Pause'); big.innerHTML = ICON.pause;
+    clearTimeout(idle); frame.classList.add('vp-idle');
+  });
   v.addEventListener('pause', () => { frame.classList.add('vp-paused'); big.setAttribute('aria-label', 'Play'); big.innerHTML = ICON.play; wake(); });
   v.addEventListener('loadedmetadata', () => { dur.textContent = durText(+v.dataset.duration || total()); });
   v.addEventListener('timeupdate', () => {
