@@ -54,7 +54,7 @@ onmessage = e => {
     $('token').value = m.settings.token || '';
     $('auto').checked = m.settings.auto !== false;
   }
-  if (m.type === 'edits-settled' && $('auto').checked && !busy) publish(true);
+  if (m.type === 'edits-settled' && $('auto').checked) { if (busy) pendingAuto = true; else publish(true); }
   if (m.type === 'exported' && exportWaiter) { exportWaiter(m); exportWaiter = null; }
   if (m.type === 'page-done' && waiters[m.slug]) { waiters[m.slug](); delete waiters[m.slug]; }
   if (m.type === 'error') { log('Error: ' + m.message); if (m.slug !== undefined && waiters[m.slug]) { waiters[m.slug](); delete waiters[m.slug]; } }
@@ -62,7 +62,7 @@ onmessage = e => {
 post({ type: 'load-settings' });
 const save = () => post({ type: 'save-settings', settings: { site: $('site').value.trim(), repo: $('repo').value.trim(), token: $('token').value.trim(), auto: $('auto').checked } });
 ['site', 'repo', 'token', 'auto'].forEach(id => $(id).addEventListener('change', save));
-let busy = false, exportWaiter = null;
+let busy = false, exportWaiter = null, pendingAuto = false;
 
 async function toPng(url) {
   const r = await fetch(url);
@@ -148,6 +148,8 @@ async function publish(auto) {
     } else log('Error: ' + e.message);
   }
   busy = false; $('publish').disabled = false;
+  // edits made while we were publishing go out in a follow-up publish
+  if (pendingAuto) { pendingAuto = false; setTimeout(() => publish(true), 1000); }
 }
 $('publish').onclick = () => publish(false);
 </script>
