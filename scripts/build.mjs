@@ -40,7 +40,10 @@ function renderBlock(b) {
       break;
     case 'image': {
       cls += ' image-block';
-      if (!b.src) return '';
+      if (!b.src) { // image missing on Squarespace too (404): it shows the browser's empty broken-image frame
+        inner = `<div class="img-missing" data-edit="${b.id}"></div>`;
+        break;
+      }
       const isGif = b.src.endsWith('.gif');
       const small = b.src.replace(/\.webp$/, '-800.webp');
       const [w, h] = (b.dims || '').split('x').map(Number);
@@ -70,7 +73,8 @@ function renderBlock(b) {
       // Squarespace sizes video blocks by width (intrinsic aspect box), top-aligned in the cell
       const ratio = v.kind === 'native' ? 16 / 9 : (v.aspect || 16 / 9);
       if (v.kind === 'native') {
-        inner = `<div class="media-frame" style="aspect-ratio:${+ratio.toFixed(5)}"><video controls playsinline preload="none" src="${VIDEO_BASE}/${v.id}/video.mp4" poster="${b.poster || `${VIDEO_BASE}/${v.id}/poster.webp`}"></video></div>`;
+        // site.js swaps the browser controls for a Squarespace-style player (centre play button, time, mute, fullscreen)
+        inner = `<div class="media-frame vp" style="aspect-ratio:${+ratio.toFixed(5)}"><video controls playsinline preload="none" src="${VIDEO_BASE}/${v.id}/video.mp4" poster="${b.poster || `${VIDEO_BASE}/${v.id}/poster.webp`}"${v.duration ? ` data-duration="${v.duration}"` : ''}></video></div>`;
       } else {
         const yt = youtubeId(v.url);
         const src = yt ? `https://www.youtube-nocookie.com/embed/${yt}` : v.url;
