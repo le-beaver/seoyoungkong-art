@@ -317,7 +317,9 @@ function serialize(node, imagesWanted) {
   if (node.type === 'TEXT') Object.assign(out, textFields(node));
   else if ('fills' in node) out.fills = paints(node.fills);
   // images we need to upload: new layers, or a fill that differs from what the plugin put there
-  for (const f of out.fills || []) if (f.type === 'IMAGE' && f.imageRef && (!data || data[NS].img !== f.imageRef)) imagesWanted.add(f.imageRef);
+  // upload only what the site needs: changed photos on image blocks, or images on brand-new layers
+  const isImageBlock = data && data[NS].type === 'image';
+  for (const f of out.fills || []) if (f.type === 'IMAGE' && f.imageRef && (!data ? true : isImageBlock && data[NS].img !== f.imageRef)) imagesWanted.add(f.imageRef);
   if ('children' in node && node.type !== 'BOOLEAN_OPERATION') out.children = node.children.map(c => serialize(c, imagesWanted));
   return out;
 }
