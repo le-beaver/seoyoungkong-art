@@ -19,7 +19,7 @@ function fit() {
     for (let i = 0; i < 18; i++) {
       const mid = (lo + hi) / 2;
       content.style.fontSize = mid + 'px';
-      (content.scrollWidth <= W && (innerWidth < 768 || content.scrollHeight <= H)) ? (lo = mid) : (hi = mid);
+      (content.scrollWidth <= W && (innerWidth < 768 || content.offsetHeight <= H)) ? (lo = mid) : (hi = mid);
     }
     content.style.fontSize = lo + 'px';
     void box;
@@ -57,4 +57,23 @@ if (triggers.length) {
     if (e.key === 'ArrowLeft') show(at - 1);
     if (e.key === 'ArrowRight') show(at + 1);
   });
+}
+
+// Header hides on scroll down and comes back after scrolling up ~250px (or at the very top), like Squarespace
+const hdr = document.querySelector('.hdr');
+if (hdr) {
+  let last = scrollY, upFrom = null, ticking = false;
+  const update = () => {
+    ticking = false;
+    const y = Math.max(0, scrollY);
+    if (y <= 0) { hdr.classList.remove('hdr-hidden'); upFrom = null; }
+    else if (y > last) { hdr.classList.add('hdr-hidden'); upFrom = null; }
+    else if (y < last) {
+      if (upFrom === null) upFrom = last;
+      if (upFrom - y >= 250) hdr.classList.remove('hdr-hidden');
+    }
+    last = y;
+  };
+  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+  hdr.addEventListener('focusin', () => hdr.classList.remove('hdr-hidden'));
 }

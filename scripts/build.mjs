@@ -10,7 +10,7 @@ const VIDEO_BASE = process.env.VIDEO_BASE || site.videoBase || '/video';
 // Sub-path the site is served from (e.g. /seoyoungkong-art on github.io). Empty for a custom domain.
 const BASE_PATH = (process.env.BASE_PATH || '').replace(/\/$/, '');
 const withBase = html => !BASE_PATH ? html : html
-  .replace(/((?:href|src|poster|action)=")\/(?!\/)/g, `$1${BASE_PATH}/`)
+  .replace(/((?:href|src|poster|action|data-full)=")\/(?!\/)/g, `$1${BASE_PATH}/`)
   .replace(/((?:srcset="|, ))\/(?!\/)/g, `$1${BASE_PATH}/`);
 
 fs.rmSync(DIST, { recursive: true, force: true });
@@ -67,19 +67,21 @@ function renderBlock(b) {
     case 'video': {
       cls += ' video-block';
       const v = b.video;
+      // Squarespace sizes video blocks by width (intrinsic aspect box), top-aligned in the cell
+      const ratio = v.kind === 'native' ? 16 / 9 : (v.aspect || 16 / 9);
       if (v.kind === 'native') {
-        inner = `<div class="media-frame"><video controls playsinline preload="metadata" src="${VIDEO_BASE}/${v.id}/video.mp4#t=0.1"  poster="${b.poster || `${VIDEO_BASE}/${v.id}/poster.webp`}"></video></div>`;
+        inner = `<div class="media-frame" style="aspect-ratio:${+ratio.toFixed(5)}"><video controls playsinline preload="none" src="${VIDEO_BASE}/${v.id}/video.mp4" poster="${b.poster || `${VIDEO_BASE}/${v.id}/poster.webp`}"></video></div>`;
       } else {
         const yt = youtubeId(v.url);
         const src = yt ? `https://www.youtube-nocookie.com/embed/${yt}` : v.url;
-        inner = `<div class="media-frame"><iframe src="${esc(src)}" title="Video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>`;
+        inner = `<div class="media-frame" style="aspect-ratio:${+ratio.toFixed(5)}"><iframe src="${esc(src)}" title="Video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>`;
       }
       break;
     }
     case 'embed':
       cls += ' embed-block';
       inner = b.url
-        ? `<div class="embed-frame"><iframe src="${esc(b.url)}" title="Embedded content" loading="lazy" allowfullscreen allow="fullscreen"></iframe></div>`
+        ? `<div class="embed-frame"${b.ratio ? ` style="aspect-ratio:${+(100 / b.ratio).toFixed(5)}"` : ''}><iframe src="${esc(b.url)}" title="Embedded content" loading="lazy" allowfullscreen allow="fullscreen"></iframe></div>`
         : `<div class="embed-frame">${b.html || ''}</div>`;
       break;
     case 'accordion':

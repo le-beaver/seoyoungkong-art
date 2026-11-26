@@ -77,6 +77,7 @@ a { color: inherit; }
 .sqs-html-content pre { font-family: inherit; white-space: pre-wrap; }
 .sqs-html-content pre code { font-family: inherit; }
 .sqs-html-content a { color: inherit; text-decoration: underline; text-underline-offset: .15em; }
+.sqs-html-content :is(p, li) a { color: var(--link); }
 .sqs-html-content h4 a, .sqs-html-content h3 a, .sqs-html-content h2 a { text-decoration: none; }
 .sqsrte-text-color--accent { color: var(--accent); }
 .sqsrte-text-color--darkAccent { color: var(--darkAccent); }
@@ -84,10 +85,13 @@ a { color: inherit; }
 .sqsrte-text-color--white { color: #fff; }
 .sqsrte-text-color--black { color: #000; }
 .scaled .sqs-html-content { white-space: nowrap; }
-.scaled .sqs-html-content > * { font-size: inherit !important; line-height: 1.15; }
+.scaled .sqs-html-content > * { font-size: inherit !important; line-height: 1; }
 
 /* ---------- header ---------- */
-.hdr { position: fixed; inset: 0 0 auto; z-index: 100; height: var(--hdr-h); background: var(--bg); box-shadow: 0 3px 12px rgba(0,0,0,.28); }
+.hdr { position: fixed; inset: 0 0 auto; z-index: 100; height: var(--hdr-h); background: var(--bg); box-shadow: 0 3px 12px rgba(0,0,0,.28); transition: transform .14s ease-in-out .14s; }
+/* Squarespace "scroll back" header: slides away on scroll down, returns on scroll up */
+.hdr.hdr-hidden { transform: translateY(-100%); box-shadow: none; }
+body.menu-open .hdr { transform: none; }
 .hdr-in { height: 100%; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 2vw; padding: 0 var(--sqs-site-gutter); max-width: calc(var(--sqs-site-max-width) + 2 * var(--sqs-site-gutter)); margin: 0 auto; }
 .hdr-title { font-family: var(--heading-font); text-transform: uppercase; letter-spacing: -.02em; color: var(--title); text-decoration: none; font-size: clamp(18px, 1.85vw, 27px); line-height: 1; white-space: nowrap; }
 .hdr-nav { display: flex; gap: 1.1em; justify-self: center; }
@@ -173,19 +177,29 @@ main { padding-top: var(--hdr-h); }
 .btn--large { min-height: 59px; }
 
 /* video + embeds */
-.media-frame { position: relative; width: 100%; height: 100%; background: #000; }
+/* Squarespace .intrinsic: width-based aspect box, top of the cell, never stretched to the cell height */
+.media-frame { position: relative; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #000; }
 .media-frame video, .media-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; object-fit: contain; }
 .embed-frame { position: relative; width: 100%; height: 100%; }
+.embed-frame[style*="aspect-ratio"] { height: auto; }
 .embed-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .embed-ratio { position: relative; width: 100%; }
 .embed-ratio iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 
-/* accordion */
-.acc details { border-top: 1px solid currentColor; padding: .8rem 0; }
-.acc details:last-child { border-bottom: 1px solid currentColor; }
-.acc summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; font-size: .9rem; }
-.acc summary::after { content: "+"; }
-.acc details[open] summary::after { content: "–"; }
+/* accordion (Squarespace website.components.accordion; per-block vars come from block css) */
+.acc { --v: .9; color: var(--p-s); }
+.acc details { border-top: var(--accordion-divider-thickness, 1px) solid color-mix(in srgb, currentColor calc(var(--accordion-divider-opacity, 1) * 100%), transparent); }
+.acc details:last-child { border-bottom: inherit; border-bottom-width: var(--accordion-divider-thickness, 1px); border-bottom-style: solid; border-bottom-color: color-mix(in srgb, currentColor calc(var(--accordion-divider-opacity, 1) * 100%), transparent); }
+.acc summary, .acc details > div { font-size: calc((var(--v) - 1) * .012 * min(100vh, 900px) + 1rem); }
+@media (min-width: 768px) { .acc summary, .acc details > div { font-size: min(calc((var(--v) - 1) * 1.2vw + 1rem), max(calc((var(--v) - 1) * .012 * var(--maxPageWidth) + 1rem), calc(var(--v) * 1rem))); } }
+.acc summary { cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 1rem; line-height: normal;
+  padding: var(--accordion-item-padding-top, 30px) var(--accordion-item-padding-right, 0) var(--accordion-item-padding-bottom, 30px) var(--accordion-item-padding-left, 0); }
+.acc summary::-webkit-details-marker { display: none; }
+.acc summary::after { content: ""; flex: none; width: var(--accordion-icon-size, 30px); height: var(--accordion-icon-size, 30px);
+  background: linear-gradient(currentColor, currentColor) center / 100% var(--accordion-icon-thickness, 3px) no-repeat, linear-gradient(currentColor, currentColor) center / var(--accordion-icon-thickness, 3px) 100% no-repeat; }
+.acc details[open] summary::after { background-size: 100% var(--accordion-icon-thickness, 3px), var(--accordion-icon-thickness, 3px) 0; }
+.acc details > div { padding: var(--accordion-description-padding-top, 0) var(--accordion-description-padding-right, 0) var(--accordion-description-padding-bottom, 30px) var(--accordion-description-padding-left, 0); max-width: var(--accordion-description-width, 100%); }
+.acc details > div p { font-size: inherit; color: inherit; }
 
 /* ---------- lightbox (Squarespace "View fullsize") ---------- */
 .lb-trigger { all: unset; display: block; width: 100%; height: 100%; cursor: zoom-in; }
@@ -207,5 +221,8 @@ body.lb-open { overflow: hidden; }
 .fe-block > .sqs-block.video-block, .fe-block > .sqs-block.embed-block { position: absolute; inset: 0; }
 .sqs-shape-rect { width: 100%; height: 100%; background: var(--shape-block-background-color, currentColor); }
 body { min-height: 100vh; display: flex; flex-direction: column; }
-footer { flex: 1; display: flex; flex-direction: column; }
-footer > .sec:last-child { flex: 1; }
+/* footer sits at the bottom of short pages (margin-top:auto) but keeps its own height, like Squarespace */
+footer { margin-top: auto; }
+/* footer section: Squarespace custom section height 10 => min-height 10vh, content vertically centred */
+footer > .sec { min-height: 10vh; display: flex; flex-direction: column; justify-content: center; }
+footer > .sec > .sec-in { width: 100%; }
